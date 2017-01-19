@@ -1,20 +1,17 @@
-# Errors
+# Errores
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
-
-The Kittn API uses the following error codes:
-
+El API de qvo usa los siguientes códigos de error:
 
 Error Code | Meaning
 ---------- | -------
-400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Your API key is wrong
-403 | Forbidden -- The kitten requested is hidden for administrators only
-404 | Not Found -- The specified kitten could not be found
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method
-406 | Not Acceptable -- You requested a format that isn't json
-410 | Gone -- The kitten requested has been removed from our servers
-418 | I'm a teapot
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
+400 | Bad Request -- Hay un problema con tu request 🙈
+401 | Unauthorized -- Tu api key es incorrecta 🔐
+403 | Forbidden -- No tienes permiso para ver esta página 🚫
+404 | Not Found -- El recurso especificado no fue encontrado 😔
+405 | Method Not Allowed -- Trataste de ingresar a un recurso con un método inválido
+406 | Not Acceptable -- Solicistaste un formato que no es json 😣
+410 | Gone -- El recurso solicitado fue removido de nuestros servidores 🏃🏻
+418 | Soy una tetera 😗☕️
+429 | Too Many Requests -- Estas solicitando muchos recursos! Detente! 😱
+500 | Internal Server Error -- Tuvimos un problema con nuestro servidor. 😰 Inténtalo nuevamente mas tarde (estos son raros)
+503 | Service Unavailable -- Estamos offline por mantenimiento. Inténtalo nuevamente mas tarde 🛠

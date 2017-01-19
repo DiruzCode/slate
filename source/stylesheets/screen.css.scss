@@ -2,6 +2,7 @@
 @import 'normalize';
 @import 'variables';
 @import 'icon-font';
+@import 'syntax';
 
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
@@ -33,6 +34,10 @@ html, body {
   background-color: $main-bg;
   height: 100%;
   -webkit-text-size-adjust: none; /* Never autoresize text */
+}
+
+.content a {
+  color: #5bc0de;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

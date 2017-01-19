@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: Documentación qvo api
 
 language_tabs:
   - shell
@@ -8,8 +8,8 @@ language_tabs:
   - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='#'>Obtén tu llave de accesso</a>
+  - <a href='http://qvo.cl'>Página principal de qvo</a>
 
 includes:
   - errors
@@ -17,173 +17,577 @@ includes:
 search: true
 ---
 
-# Introduction
+# Introducción
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+```
+ _          _ _             
+| |__   ___| | | ___        
+| '_ \ / _ \ | |/ _ \       
+| | | |  __/ | | (_) |      
+|_| |_|\___|_|_|\___/     _
+__      _____  _ __| | __| |
+\ \ /\ / / _ \| '__| |/ _` |
+ \ V  V / (_) | |  | | (_| |
+  \_/\_/ \___/|_|  |_|\__,_|
+```
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+Bienvenido a la API de qvo. Puedes usar nuestra API para acceder a los distintos endpoins de qvo, donde podrás efectuar pagos mediante distintos métodos y obtener información de ellos.
 
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Tenemos bindings para Shell, Ruby, Javascript (node.js) y Python! Puedes ver ejemplos de código en el área a la derecha, y puedes cambiar el lenguaje de los ejemplos arriba a la derecha.
 
-# Authentication
-
-> To authorize, use this code:
+# Autenticación
 
 ```ruby
-require 'kittn'
+require 'base64'
+api_token = 'a7183e1b7e9ab09b8a5cfa87d1934c3c'
+credential = Base64.strict_encode64(api_token + ':')
+# => "YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+headers = {
+  "Authorization" => "Basic " + credential
 }
 ```
 
-This endpoint retrieves a specific kitten.
+```python
+import qvo
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+api = qvo.authorize('api_key')
+```
+
+```shell
+# Notar el colon (:) después del usuario (API token):
+$ curl "https://api.qvo.cl/v1/payments"
+      -u a7183e1b7e9ab09b8a5cfa87d1934c3c:
+
+...
+
+> GET /v1/payments/ HTTP/1.1
+> Host: api.qvo.cl
+> Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6
+
+...
+```
+
+```javascript
+const qvo = require('qvo');
+
+let api = qvo.authorize('api_key');
+```
+
+qvo utiliza [HTTP Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication) sobre HTTPS para la autenticación. El usuario es tu API token de qvo y la contraseña debe estar en blanco. Puedes solicitar un API token en nuestro [portal de desarrolladores](http://qvo.cl/developers). Los request no autenticados retornarán una respuesta HTTP 401.
+
+### Header de autenticación
+
+> El header `Authorization` debe verse así:
+
+```
+Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6
+```
+
+La mayoría de los clientes HTTP usan un usuario y contraseña para generar este header. Sin embargo, puede ser que se necesite declarar explíctamente este header. Este tiene el siguiente formato:
+
+`Authorization: Basic <base64("usuario:contraseña")>`
+
+Como sólo se necesita un nombre de usuario para nuestro caso, se necesita concatenar un  `:` (colon) al API token y luego encodear en Base64 el string resultante.
+
+<aside class="success">
+<b>Importante</b>: Usa HTTPS para todos los requests. Requests hechos mediante HTTP retornarán respuestas HTTP 403. <b>¡Mantén tu API token en secreto!</b>
+</aside>
+
+### Seteando credenciales con cURL
+
+Si realizas test utilizando cURL puedes usar el flag `-u` para setear el usuario y la contraseña (la cual debe estar en blanco). cURL automáticamente generará el header `Authorization`.
+
+# Transbank Webpay Plus
+
+## Overview
+
+**TODO**
+<!-- Explicar flujo y poner dibujitos y weas del estilo -->
+
+## Crear Transacción
+
+```shell
+curl --request POST "https://api.qvo.cl/api/webpay_plus/create_transacton"
+  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+```
+
+```javascript
+const qvo = require('qvo');
+
+let api = qvo.authorize('token');
+
+let amount = 2500
+let return_url = 'http://www.example.com/return'
+
+let transaction = api.webpayPlus.createTransaction(amount, return_url);
+```
+> Este comando retorna la siguiente estructura JSON:
+
+```json
+{
+  "transaction_uid": "NTCBq4nCn2GQoqi1_RERVw",
+  "redirect_url": "http://api.qvo.cl/api/webpay_plus/init_transaction/NTCBq4nCn2GQoqi1_RERVw",
+  "expiration_date": "2017-01-16T13:09:05.828Z"
+}
+```
+
+<!-- Revisar -->
+Este endpoint permite crear una transacción utilizando Transbank Webpay Plus. Esta retorna una url a la cual se debe redirigir al usuario para iniciar la transacción. Estas podrán ser "canjeadas" sólo una vez por el usuario.
+
+<aside class="notice">
+Las transacciones poseen una fecha de expiración por defecto de 10 minutos después de creadas.
+</aside>
+
+Luego de realizada la transacción por el usuario, se le redireccionará realizando un `GET` a una `return_url` del comercio:
+
+`GET http://www.example.com/return?uid=NTCBq4nCn2GQoqi1_RERVw`
+
+Esta tendrá el query parameter `uid`, el cual debe ser utilizado para verificar el resultado de la transacción por el comercio.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`POST https://api.qvo.cl/api/webpay_plus/create_transacton`
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+amount | Yes | integer | El monto de la transacción
+return_url | Yes | string | Url (válida) de retorno de la transacción
+
+## Obtener resultado de transacción
+
+```ruby
+require 'qvo'
+
+api = QVO::APIClient.authorize!('meowmeowmeow')
+api.transactions.get('NTCBq4nCn2GQoqi1_RERVw')
+```
+
+```python
+import kittn
+
+api = kittn.authorize('meowmeowmeow')
+api.kittens.get(2)
+```
+
+```shell
+curl "http://api.qvo.cl/api/webpay_plus/transaction/NTCBq4nCn2GQoqi1_RERVw"
+  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+```
+
+```javascript
+const qvo = require('qvo');
+
+let api = qvo.authorize('token');
+
+let transaction_uid = 'NTCBq4nCn2GQoqi1_RERVw';
+
+let transaction_result = api.transactions.get(transaction_uid);
+```
+
+> Este comando retorna la siguiente estructura JSON:
+
+```json
+{
+  "uid": "NTCBq4nCn2GQoqi1_RERVw",
+  "status": "paid",
+  "created_at": "2017-01-12T14:23:16.193Z",
+  "updated_at": "2017-01-12T14:24:23.233Z",
+  "payment": {
+    "id": 4,
+    "amount": 1000,
+    "commerce_id": 1,
+    "details": "pago de ejemplo",
+    "status": "ok",
+    "gateway_type": "webpay_plus",
+    "created_at": "2017-01-12T14:24:23.221Z",
+    "updated_at": "2017-01-12T14:24:23.221Z",
+    "payment_type": "credit"
+  }
+}
+```
+
+Este endpoint obtiene el resultado de una transacción específica.
+
+### HTTP Request
+
+`GET http://api.qvo.cl/api/webpay_plus/transaction/{transaction_uid}`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+transaction_uid | El uid de la transacción a obtener
 
+## Anulación de transacción
+
+```shell
+curl "https://api.qvo.cl/api/webpay_plus/nullify/NTCBq4nCn2GQoqi1_RERVw"
+  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+```
+
+```javascript
+const qvo = require('qvo');
+
+let api = qvo.authorize('token');
+
+let transaction_uid = 'NTCBq4nCn2GQoqi1_RERVw'; // uid de transacción
+let nullify_amount = 1500 // monto a anular
+
+let transaction_result = api.transactions.nullify(transaction_uid, nullify_amount);
+```
+
+> Este comando retorna la siguiente estructura JSON:
+
+```json
+{
+  "uid": "NTCBq4nCn2GQoqi1_RERVw",
+  "status": "nullified",
+  "balance": 0,
+  "created_at": "2017-01-12T14:23:16.193Z",
+  "updated_at": "2017-01-16T14:52:16.193Z",
+  "payment": {
+    "id": 4,
+    "amount": 1000,
+    "commerce_id": 1,
+    "details": null,
+    "status": "ok",
+    "gateway_type": "webpay_plus",
+    "created_at": "2017-01-12T14:24:23.221Z",
+    "updated_at": "2017-01-12T14:24:23.221Z",
+    "payment_type": "credit"
+  },
+  "nullifications": [
+    {
+      "id": 4,
+      "amount": 1000,
+      "webpay_plus_transaction_id": 8,
+      "authorization_code": "919062",
+      "created_at": "2017-01-16T14:52:16.170Z",
+      "updated_at": "2017-01-16T14:52:16.170Z"
+    }
+  ]
+}
+```
+
+Este endpoint permite anular un monto determinado de una transacción específica.
+
+<aside class="notice">
+Es posible anular un monto inferior al total. Se podrán realizar anulaciones hasta completar el monto total de la transacción.
+</aside>
+
+### HTTP Request
+
+`POST https://api.qvo.cl/api/webpay_plus/nullify/{transaction_uid}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+transaction_uid | El uid de la transacción a obtener
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+nullify_amount | Yes | integer | El monto a anular de la transacción
+
+
+# Transbank Webpay Oneclick
+
+## Overview
+
+**TODO**
+<!-- Explicar flujo y poner dibujitos y weas del estilo -->
+
+## Crear Inscripción de tarjeta
+
+```shell
+curl "https://api.qvo.cl/api/webpay_oneclick/create_inscription"
+  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+```
+
+```javascript
+const qvo = require('qvo');
+
+let api = qvo.authorize('token');
+
+let return_url = 'http://www.example.com/return'; // url de retorno
+let email = 'test@example.com' // email de usuario
+
+let transaction_result = api.transactions.nullify(transaction_uid, nullify_amount);
+```
+
+> Este comando retorna la siguiente estructura JSON:
+
+```json
+{
+  "inscription_uid": "-paHbu0Bnaj5aLWwqYx4TQ",
+  "redirect_url": "https://api.qvo.cl/webpay_oneclick/init_inscription/-paHbu0Bnaj5aLWwqYx4TQ",
+  "expiration_date": "2017-01-16T15:21:39.363Z"
+}
+```
+
+<!-- Revisar -->
+Este endpoint permite crear una inscripción de tarjeta para Transbank Oneclick. Esta retorna una url a la cual se debe redirigir al usuario para iniciar la inscripción de su tarjeta. Esta podrá ser "canjeada" sólo una vez por el usuario.
+
+<aside class="notice">
+La inscripción posee una fecha de expiración por defecto de 10 minutos después de creada.
+</aside>
+
+Luego de realizada la transacción por el usuario, se le redireccionará realizando un `GET` a una `return_url` del comercio:
+
+`GET http://www.example.com/return?uid=NTCBq4nCn2GQoqi1_RERVw`
+
+Esta tendrá el query parameter `uid`, el cual debe ser utilizado para verificar el resultado de la inscripción por el comercio.
+
+### HTTP Request
+
+`POST https://api.qvo.cl/api/webpay_oneclick/create_inscription`
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+email | Yes | string | El email del usuario
+return_url | Yes | string | Url (válida) de retorno de la inscripción
+
+
+## Obtener resultado de inscripción
+
+```ruby
+require 'qvo'
+
+api = QVO::APIClient.authorize!('meowmeowmeow')
+api.transactions.get('NTCBq4nCn2GQoqi1_RERVw')
+```
+
+```python
+import kittn
+
+api = kittn.authorize('meowmeowmeow')
+api.kittens.get(2)
+```
+
+```shell
+curl "https://api.qvo.cl/webpay_oneclick/inscription/WuNMovWou2G9_Sxb686deQ"
+  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+```
+
+```javascript
+const qvo = require('qvo');
+
+let api = qvo.authorize('token');
+
+let inscription_uid = 'NTCBq4nCn2GQoqi1_RERVw';
+
+let inscription_result = api.inscriptions.get(inscription_uid);
+```
+
+> Este comando retorna la siguiente estructura JSON:
+
+```json
+{
+  "uid": "WuNMovWou2G9_Sxb686deQ",
+  "status": "success",
+  "created_at": "2017-01-16T19:52:53.559Z",
+  "updated_at": "2017-01-16T19:53:36.264Z",
+  "card": {
+    "id": 1,
+    "commerce_id": 1,
+    "credit_card_type": "Visa",
+    "last4_card_digits": "6623",
+    "token": "qOG4Zsh7BFJKA4GjuBkFTA",
+    "created_at": "2017-01-16T19:53:36.252Z",
+    "updated_at": "2017-01-16T19:53:36.252Z",
+    "active": true
+  }
+}
+```
+
+Este endpoint obtiene el resultado de una inscripción específica.
+
+De resultar exitosa, esta retornará un objeto `card` que representa la tarjeta asociada al comercio.
+
+### HTTP Request
+
+`GET https://api.qvo.cl/webpay_oneclick/inscription/{inscription_uid}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+inscription_uid | El uid de la inscripción a obtener
+
+## Autorizar pago
+
+```shell
+curl "https://api.qvo.cl/webpay_oneclick/authorize/qOG4Zsh7BFJKA4GjuBkFTA"
+  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+```
+
+> Este comando retorna la siguiente estructura JSON:
+
+```json
+{
+  "transaction_uid": "l8qzt_v5Pcv-0t6tsKUMHQ",
+  "status": "paid",
+  "created_at": "2017-01-16T19:57:51.202Z",
+  "updated_at": "2017-01-16T19:57:54.458Z",
+  "payment": {
+    "id": 5,
+    "amount": 1000,
+    "commerce_id": 1,
+    "details": null,
+    "status": "ok",
+    "gateway_type": "webpay_oneclick",
+    "created_at": "2017-01-16T19:57:54.453Z",
+    "updated_at": "2017-01-16T19:57:54.453Z",
+    "payment_type": "credit"
+  }
+}
+```
+
+<!-- Revisar -->
+Este endpoint permite realizar autorizar un pago para una tarjeta en específico. Retorna el estado del pago.
+
+### HTTP Request
+
+`POST https://api.qvo.cl/webpay_oneclick/authorize/{card_token}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+card_token | El token de la tarjeta a cargar
+
+### JSON Body Parameters
+
+Parameter | Required | Type | Description
+--------- | ----------- | ----------- | -----------
+amount | Yes | integer | El monto a cargar a la tarjeta
+
+## Reversar pago
+
+```shell
+curl "https://api.qvo.cl/webpay_oneclick/reverse/l8qzt_v5Pcv-0t6tsKUMHQ"
+  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+```
+
+> Este comando retorna la siguiente estructura JSON:
+
+```json
+{
+  "transaction_uid": "l8qzt_v5Pcv-0t6tsKUMHQ",
+  "status": "reversed",
+  "created_at": "2017-01-16T19:57:51.202Z",
+  "reverse_code": "7355785544020521896"
+}
+```
+
+<!-- Revisar -->
+Este endpoint permite realizar autorizar un pago para una tarjeta en específico. Retorna el estado del pago.
+
+### HTTP Request
+
+`POST https://api.qvo.cl/webpay_oneclick/reverse/{transaction_uid}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+transaction_uid | El uid de la transacción a anular
+
+## Obtener tarjetas
+
+```shell
+curl "https://api.qvo.cl/webpay_oneclick/cards"
+  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+```
+
+> Este comando retorna la siguiente estructura JSON:
+
+```json
+[
+  {
+    "id": 1,
+    "commerce_id": 1,
+    "credit_card_type": "Visa",
+    "last4_card_digits": "6623",
+    "token": "qOG4Zsh7BFJKA4GjuBkFTA",
+    "created_at": "2017-01-16T19:53:36.252Z",
+    "updated_at": "2017-01-16T19:53:36.252Z",
+    "active": true
+  },
+  ...
+]
+```
+
+Este endpoint permite obtener una lista de las tarjetas asociadas al comercio.
+
+### HTTP Request
+
+`GET https://api.qvo.cl/webpay_oneclick/cards`
+
+## Obtener tarjeta específica
+
+```shell
+curl "https://api.qvo.cl/webpay_oneclick/cards/qOG4Zsh7BFJKA4GjuBkFTA"
+  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+```
+
+> Este comando retorna la siguiente estructura JSON:
+
+```json
+  {
+    "id": 1,
+    "commerce_id": 1,
+    "credit_card_type": "Visa",
+    "last4_card_digits": "6623",
+    "token": "qOG4Zsh7BFJKA4GjuBkFTA",
+    "created_at": "2017-01-16T19:53:36.252Z",
+    "updated_at": "2017-01-16T19:53:36.252Z",
+    "active": true
+  }
+```
+
+Este endpoint permite obtener una tarjeta específica asocioada comercio.
+
+### HTTP Request
+
+`GET https://api.qvo.cl/webpay_oneclick/cards/{card_token}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+card_token | El token asociado del a tarjeta
+
+## Inactivar tarjeta
+
+```shell
+curl --request DELETE "https://api.qvo.cl/webpay_oneclick/cards/qOG4Zsh7BFJKA4GjuBkFTA"
+  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+```
+
+> Este comando retorna la siguiente estructura JSON:
+
+```json
+  {
+    "msg" : "card succesfully inactivated"
+  }
+```
+
+Este endpoint permite anular una tarjeta específica asociada al comercio.
+
+### HTTP Request
+
+`DELETE https://api.qvo.cl/webpay_oneclick/cards/{card_token}`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+card_token | El token asociado del a tarjeta a eliminar
