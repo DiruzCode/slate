@@ -36,8 +36,13 @@ html, body {
   -webkit-text-size-adjust: none; /* Never autoresize text */
 }
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .content a {
-  color: #5bc0de;
+  color: #3091C8;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -70,10 +75,11 @@ html, body {
   top: 0;
   left: 0;
   bottom: 0;
+  border-right: 1px solid rgb(233, 235, 237);
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 13px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: normal;
 
   // language selector for mobile devices
   .lang-selector {
@@ -130,10 +136,8 @@ html, body {
     transition-timing-function: ease-in-out;
     &.visible {
       height: 30%;
-      margin-bottom: 1em;
+      margin-bottom: 2em;
     }
-
-    @include embossed-bg;
 
     li {
       margin: 1em $nav-padding;
@@ -166,7 +170,7 @@ html, body {
     list-style: none;
     margin: 0;
     padding: 0;
-    line-height: 28px;
+    line-height: 36px;
   }
 
   li {
@@ -191,11 +195,10 @@ html, body {
     font-weight: 500;
     .tocify-item>a {
       padding-left: $nav-padding + $nav-indent;
-      font-size: 12px;
+      font-size: 0.9rem;
     }
 
     // for embossed look:
-    @include embossed-bg;
     &>li:last-child {
       box-shadow: none; // otherwise it'll overflow out of the subheader
     }
@@ -395,13 +398,13 @@ html, body {
 
   h3, h4, h5, h6 {
     @extend %header-font;
-    font-size: 15px;
+    font-size: 1.1rem;
     margin-top: 2.5em;
     margin-bottom: 0.8em;
   }
 
   h4, h5, h6 {
-    font-size: 10px;
+    font-size: 1rem;
   }
 
   hr {

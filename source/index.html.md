@@ -1,5 +1,5 @@
 ---
-title: Documentación qvo api
+title: Documentación QVO API
 
 language_tabs:
   - shell
@@ -9,7 +9,7 @@ language_tabs:
 
 toc_footers:
   - <a href='#'>Obtén tu llave de accesso</a>
-  - <a href='http://qvo.cl'>Página principal de qvo</a>
+  - <a href='http://qvo.cl'>Página principal de QVO</a>
 
 includes:
   - errors
@@ -31,7 +31,7 @@ __      _____  _ __| | __| |
   \_/\_/ \___/|_|  |_|\__,_|
 ```
 
-Bienvenido a la API de qvo. Puedes usar nuestra API para acceder a los distintos endpoins de qvo, donde podrás efectuar pagos mediante distintos métodos y obtener información de ellos.
+Bienvenido a la API de QVO. Puedes usar nuestra API para acceder a los distintos endpoins de QVO, donde podrás efectuar pagos mediante distintos métodos y obtener información de ellos.
 
 Tenemos bindings para Shell, Ruby, Javascript (node.js) y Python! Puedes ver ejemplos de código en el área a la derecha, y puedes cambiar el lenguaje de los ejemplos arriba a la derecha.
 

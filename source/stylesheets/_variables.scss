@@ -24,30 +24,30 @@ under the License.
 // BACKGROUND COLORS
 ////////////////////
 
-$nav-bg: #26282d !default;
+$nav-bg: rgb(252, 252, 252) !default;
 $examples-bg: #202a2f !default;
 $code-bg: #263238 !default;
 $code-annotation-bg: #1c1c1c !default;
-$nav-subitem-bg: #262626 !default;
-$nav-active-bg: #52d3aa !default;
+$nav-subitem-bg: rgb(252, 252, 252) !default;
+$nav-active-bg: #3091C8 !default;
 $lang-select-border: #000 !default;
 $lang-select-bg: #222 !default;
 $lang-select-active-bg: $examples-bg !default; // feel free to change this to blue or something
 $lang-select-pressed-bg: #111 !default; // color of language tab bg when mouse is pressed
 $main-bg: #fff !default;
-$aside-notice-bg: #dbfdff !default;
-$aside-warning-bg: #ffbcbc !default;
-$aside-success-bg: #dbffe8 !default;
-$search-notice-bg: #ffbcbc !default;
+$aside-notice-bg: rgba(40, 197, 197, 0.2) !default;
+$aside-warning-bg: rgba(235, 83, 84, 0.2) !default;
+$aside-success-bg: rgba(146, 200, 65, 0.2) !default;
+$search-notice-bg: rgba(255, 187, 0, 0.2);
 
 
 // TEXT COLORS
 ////////////////////
-$main-text: #333 !default; // main content text color
-$nav-text: #fff !default;
+$main-text: #373947 !default; // main content text color
+$nav-text: #373947 !default;
 $nav-active-text: #fff !default;
 $lang-select-text: #e0e0e0 !default; // color of unselected language tab text
-$lang-select-active-text: #52d3aa !default; // color of selected language tab text
+$lang-select-active-text: #28C5C5 !default; // color of selected language tab text
 $lang-select-pressed-text: #fff !default; // color of language tab text when mouse is pressed
 
 
@@ -59,8 +59,8 @@ $logo-margin: 20px !default; // margin between nav items and logo, ignored if se
 $main-padding: 28px !default; // padding to left and right of content & examples
 $nav-padding: 15px !default; // padding to left and right of navbar
 $nav-v-padding: 10px !default; // padding used vertically around search boxes and results
-$nav-indent: 10px !default; // extra padding for ToC subitems
-$code-annotation-padding: 13px !default; // padding inside code annotations
+$nav-indent: 12px !default; // extra padding for ToC subitems
+$code-annotation-padding: 10px !default; // padding inside code annotations
 $h1-margin-bottom: 21px !default; // padding under the largest header tags
 $tablet-width: 930px !default; // min width before reverting to tablet size
 $phone-width: $tablet-width - $nav-width !default; // min width before reverting to mobile size
@@ -69,18 +69,18 @@ $phone-width: $tablet-width - $nav-width !default; // min width before reverting
 // FONTS
 ////////////////////
 
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,700');
+@import url('https://fonts.googleapis.com/css?family=Oswald:500,600,700');
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono');
-@import url('https://fonts.googleapis.com/css?family=Quicksand:700');
 
 
 %default-font {
-  font-family: "Raleway", sans-serif;
-  font-size: 14px;
+  font-family: "Lato", sans-serif;
+  font-size: 0.98rem;
 }
 
 %header-font {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-weight: bold;
 }
 
@@ -93,12 +93,12 @@ $phone-width: $tablet-width - $nav-width !default; // min width before reverting
 
 // OTHER
 ////////////////////
-$nav-active-shadow: #000 !default;
-$nav-footer-border-color: #666 !default;
-$nav-embossed-border-top: #000 !default;
-$nav-embossed-border-bottom: #939393 !default;
-$main-embossed-text-shadow: 0px 1px 0px #fff !default;
-$search-box-border-color: #666 !default;
+$nav-active-shadow: rgb(233, 235, 237) !default;
+$nav-footer-border-color: rgb(233, 235, 237) !default;
+$nav-embossed-border-top: rgb(233, 235, 237) !default;
+$nav-embossed-border-bottom: rgb(233, 235, 237) !default;
+$main-embossed-text-shadow: 0px 0px 0px #fff !default;
+$search-box-border-color: rgb(233, 235, 237) !default;
 
 
 ////////////////////////////////////////////////////////////////////////////////
