@@ -2,7 +2,7 @@
 
 El API de qvo usa los siguientes códigos de error:
 
-Error Code | Meaning
+Código | Significado
 ---------- | -------
 400 | Bad Request -- Hay un problema con tu request 🙈
 401 | Unauthorized -- Tu api key es incorrecta 🔐
