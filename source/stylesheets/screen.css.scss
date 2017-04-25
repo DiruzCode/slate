@@ -45,6 +45,19 @@ html, body {
   color: #3091C8;
 }
 
+table p.attr-desc {
+  color: #939da3;
+  margin-bottom: 0;
+  font-size: 12px;
+}
+
+table p.warning {
+  color: #ffbb00;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 10px;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // TABLE OF CONTENTS
 ////////////////////////////////////////////////////////////////////////////////
@@ -291,7 +304,7 @@ html, body {
   .lang-selector {
     position: fixed;
     z-index: 50;
-    border-bottom: 5px solid $lang-select-active-bg;
+    border-bottom: 2px solid $lang-select-active-bg;
   }
 }
 
@@ -299,14 +312,18 @@ html, body {
   background-color: $lang-select-bg;
   width: 100%;
   font-weight: bold;
+  padding: 10px 20px;
+
   a {
     display: block;
     float:left;
     color: $lang-select-text;
+    transition: all 0.3s ease-in-out;
     text-decoration: none;
     padding: 0 10px;
     line-height: 30px;
     outline: 0;
+    border-radius: 4px;
 
     &:active, &:focus {
       background-color: $lang-select-pressed-bg;
@@ -316,6 +333,10 @@ html, body {
     &.active {
       background-color: $lang-select-active-bg;
       color: $lang-select-active-text;
+    }
+
+    + a {
+      margin-left: 4px;
     }
   }
 
@@ -366,7 +387,6 @@ html, body {
     font-size: 30px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    // border-bottom: 1px solid #ccc;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
     border-top: 1px solid rgb(233, 235, 237);
@@ -383,7 +403,7 @@ html, body {
     font-size: 20px;
     margin-top: 4em;
     margin-bottom: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid rgb(233, 235, 237);
     padding-top: 1.2em;
     padding-bottom: 1.2em;
     background-image: linear-gradient(to bottom, rgba(#fff, 0.4), rgba(#fff, 0));
@@ -478,20 +498,21 @@ html, body {
   aside {
     padding-top: 1em;
     padding-bottom: 1em;
-    text-shadow: 0 1px 0 lighten($aside-notice-bg, 15%);
+    text-shadow: 0 1px 0 darken($aside-notice-bg, 15%);
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
     line-height: 1.6;
+    color: #fff;
 
     &.warning {
       background-color: $aside-warning-bg;
-      text-shadow: 0 1px 0 lighten($aside-warning-bg, 15%);
+      text-shadow: 0 1px 0 darken($aside-warning-bg, 15%);
     }
 
     &.success {
       background-color: $aside-success-bg;
-      text-shadow: 0 1px 0 lighten($aside-success-bg, 15%);
+      text-shadow: 0 1px 0 darken($aside-success-bg, 15%);
     }
   }
 
@@ -554,6 +575,10 @@ html, body {
     }
   }
 
+  blockquote {
+    padding: 0px 0px 0px 0px;
+  }
+
   pre {
     @extend %code-font;
   }
@@ -561,11 +586,8 @@ html, body {
   blockquote {
     &>p {
       background-color: $code-annotation-bg;
-      border-radius: 5px;
-      padding: $code-annotation-padding;
-      color: #ccc;
-      border-top: 1px solid #000;
-      border-bottom: 1px solid #404040;
+      padding: 2em $main-padding $code-annotation-padding $main-padding;
+      color: #dde4e8;
     }
   }
 }

@@ -2,7 +2,7 @@
 title: Documentación QVO API
 
 language_tabs:
-  - shell
+  - shell: cURL
   - ruby
   - python
   - javascript
@@ -33,18 +33,17 @@ __      _____  _ __| | __| |
 
 Bienvenido a la API de QVO. Puedes usar nuestra API para acceder a los distintos endpoins de QVO, donde podrás efectuar pagos mediante distintos métodos y obtener información de ellos.
 
-Tenemos bindings para Shell, Ruby, Javascript (node.js) y Python! Puedes ver ejemplos de código en el área a la derecha, y puedes cambiar el lenguaje de los ejemplos arriba a la derecha.
+Tenemos bindings para curl, Ruby, Javascript (node.js) y Python! Puedes ver ejemplos de código en el área a la derecha, y puedes cambiar el lenguaje de los ejemplos arriba a la derecha.
 
 # Autenticación
 
 ```ruby
 require 'base64'
-api_token = 'a7183e1b7e9ab09b8a5cfa87d1934c3c'
-credential = Base64.strict_encode64(api_token + ':')
+api_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
 # => "YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
 
 headers = {
-  "Authorization" => "Basic " + credential
+  "Authorization" => "Bearer " + api_token
 }
 ```
 
@@ -55,15 +54,14 @@ api = qvo.authorize('api_key')
 ```
 
 ```shell
-# Notar el colon (:) después del usuario (API token):
 $ curl "https://api.qvo.cl/v1/payments"
-      -u a7183e1b7e9ab09b8a5cfa87d1934c3c:
-
+      -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
+      
 ...
 
 > GET /v1/payments/ HTTP/1.1
 > Host: api.qvo.cl
-> Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6
+> Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA
 
 ...
 ```
@@ -74,42 +72,47 @@ const qvo = require('qvo');
 let api = qvo.authorize('api_key');
 ```
 
-qvo utiliza [HTTP Basic Auth](http://en.wikipedia.org/wiki/Basic_access_authentication) sobre HTTPS para la autenticación. El usuario es tu API token de qvo y la contraseña debe estar en blanco. Puedes solicitar un API token en nuestro [portal de desarrolladores](http://qvo.cl/developers). Los request no autenticados retornarán una respuesta HTTP 401.
+QVO utiliza [Token Based Authentication](https://www.w3.org/2001/sw/Europe/events/foaf-galway/papers/fp/token_based_authentication/) sobre HTTPS para la autenticación. Puedes solicitar un API token en nuestro [portal de desarrolladores](http://qvo.cl/developers). Los request no autenticados retornarán una respuesta HTTP 401. Las llamadas sobre HTTP simple también fallarán.
 
 ### Header de autenticación
 
 > El header `Authorization` debe verse así:
 
 ```
-Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA
 ```
 
-La mayoría de los clientes HTTP usan un usuario y contraseña para generar este header. Sin embargo, puede ser que se necesite declarar explíctamente este header. Este tiene el siguiente formato:
+Este tiene el siguiente formato:
 
-`Authorization: Basic <base64("usuario:contraseña")>`
+`Authorization: Bearer <api_token>`
 
-Como sólo se necesita un nombre de usuario para nuestro caso, se necesita concatenar un  `:` (colon) al API token y luego encodear en Base64 el string resultante.
+Donde `api_token` es el asociado a la cuenta del comercio.
 
-<aside class="success">
+<aside class="warning">
 <b>Importante</b>: Usa HTTPS para todos los requests. Requests hechos mediante HTTP retornarán respuestas HTTP 403. <b>¡Mantén tu API token en secreto!</b>
 </aside>
-
-### Seteando credenciales con cURL
-
-Si realizas test utilizando cURL puedes usar el flag `-u` para setear el usuario y la contraseña (la cual debe estar en blanco). cURL automáticamente generará el header `Authorization`.
 
 # Transbank Webpay Plus
 
 ## Overview
 
 **TODO**
-<!-- Explicar flujo y poner dibujitos y weas del estilo -->
 
 ## Crear Transacción
 
+> Definición
+
 ```shell
-curl --request POST "https://api.qvo.cl/api/webpay_plus/create_transacton"
-  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+POST https://api.qvo.cl/api/webpay_plus/create_transacton
+```
+
+> Ejemplo de Llamada:
+
+```shell
+curl --request POST "https://api.qvo.cl/api/webpay_plus/create_transacton" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA" \
+  -d amount=2000 \
+  -d return_url="http://www.example.com/return"
 ```
 
 ```javascript
@@ -121,8 +124,9 @@ let amount = 2500
 let return_url = 'http://www.example.com/return'
 
 let transaction = api.webpayPlus.createTransaction(amount, return_url);
+
 ```
-> Este comando retorna la siguiente estructura JSON:
+> Ejemplo de Respuesta:
 
 ```json
 {
@@ -145,16 +149,12 @@ Luego de realizada la transacción por el usuario, se le redireccionará realiza
 
 Esta tendrá el query parameter `uid`, el cual debe ser utilizado para verificar el resultado de la transacción por el comercio.
 
-### HTTP Request
 
-`POST https://api.qvo.cl/api/webpay_plus/create_transacton`
-
-### JSON Body Parameters
-
-Parameter | Required | Type | Description
---------- | ----------- | ----------- | -----------
-amount | Yes | integer | El monto de la transacción
-return_url | Yes | string | Url (válida) de retorno de la transacción
+### Argumentos
+|||
+|--------- | -----------|
+| amount<p class="attr-desc warning">Requerido</p><p class="attr-desc">integer</p> | El monto de la transacción|
+| return_url<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Url (válida) de retorno de la transacción |
 
 ## Obtener resultado de transacción
 
@@ -174,7 +174,7 @@ api.kittens.get(2)
 
 ```shell
 curl "http://api.qvo.cl/api/webpay_plus/transaction/NTCBq4nCn2GQoqi1_RERVw"
-  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
 ```
 
 ```javascript
@@ -187,7 +187,7 @@ let transaction_uid = 'NTCBq4nCn2GQoqi1_RERVw';
 let transaction_result = api.transactions.get(transaction_uid);
 ```
 
-> Este comando retorna la siguiente estructura JSON:
+> Ejemplo de Respuesta:
 
 ```json
 {
@@ -225,7 +225,7 @@ transaction_uid | El uid de la transacción a obtener
 
 ```shell
 curl "https://api.qvo.cl/api/webpay_plus/nullify/NTCBq4nCn2GQoqi1_RERVw"
-  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
 ```
 
 ```javascript
@@ -300,13 +300,12 @@ nullify_amount | Yes | integer | El monto a anular de la transacción
 ## Overview
 
 **TODO**
-<!-- Explicar flujo y poner dibujitos y weas del estilo -->
 
 ## Crear Inscripción de tarjeta
 
 ```shell
-curl "https://api.qvo.cl/api/webpay_oneclick/create_inscription"
-  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+curl "https://api.qvo.cl/api/webpay_oneclick/create_inscription" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
 ```
 
 ```javascript
@@ -372,8 +371,8 @@ api.kittens.get(2)
 ```
 
 ```shell
-curl "https://api.qvo.cl/webpay_oneclick/inscription/WuNMovWou2G9_Sxb686deQ"
-  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+curl "https://api.qvo.cl/webpay_oneclick/inscription/WuNMovWou2G9_Sxb686deQ" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
 ```
 
 ```javascript
@@ -424,8 +423,8 @@ inscription_uid | El uid de la inscripción a obtener
 ## Autorizar pago
 
 ```shell
-curl "https://api.qvo.cl/webpay_oneclick/authorize/qOG4Zsh7BFJKA4GjuBkFTA"
-  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+curl "https://api.qvo.cl/webpay_oneclick/authorize/qOG4Zsh7BFJKA4GjuBkFTA" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
 ```
 
 > Este comando retorna la siguiente estructura JSON:
@@ -472,8 +471,8 @@ amount | Yes | integer | El monto a cargar a la tarjeta
 ## Reversar pago
 
 ```shell
-curl "https://api.qvo.cl/webpay_oneclick/reverse/l8qzt_v5Pcv-0t6tsKUMHQ"
-  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+curl "https://api.qvo.cl/webpay_oneclick/reverse/l8qzt_v5Pcv-0t6tsKUMHQ" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
 ```
 
 > Este comando retorna la siguiente estructura JSON:
@@ -503,8 +502,8 @@ transaction_uid | El uid de la transacción a anular
 ## Obtener tarjetas
 
 ```shell
-curl "https://api.qvo.cl/webpay_oneclick/cards"
-  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+curl "https://api.qvo.cl/webpay_oneclick/cards" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
 ```
 
 > Este comando retorna la siguiente estructura JSON:
@@ -534,8 +533,8 @@ Este endpoint permite obtener una lista de las tarjetas asociadas al comercio.
 ## Obtener tarjeta específica
 
 ```shell
-curl "https://api.qvo.cl/webpay_oneclick/cards/qOG4Zsh7BFJKA4GjuBkFTA"
-  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+curl "https://api.qvo.cl/webpay_oneclick/cards/qOG4Zsh7BFJKA4GjuBkFTA" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
 ```
 
 > Este comando retorna la siguiente estructura JSON:
@@ -568,8 +567,8 @@ card_token | El token asociado del a tarjeta
 ## Inactivar tarjeta
 
 ```shell
-curl --request DELETE "https://api.qvo.cl/webpay_oneclick/cards/qOG4Zsh7BFJKA4GjuBkFTA"
-  -H "Authorization: Basic YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
+curl --request DELETE "https://api.qvo.cl/webpay_oneclick/cards/qOG4Zsh7BFJKA4GjuBkFTA" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
 ```
 
 > Este comando retorna la siguiente estructura JSON:
