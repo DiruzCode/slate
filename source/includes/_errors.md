@@ -1,5 +1,28 @@
 # Errores
 
+> Ejemplo
+
+```json
+{
+  "error": {
+    "type": "invalid_request_error",
+    "message": "amount parameter required",
+    "param": "amount"
+  }
+}
+```
+
+
+QVO usa respuestas HTTP convencionales para indicar el éxito o fracaso de un request. En general, códigos en el rango de los 2xx indican éxito, códigos en el rango 4xx indican un errir qye falló debido a la información proporcionada (ej: un parámetro requerido fue omitido, un pago falló, etc.), y códigos en el rango de los 5xx indican un error con los servidores de QVO (estos son raros).
+
+### Atributos
+|||
+|--------- | -----------|
+| type<p class="attr-desc">string</p> | El tipo de error. Puede ser: `api_error`, `authentication error`, `invalid_request_error` o `rate_limit_error`. |
+| message<p class="attr-desc">string</p><p class="attr-desc">opcional</p> | Un mensaje legible que provee mas detalles acerca del error. |
+| param<p class="attr-desc">string</p><p class="attr-desc">opcional</p> | El parámetro al cual se relaciona el error. |
+
+
 El API de qvo usa los siguientes códigos de error:
 
 Código | Significado
