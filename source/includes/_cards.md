@@ -1,5 +1,28 @@
 # Tarjetas
 
+Es posible guardar múltiples tarjetas en un cliente para luego cobrar.
+
+## El objeto tarjeta
+
+> Ejemplo de respuesta
+
+```json
+{
+  "id": "opc_m_c3zyh5BEl8EITxvLbMzw",
+  "last_4_digits": "4242",
+  "card_type": "VISA",
+  "payment_type": "CD"
+}
+```
+
+### Atributos
+|||
+|--------- | -----------|
+| id<p class="attr-desc">string</p> | Identificador único del objeto |
+| last_4_digits<p class="attr-desc">string</p> | Los últimos 4 dígitos de la tarjeta. |
+| card_type<p class="attr-desc">string</p> | Tipo de tarjeta. Puede ser: `VISA` o `MASTERCARD` |
+| payment_type<p class="attr-desc">string</p> | Tipo de pago de la tarjeta. Puede ser: `CD` (crédito) o `DB` (débito) |
+
 ## getCustomerCards
 
 > Ejemplo de llamada
@@ -9,24 +32,6 @@
 curl -X get https://api.qvo.cl/customers/{customer_id}/cards
 ````
 
-````http
-GET https://api.qvo.cl/customers/{customer_id}/cards HTTP/1.1
-Host: localhost:3000
-Content-Type: application/json
-Accept: application/json
-````
-
-````html
-<script>
-  $.ajax({
-    url: 'https://api.qvo.cl/customers/{customer_id}/cards',
-    method: 'get',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
 
 ````javascript
 const request = require('node-fetch');
@@ -60,21 +65,6 @@ r = requests.get('https://api.qvo.cl/customers/{customer_id}/cards', params={
 print r.json()
 ````
 
-````java
-URL obj = new URL("https://api.qvo.cl/customers/{customer_id}/cards");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-````
 
 `GET /customers/{customer_id}/cards`
 
@@ -142,24 +132,6 @@ default|Default|unexpected error
 curl -X get https://api.qvo.cl/customers/{customer_id}/cards/{card_id}
 ````
 
-````http
-GET https://api.qvo.cl/customers/{customer_id}/cards/{card_id} HTTP/1.1
-Host: localhost:3000
-Content-Type: application/json
-Accept: application/json
-````
-
-````html
-<script>
-  $.ajax({
-    url: 'https://api.qvo.cl/customers/{customer_id}/cards/{card_id}',
-    method: 'get',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
 
 ````javascript
 const request = require('node-fetch');
@@ -191,22 +163,6 @@ r = requests.get('https://api.qvo.cl/customers/{customer_id}/cards/{card_id}', p
 })
 
 print r.json()
-````
-
-````java
-URL obj = new URL("https://api.qvo.cl/customers/{customer_id}/cards/{card_id}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
 ````
 
 `GET /customers/{customer_id}/cards/{card_id}`
@@ -274,24 +230,6 @@ default|Default|unexpected error
 curl -X delete https://api.qvo.cl/customers/{customer_id}/cards/{card_id}
 ````
 
-````http
-DELETE https://api.qvo.cl/customers/{customer_id}/cards/{card_id} HTTP/1.1
-Host: localhost:3000
-Content-Type: application/json
-Accept: application/json
-````
-
-````html
-<script>
-  $.ajax({
-    url: 'https://api.qvo.cl/customers/{customer_id}/cards/{card_id}',
-    method: 'delete',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
 
 ````javascript
 const request = require('node-fetch');
@@ -325,21 +263,6 @@ r = requests.delete('https://api.qvo.cl/customers/{customer_id}/cards/{card_id}'
 print r.json()
 ````
 
-````java
-URL obj = new URL("https://api.qvo.cl/customers/{customer_id}/cards/{card_id}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("DELETE");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-````
 
 `DELETE /customers/{customer_id}/cards/{card_id}`
 
@@ -397,25 +320,6 @@ default|Default|unexpected error
 curl -X post https://api.qvo.cl/customers/{customer_id}/cards/inscriptions
 ````
 
-````http
-POST https://api.qvo.cl/customers/{customer_id}/cards/inscriptions HTTP/1.1
-Host: localhost:3000
-Content-Type: application/json
-Accept: application/json
-````
-
-````html
-<script>
-  $.ajax({
-    url: 'https://api.qvo.cl/customers/{customer_id}/cards/inscriptions',
-    method: 'post',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
-
 ````javascript
 const request = require('node-fetch');
 fetch('https://api.qvo.cl/customers/{customer_id}/cards/inscriptions', { method: 'POST'})
@@ -446,22 +350,6 @@ r = requests.post('https://api.qvo.cl/customers/{customer_id}/cards/inscriptions
 })
 
 print r.json()
-````
-
-````java
-URL obj = new URL("https://api.qvo.cl/customers/{customer_id}/cards/inscriptions");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
 ````
 
 `POST /customers/{customer_id}/cards/inscriptions`
@@ -528,25 +416,6 @@ default|Default|unexpected error
 curl -X get https://api.qvo.cl/customers/{customer_id}/cards/inscriptions/{inscription_uid}
 ````
 
-````http
-GET https://api.qvo.cl/customers/{customer_id}/cards/inscriptions/{inscription_uid} HTTP/1.1
-Host: localhost:3000
-Content-Type: application/json
-Accept: application/json
-````
-
-````html
-<script>
-  $.ajax({
-    url: 'https://api.qvo.cl/customers/{customer_id}/cards/inscriptions/{inscription_uid}',
-    method: 'get',
-    success: function(data) {
-      console.log(JSON.stringify(data));
-    }
-  })
-</script>
-````
-
 ````javascript
 const request = require('node-fetch');
 fetch('https://api.qvo.cl/customers/{customer_id}/cards/inscriptions/{inscription_uid}', { method: 'GET'})
@@ -579,21 +448,6 @@ r = requests.get('https://api.qvo.cl/customers/{customer_id}/cards/inscriptions/
 print r.json()
 ````
 
-````java
-URL obj = new URL("https://api.qvo.cl/customers/{customer_id}/cards/inscriptions/{inscription_uid}");
-HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("GET");
-int responseCode = con.getResponseCode();
-BufferedReader in = new BufferedReader(
-    new InputStreamReader(con.getInputStream()));
-String inputLine;
-StringBuffer response = new StringBuffer();
-while ((inputLine = in.readLine()) != null) {
-    response.append(inputLine);
-}
-in.close();
-System.out.println(response.toString());
-````
 
 `GET /customers/{customer_id}/cards/inscriptions/{inscription_uid}`
 
