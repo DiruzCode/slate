@@ -1,4 +1,4 @@
-# Transbank Webpay Plus
+# Webpay Plus
 
 ## Overview
 

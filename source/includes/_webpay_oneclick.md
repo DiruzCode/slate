@@ -1,5 +1,5 @@
 
-# Transbank Webpay Oneclick
+# Webpay Oneclick
 
 ## Overview
 

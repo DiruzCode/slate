@@ -17,6 +17,9 @@ includes:
   - errors
   - pagination
   
+  - customers
+  - cards
+
   - webpay_plus
   - webpay_oneclick
   
