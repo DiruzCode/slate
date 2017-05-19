@@ -24,7 +24,7 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
     "currency": "CLP"
   },
   "created_at": "2017-05-17T19:12:57.189Z",
-  "updated_at": "2017-05-17T19:12:57.189Z",
+  "updated_at": "2017-05-17T19:12:57.189Z"
 }
 ```
 
@@ -110,7 +110,7 @@ print r.json()
     "currency": "CLP"
   },
   "created_at": "2017-05-17T19:12:57.189Z",
-  "updated_at": "2017-05-17T19:12:57.189Z",
+  "updated_at": "2017-05-17T19:12:57.189Z"
 }
 ```
 
@@ -186,7 +186,7 @@ print r.json()
     "currency": "CLP"
   },
   "created_at": "2017-05-17T19:12:57.189Z",
-  "updated_at": "2017-05-17T19:12:57.189Z",
+  "updated_at": "2017-05-17T19:12:57.189Z"
 }
 ```
 
@@ -272,7 +272,7 @@ print r.json()
     "currency": "CLP"
   },
   "created_at": "2017-05-17T19:12:57.189Z",
-  "updated_at": "2017-05-18T11:20:57.201Z",
+  "updated_at": "2017-05-18T11:20:57.201Z"
 }
 ```
 
@@ -353,7 +353,7 @@ print r.json()
     "currency": "CLP"
   },
   "created_at": "2017-05-17T19:12:57.189Z",
-  "updated_at": "2017-05-17T19:12:57.189Z",
+  "updated_at": "2017-05-17T19:12:57.189Z"
 }
 ```
 
@@ -429,7 +429,7 @@ print r.json()
       "currency": "CLP"
     },
     "created_at": "2017-05-17T19:12:57.189Z",
-    "updated_at": "2017-05-17T19:12:57.189Z",
+    "updated_at": "2017-05-17T19:12:57.189Z"
   }
 ]
 ```
