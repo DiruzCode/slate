@@ -23,7 +23,7 @@ Es posible guardar múltiples tarjetas en un cliente para luego cobrar.
 | card_type<p class="attr-desc">string</p> | Tipo de tarjeta. Puede ser: `VISA` o `MASTERCARD` |
 | payment_type<p class="attr-desc">string</p> | Tipo de pago de la tarjeta. Puede ser: `CD` (crédito) o `DB` (débito) |
 
-## Crear inscripción de tarjeta
+## Crear una inscripción de tarjeta
 
 > Ejemplo de llamada
 
@@ -108,7 +108,7 @@ La inscripción posee una fecha de expiración de <b>10 minutos</b> luego de su 
 Retorna los parámetros para iniciar una inscripción de tarjeta.
 
 
-## Obtener inscripción de tarjeta
+## Obtener una inscripción de tarjeta
 
 > Ejemplo de llamada
 
@@ -181,7 +181,7 @@ Esta puede tener `status`:
 
 
 
-## Obtener tarjeta
+## Obtener una tarjeta
 
 > Ejemplo de llamada
 
@@ -250,7 +250,7 @@ Obtiene los detalles de una tarjeta existente para el ciente. Se necesita propor
 Retorna un objeto de tarjeta si se provee de un identificador válido.
 
 
-## Eliminar tarjeta
+## Eliminar una tarjeta
 
 > Ejemplo de llamada
 
@@ -302,7 +302,7 @@ Retorna una respuesta sin contenido si la tarjeta fue eliminada con éxito. Si e
 
 
 
-## Obtener lista de tarjetas
+## Obtener una lista de tarjetas
 
 > Ejemplo de llamada
 

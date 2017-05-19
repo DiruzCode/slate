@@ -49,7 +49,7 @@ Un plan de suscripción, contiene la información de cobro para diferentes produ
 | updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto |
 
 
-## Crear plan
+## Crear un plan
 
 > Ejemplo de llamada
 
@@ -146,12 +146,12 @@ Retorna un objeto de plan si la llamada es exitosa. Si existe otro plan con el m
 
 
 
-## Obtener plan
+## Obtener un plan
 
 > Ejemplo de llamada
 
 ````shell
-curl --request GET "https://api.qvo.cl/plans" \
+curl --request GET "https://api.qvo.cl/plans/oro" \
   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
 ````
 
@@ -199,7 +199,7 @@ print r.json()
 
 `GET /plans/{plan_id}`
 
-Obtiene los detalles de un plan existente. Se necesita proporcionar sólo el identificador único del cliente el cual fue retornado al momento de su creación.
+Obtiene los detalles de un plan existente. Se necesita proporcionar sólo el identificador único del plan el cual fue retornado al momento de su creación.
 
 ### Parámetros
 |||
@@ -214,7 +214,7 @@ Retorna un objeto de plan si se provee de un identificador válido.
 
 
 
-## Actualizar plan
+## Actualizar un plan
 
 > Ejemplo de llamada
 
@@ -292,7 +292,7 @@ Actualiza el plan especificado con los parametros provistos. Cualquier parámetr
 
 Retorna el objeto de plan si la actualización es exitosa. Retorna <a href="#errores">un error</a> si algun parámetro de actualización es inválido.
 
-## Eliminar plan
+## Eliminar un plan
 
 > Ejemplo de llamada
 
@@ -341,7 +341,7 @@ Elimina permanentemente un plan. Esta acción es irreversible. Si existieran sus
 
 ### Respuesta
 
-Retorna una respuesta sin contenido si el plan fue eliminado con éxito. Si el identificador del cliente no es válido, retornará <a href="#errores">un error</a>.
+Retorna una respuesta sin contenido si el plan fue eliminado con éxito. Si el identificador del plan no es válido, retornará <a href="#errores">un error</a>.
 
 
 

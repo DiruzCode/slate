@@ -71,7 +71,7 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
 | updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto |
 
 
-## Crear cliente
+## Crear un cliente
 
 > Ejemplo de llamada
 
@@ -218,7 +218,7 @@ Retorna un objeto de cliente si se provee de un identificador válido.
 
 
 
-## Actualizar cliente
+## Actualizar un cliente
 
 > Ejemplo de llamada
 
@@ -296,7 +296,7 @@ Retorna el objeto del cliente si la actualización es exitosa. Retorna <a href="
 
 
 
-## Eliminar cliente
+## Eliminar un cliente
 
 > Ejemplo de llamada
 
