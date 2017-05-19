@@ -19,6 +19,7 @@ includes:
   
   - customers
   - cards
+  - plans
 
   - webpay_plus
   - webpay_oneclick

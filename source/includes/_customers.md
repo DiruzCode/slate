@@ -64,7 +64,7 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
 | default_payment_method<p class="attr-desc"><a href="#el-objeto-tarjeta">Card</a></p> | Medio de pago por defecto del cliente. Describe una <a href="#el-objeto-tarjeta">Tarjeta</a>. |
 | name<p class="attr-desc">string</p> | Nombre del cliente |
 | email<p class="attr-desc">string</p> | Dirección email del cliente |
-| subscriptions<p class="attr-desc">Array<<a href="#el-objeto-suscripcion">Subscription</a>></p> | Subscripciones activas del cliente. |
+| subscriptions<p class="attr-desc">Array<<a href="#el-objeto-suscripci-n">Subscription</a>></p> | Subscripciones activas del cliente. |
 | cards<p class="attr-desc">Array<<a href="#el-objeto-tarjeta">Card</a>></p> | Tarjetas activas del cliente. |
 | transactions<p class="attr-desc">Array<<a href="#el-objeto-transacci-n">Transaction</a>></p> | Transacciones vinculadas al cliente. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto |
@@ -223,7 +223,7 @@ Retorna un objeto de cliente si se provee de un identificador válido.
 > Ejemplo de llamada
 
 ````shell
-curl --request POST "https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg" \
+curl --request PUT "https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg" \
   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA" \
   -d email="theimp@lannistercorp.gov" \
   -d name="Tyrion Lannister"
