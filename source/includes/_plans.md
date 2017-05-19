@@ -368,20 +368,14 @@ fetch('https://api.qvo.cl/plans', { method: 'GET'})
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'https://api.qvo.cl/plans', params:
-  {
-    # TODO
-  }
-
+result = RestClient.get 'https://api.qvo.cl/plans'
 p JSON.parse(result)
 ````
 
 ````python
 import requests
 
-r = requests.get('https://api.qvo.cl/plans', params={
-  # TODO
-})
+r = requests.get('https://api.qvo.cl/plans')
 
 print r.json()
 ````
@@ -418,7 +412,7 @@ print r.json()
 ]
 ```
 
-`GET /customers`
+`GET /plans`
 
 Retorna una lista de planes. Los planes se encuentran ordenados por defecto por la fecha de creación, donde los mas recientes aparecerán primero.
 
