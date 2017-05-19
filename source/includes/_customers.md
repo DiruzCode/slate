@@ -455,7 +455,7 @@ print r.json()
 Retorna una lista de clientes. Los clientes se encuentran ordenados por defecto por la fecha de creación, donde los mas recientes aparecerán primero.
 
 <aside class="notice">
-Este endpoint puede ser usado con <a href="#paginaci-n-y-filtros">paginación y filtros</a>
+Este endpoint puede ser utilizado con <a href="#paginaci-n-filtros-y-orden">paginación, filtros y orden</a>
 </aside>
 
 ### Respuesta
