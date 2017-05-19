@@ -335,7 +335,6 @@ print r.json()
 > Ejemplo de respuesta
 
 ```json
-```json
 {
   "id": "sub_HnKU4UmU5GtymRulcVOEow",
   "status": "active",
@@ -368,11 +367,10 @@ Cancela una suscripción. Por defecto, esta se cancelará (pasará al estado `ca
 |--------- | -----------|
 | subscription_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de la suscripción. |
 
-
-
 ### Respuesta
 
 Retorna la suscripción si la operación fue exitosa con el parámetro `cancel_at_period_end = true`. Si el identificador de la suscripción no es válido, retornará <a href="#errores">un error</a>.
+
 
 
 ## Obtener una lista de suscripciones

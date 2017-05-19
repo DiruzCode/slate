@@ -21,6 +21,7 @@ includes:
   - cards
   - plans
   - subscriptions
+  - transactions
 
   - webpay_plus
   - webpay_oneclick
