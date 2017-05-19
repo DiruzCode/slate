@@ -497,6 +497,7 @@ table p.warning {
   }
 
   code {
+    white-space: pre-wrap;
     background-color: rgba(0,0,0,0.05);
     padding: 3px;
     border-radius: 3px;
