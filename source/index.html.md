@@ -4,8 +4,8 @@ title: Documentación QVO API
 language_tabs:
   - shell: cURL
   - ruby: Ruby
+  - javascript: Node.js
   - python: Python
-  - javascript: Node
 
 toc_footers:
   - <a href='#'>Obtén tu llave de accesso</a>
