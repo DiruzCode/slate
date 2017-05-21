@@ -8,7 +8,7 @@ language_tabs:
   - python: Python
 
 toc_footers:
-  - <a href='#'>Obtén tu llave de accesso</a>
+  - <a href='mailto:dev@qvo.cl'>Obtén tu llave de accesso</a>
   - <a href='http://qvo.cl'>Página principal de QVO</a>
 
 includes:
