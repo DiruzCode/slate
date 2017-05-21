@@ -15,7 +15,7 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
     "card_type": "VISA",
     "payment_type": "CD"
   },
-  "name": "John Snow",
+  "name": "Jon Snow",
   "email": "dabastard@thewatch.org",
   "created_at": "2017-05-17T19:12:55.535Z",
   "updated_at": "2017-05-17T19:12:57.123Z",
@@ -85,7 +85,10 @@ curl --request POST "https://api.qvo.cl/customers" \
 
 ````javascript
 const request = require('node-fetch');
-fetch('https://api.qvo.cl/customers', { method: 'POST'})
+fetch('https://api.qvo.cl/customers', { method: 'POST'}, {
+  email: "theimp@lannistercorp.gov",
+  name: "Tyrion Lannister"
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -99,7 +102,8 @@ require 'json'
 
 result = RestClient.post 'https://api.qvo.cl/customers', params:
   {
-    # TODO
+    email: "theimp@lannistercorp.gov",
+    name: "Tyrion Lannister"
   }
 
 p JSON.parse(result)
@@ -109,7 +113,8 @@ p JSON.parse(result)
 import requests
 
 r = requests.post('https://api.qvo.cl/customers', params={
-  # TODO
+  email: "theimp@lannistercorp.gov",
+  name: "Tyrion Lannister"
 })
 
 print r.json()
@@ -157,7 +162,7 @@ curl -X get "https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg" \
 
 ````javascript
 const request = require('node-fetch');
-fetch('https://api.qvo.cl/customers/{customer_id}', { method: 'GET'})
+fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', { method: 'GET'})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -169,10 +174,7 @@ fetch('https://api.qvo.cl/customers/{customer_id}', { method: 'GET'})
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'https://api.qvo.cl/customers/{customer_id}', params:
-  {
-    # TODO
-  }
+result = RestClient.get 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg'
 
 p JSON.parse(result)
 ````
@@ -180,9 +182,7 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.get('https://api.qvo.cl/customers/{customer_id}', params={
-  # TODO
-})
+r = requests.get('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg')
 
 print r.json()
 ````
@@ -231,7 +231,10 @@ curl --request PUT "https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg" \
 
 ````javascript
 const request = require('node-fetch');
-fetch('https://api.qvo.cl/customers/{customer_id}', { method: 'PUT'})
+fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', { method: 'PUT'}, {
+  email: "theimp@lannistercorp.gov",
+  name: "Tyrion Lannister"
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -243,9 +246,10 @@ fetch('https://api.qvo.cl/customers/{customer_id}', { method: 'PUT'})
 require 'rest-client'
 require 'json'
 
-result = RestClient.put 'https://api.qvo.cl/customers/{customer_id}', params:
+result = RestClient.put 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', params:
   {
-    # TODO
+    email: "theimp@lannistercorp.gov",
+    name: "Tyrion Lannister"
   }
 
 p JSON.parse(result)
@@ -254,8 +258,9 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.put('https://api.qvo.cl/customers/{customer_id}', params={
-  # TODO
+r = requests.put('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', params={
+  email: "theimp@lannistercorp.gov",
+  name: "Tyrion Lannister"
 })
 
 print r.json()
@@ -308,7 +313,7 @@ curl -x DELETE "https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg" \
 
 ````javascript
 const request = require('node-fetch');
-fetch('https://api.qvo.cl/customers/{customer_id}', { method: 'DELETE'})
+fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', { method: 'DELETE'})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -320,7 +325,7 @@ fetch('https://api.qvo.cl/customers/{customer_id}', { method: 'DELETE'})
 require 'rest-client'
 require 'json'
 
-result = RestClient.delete 'https://api.qvo.cl/customers/{customer_id}', params:
+result = RestClient.delete 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', params:
   {
     # TODO
   }
@@ -331,7 +336,7 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.delete('https://api.qvo.cl/customers/{customer_id}', params={
+r = requests.delete('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', params={
   # TODO
 })
 
@@ -377,10 +382,7 @@ fetch('https://api.qvo.cl/customers', { method: 'GET'})
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'https://api.qvo.cl/customers', params:
-  {
-    # TODO
-  }
+result = RestClient.get 'https://api.qvo.cl/customers'
 
 p JSON.parse(result)
 ````
@@ -388,9 +390,7 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.get('https://api.qvo.cl/customers', params={
-  # TODO
-})
+r = requests.get('https://api.qvo.cl/customers')
 
 print r.json()
 ````
@@ -407,7 +407,7 @@ print r.json()
       "card_type": "VISA",
       "payment_type": "CD"
     },
-    "name": "John Snow",
+    "name": "Jon Snow",
     "email": "dabastard@thewatch.org",
     "created_at": "2017-05-17T19:12:55.535Z",
     "updated_at": "2017-05-17T19:12:57.123Z",

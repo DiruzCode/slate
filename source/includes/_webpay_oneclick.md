@@ -1,29 +1,35 @@
-
 # Webpay Oneclick
 
-## Overview
+TODO
 
-**TODO**
+## Crear una inscripción de tarjeta webpay oneclick
 
-## Crear Inscripción de tarjeta
+> Ejemplo de llamada
 
 ```shell
-curl "https://api.qvo.cl/api/webpay_oneclick/create_inscription" \
-  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
+curl --request POST "https://api.qvo.cl/api/webpay_plus/transactions" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA" \
+  -d email="theimp@kingslanding.gov" \
+  -d return_url="http://www.example.com/return"
 ```
 
 ```javascript
-const qvo = require('qvo');
+// TODO
 
-let api = qvo.authorize('token');
-
-let return_url = 'http://www.example.com/return'; // url de retorno
-let email = 'test@example.com' // email de usuario
-
-let transaction_result = api.transactions.nullify(transaction_uid, nullify_amount);
 ```
 
-> Este comando retorna la siguiente estructura JSON:
+```ruby
+# TODO
+
+```
+
+```python
+// TODO
+
+```
+
+
+> Ejemplo de respuesta
 
 ```json
 {
@@ -33,96 +39,93 @@ let transaction_result = api.transactions.nullify(transaction_uid, nullify_amoun
 }
 ```
 
-<!-- Revisar -->
-Este endpoint permite crear una inscripción de tarjeta para Transbank Oneclick. Esta retorna una url a la cual se debe redirigir al usuario para iniciar la inscripción de su tarjeta. Esta podrá ser "canjeada" sólo una vez por el usuario.
+`POST /webpay_oneclick/inscriptions`
 
-<aside class="notice">
-La inscripción posee una fecha de expiración por defecto de 10 minutos después de creada.
+Crea una inscripción de tarjeta Webpay Oneclick.
+
+Esta inscripción permite inscribir una tarjeta mediante la interfaz de Webpay Oneclick. Para esto, es necesario **redirigir** al cliente a `redirect_url`, para iniciar el proceso de inscripción. 
+
+Una vez terminado el proceso de inscripción, se retornará el cliente al `return_url` proporcionado. Esta llamada, irá acompañada de un **query param** llamado `uid` (ubicado en la ruta) que representa el identificador único de la inscripción de tarjeta. 
+
+Por ejemplo, para `return_url = "http://www.example.com/return` se retornará el cliente a:
+
+`GET http://www.example.com/return?uid=woi_WZa9DgYQPzPtUqMsQdoNhQ`
+
+donde `uid` es igual a `woi_WZa9DgYQPzPtUqMsQdoNhQ` 
+
+Luego, para obtener el resultado de la inscripción, se debe realizar una llamada a <a href="obtener-inscripci-n-de-tarjeta-webpay-oneclick">obtener inscripción de tarjeta Webpay Oneclick</a>, utilizando el identificador único de inscripción `uid`.
+
+<aside class="warning">
+La inscripción posee una fecha de expiración de <b>10 minutos</b> luego de su fecha de creación. Si se intenta acceder a <code>redirect_url</code> luego de este tiempo, retornará <a href="errores">un error</a>.
 </aside>
 
-Luego de realizada la transacción por el usuario, se le redireccionará realizando un `GET` a una `return_url` del comercio:
-
-`GET http://www.example.com/return?uid=NTCBq4nCn2GQoqi1_RERVw`
-
-Esta tendrá el query parameter `uid`, el cual debe ser utilizado para verificar el resultado de la inscripción por el comercio.
-
-### HTTP Request
-
-`POST https://api.qvo.cl/api/webpay_oneclick/create_inscription`
-
-### JSON Body Parameters
-
-Parameter | Required | Type | Description
---------- | ----------- | ----------- | -----------
-email | Yes | string | El email del usuario
-return_url | Yes | string | Url (válida) de retorno de la inscripción
+### Parámetros
+|||
+|--------- | -----------|
+| customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del cliente. |
+| return_url<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | URL válida de retorno de la inscripción. |
 
 
-## Obtener resultado de inscripción
+## Obtener inscripción de tarjeta Webpay Oneclick
 
-```ruby
-require 'qvo'
-
-api = QVO::APIClient.authorize!('meowmeowmeow')
-api.transactions.get('NTCBq4nCn2GQoqi1_RERVw')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+> Ejemplo de llamada
 
 ```shell
-curl "https://api.qvo.cl/webpay_oneclick/inscription/WuNMovWou2G9_Sxb686deQ" \
+curl -X GET "https://api.qvo.cl/webpay_oneclick/inscriptions/WuNMovWou2G9_Sxb686deQ" \
   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
 ```
 
 ```javascript
-const qvo = require('qvo');
-
-let api = qvo.authorize('token');
-
-let inscription_uid = 'NTCBq4nCn2GQoqi1_RERVw';
-
-let inscription_result = api.inscriptions.get(inscription_uid);
+// TODO
 ```
 
-> Este comando retorna la siguiente estructura JSON:
+```ruby
+#TODO
+```
+
+```python
+// TODO
+```
+
+> Ejemplo de respuesta
 
 ```json
 {
-  "uid": "WuNMovWou2G9_Sxb686deQ",
-  "status": "success",
-  "created_at": "2017-01-16T19:52:53.559Z",
-  "updated_at": "2017-01-16T19:53:36.264Z",
+  "uid": "woi_WZa9DgYQPzPtUqMsQdoNhQ",
+  "status": "succeeded",
   "card": {
-    "id": 1,
-    "commerce_id": 1,
-    "credit_card_type": "Visa",
-    "last4_card_digits": "6623",
-    "token": "qOG4Zsh7BFJKA4GjuBkFTA",
-    "created_at": "2017-01-16T19:53:36.252Z",
-    "updated_at": "2017-01-16T19:53:36.252Z",
-    "active": true
-  }
+    "id": "woc_bMz2iAH1mJ8M4cvv0b7IMA",
+    "last_4_digits": "6623",
+    "card_type": "Visa",
+    "payment_type": "CD",
+    "created_at": "2017-05-19T17:07:01.924Z"
+  },
+  "created_at": "2017-05-19T17:05:20.820Z",
+  "updated_at": "2017-05-19T17:07:01.953Z"
 }
 ```
 
-Este endpoint obtiene el resultado de una inscripción específica.
+`GET /webpay_oneclick/inscriptions/{inscription_uid}`
 
-De resultar exitosa, esta retornará un objeto `card` que representa la tarjeta asociada al comercio.
 
-### HTTP Request
+Obtiene el resultado de una inscripción de tarjeta Webpay Oneclick.
 
-`GET https://api.qvo.cl/webpay_oneclick/inscription/{inscription_uid}`
+### Parámetros
+|||
+|--------- | -----------|
+| inscription_uid<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de la inscripción. |
 
-### URL Parameters
+### Respuesta
 
-Parameter | Description
---------- | -----------
-inscription_uid | El uid de la inscripción a obtener
+Retorna el estado de la inscripción y una <a href="el-objeto-tarjeta">tarjeta</a> de haber creado una.
+
+Esta puede tener `status`:
+ - `succeeded`: La inscripción ha sido un éxito y se adjunta `card` con la información de la tarjeta resultante
+ - `failed`: La inscripción ha fracasado y se adjunta `error` con la información del error.
+
+
+
+
 
 ## Autorizar pago
 
