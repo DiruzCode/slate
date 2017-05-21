@@ -22,6 +22,7 @@ includes:
   - plans
   - subscriptions
   - transactions
+  - withdrawals
 
   - webpay_plus
   - webpay_oneclick
