@@ -1,6 +1,12 @@
 # Tarjetas
 
-Es posible guardar múltiples tarjetas en un cliente para luego cobrar.
+<img src="images/webpay_oneclick_banner.jpg" class="full-width-image" />
+
+La API de tarjetas provee una abstracción sobre el sistema de Webpay Oneclick. Es posible inscribir múltiples tarjetas para un cliente para luego cobrar.
+
+_En el futuro se espera soportar múltiples operadores._ 
+
+
 
 ## El objeto tarjeta
 
@@ -11,7 +17,8 @@ Es posible guardar múltiples tarjetas en un cliente para luego cobrar.
   "id": "opc_m_c3zyh5BEl8EITxvLbMzw",
   "last_4_digits": "4242",
   "card_type": "VISA",
-  "payment_type": "CD"
+  "payment_type": "CD",
+  "created_at": "2017-05-17T19:12:57.108Z"
 }
 ```
 
@@ -22,19 +29,24 @@ Es posible guardar múltiples tarjetas en un cliente para luego cobrar.
 | last_4_digits<p class="attr-desc">string</p> | Los últimos 4 dígitos de la tarjeta. |
 | card_type<p class="attr-desc">string</p> | Tipo de tarjeta. Puede ser: `VISA` o `MASTERCARD` |
 | payment_type<p class="attr-desc">string</p> | Tipo de pago de la tarjeta. Puede ser: `CD` (crédito) o `DB` (débito) |
+| created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto. |
+
+
+
 
 ## Crear una inscripción de tarjeta
 
 > Ejemplo de llamada
 
 ````shell
-# You can also use wget
-curl -X post https://api.qvo.cl/customers/{customer_id}/cards/inscriptions
+curl -X POST "https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA" \
+  -d return_url="http://example.com/return"
 ````
 
 ````javascript
 const request = require('node-fetch');
-fetch('https://api.qvo.cl/customers/{customer_id}/cards/inscriptions', { method: 'POST'}, {
+fetch('https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions', { method: 'POST'}, {
   return_url: "http://example.com/return"
 })
 .then(function(res) {
@@ -48,7 +60,7 @@ fetch('https://api.qvo.cl/customers/{customer_id}/cards/inscriptions', { method:
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'https://api.qvo.cl/customers/{customer_id}/cards/inscriptions', params:
+result = RestClient.post 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions', params:
   {
     return_url: "http://example.com/return"
   }
@@ -59,7 +71,7 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.post('https://api.qvo.cl/customers/{customer_id}/cards/inscriptions', params={
+r = requests.post('https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions', params={
   return_url: "http://example.com/return"
 })
 
@@ -113,12 +125,13 @@ Retorna los parámetros para iniciar una inscripción de tarjeta.
 > Ejemplo de llamada
 
 ````shell
-curl -X get https://api.qvo.cl/customers/{customer_id}/cards/inscriptions/{inscription_uid}
+curl -X GET "https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions/woi_WZa9DgYQPzPtUqMsQdoNhQ" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
 ````
 
 ````javascript
 const request = require('node-fetch');
-fetch('https://api.qvo.cl/customers/{customer_id}/cards/inscriptions/{inscription_uid}', { method: 'GET'})
+fetch('https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions/woi_WZa9DgYQPzPtUqMsQdoNhQ', { method: 'GET'})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -130,14 +143,14 @@ fetch('https://api.qvo.cl/customers/{customer_id}/cards/inscriptions/{inscriptio
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'https://api.qvo.cl/customers/{customer_id}/cards/inscriptions/{inscription_uid}'
+result = RestClient.get 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions/woi_WZa9DgYQPzPtUqMsQdoNhQ'
 p JSON.parse(result)
 ````
 
 ````python
 import requests
 
-r = requests.get('https://api.qvo.cl/customers/{customer_id}/cards/inscriptions/{inscription_uid}')
+r = requests.get('https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions/woi_WZa9DgYQPzPtUqMsQdoNhQ')
 
 print r.json()
 ````
@@ -186,8 +199,8 @@ Esta puede tener `status`:
 > Ejemplo de llamada
 
 ````shell
-# You can also use wget
-curl -X get https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/woc_1Flhy3a-5UnARb7S4Ho3FQ
+curl -X GET "https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/woc_1Flhy3a-5UnARb7S4Ho3FQ" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
 ````
 
 
@@ -205,10 +218,7 @@ fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/woc_1Flhy3a
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/woc_1Flhy3a-5UnARb7S4Ho3FQ', params:
-  {
-    # TODO
-  }
+result = RestClient.get 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/woc_1Flhy3a-5UnARb7S4Ho3FQ'
 
 p JSON.parse(result)
 ````
@@ -216,9 +226,7 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.get('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/woc_1Flhy3a-5UnARb7S4Ho3FQ', params={
-  # TODO
-})
+r = requests.get('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/woc_1Flhy3a-5UnARb7S4Ho3FQ')
 
 print r.json()
 ````
@@ -248,6 +256,111 @@ Obtiene los detalles de una tarjeta existente para el ciente. Se necesita propor
 ### Respuesta
 
 Retorna un objeto de tarjeta si se provee de un identificador válido.
+
+
+
+
+## Cobrar a una tarjeta
+
+
+> Ejemplo de llamada
+
+```shell
+curl -X POST "https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/woc_bMz2iAH1mJ8M4cvv0b7IMA/charge" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA" \
+  -d amount=3000
+```
+
+````javascript
+const request = require('node-fetch');
+fetch('https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/woc_bMz2iAH1mJ8M4cvv0b7IMA/charge', { method: 'POST'}, {
+  amount: 3000
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
+
+````ruby
+require 'rest-client'
+require 'json'
+
+result = RestClient.post 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/woc_bMz2iAH1mJ8M4cvv0b7IMA/charge', params:
+  {
+    amount: 3000
+  }
+
+p JSON.parse(result)
+````
+
+````python
+import requests
+
+r = requests.post('https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/woc_bMz2iAH1mJ8M4cvv0b7IMA/charge', params={
+  amount: 3000
+})
+
+print r.json()
+````
+
+> Ejemplo de respuesta:
+
+```json
+{
+  "id": "trx_Vk7WJYL-wYi4bjXmAaLyaw",
+  "created_at": "2017-05-17T19:12:57.759Z",
+  "amount": "3000.0",
+  "currency": "CLP",
+  "gateway": "webpay_oneclick",
+  "fee": "371.07",
+  "credits": "0.0",
+  "status": "successful",
+  "initial_balance": "0.0",
+  "final_balance": "2628.93",
+  "customer": {
+    "id": "cus_qos_6r3-4I4zIiou2BVMHg",
+    "name": "Jon Snow",
+    "email": "dabastard@winterfell.com"
+  },
+  "payment": {
+    "amount": "3000.0",
+    "gateway": "webpay_oneclick",
+    "payment_type": "credit",
+    "installments": 0,
+    "payment_method": {
+      "id": "woc_bMz2iAH1mJ8M4cvv0b7IMA",
+      "last_4_digits": "6623",
+      "card_type": "Visa",
+      "payment_type": "CD"
+    }
+  },
+  "gateway_response": {
+    "status": "success",
+    "message": "successful transaction"
+  }
+}
+```
+
+`POST /customers/{customer_id}/cards/{card_id}/charge`
+
+Este endpoint permite autorizar un cobro para una tarjeta en específico.
+
+### Parámetros
+|||
+|--------- | -----------|
+| customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del cliente. |
+| card_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de la tarjeta del cliente. |
+| amount<p class="attr-desc warning">Requerido</p><p class="attr-desc">integer</p> | Monto a cobrar. |
+
+
+### Respuesta
+
+De ser exitosa la llamada, retorna <a href="#el-objeto-transacci-n">una transacción</a>. De lo contrario, retornará <a href="#errores">un error</a>.
+
+
+
 
 
 ## Eliminar una tarjeta

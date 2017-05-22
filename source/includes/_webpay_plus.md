@@ -12,26 +12,48 @@ El sistema permite generar transacciones con Webpay Plus.
 > Ejemplo de llamada
 
 ```shell
-curl --request POST "https://api.qvo.cl/api/webpay_plus/transactions" \
+curl --request POST "https://api.qvo.cl/api/webpay_plus/charge" \
   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA" \
   -d amount=2000 \
   -d return_url="http://www.example.com/return"
 ```
 
-```javascript
-// TODO
+````javascript
+const request = require('node-fetch');
+fetch('https://api.qvo.cl/api/webpay_plus/charge', { method: 'POST'}, {
+  amount: 2000,
+  return_url: "http://www.example.com/return"
+})
+.then(function(res) {
+    return res.json();
+}).then(function(body) {
+    console.log(body);
+});
+````
 
-```
+````ruby
+require 'rest-client'
+require 'json'
 
-```ruby
-# TODO
+result = RestClient.post 'https://api.qvo.cl/api/webpay_plus/charge', params:
+  {
+    amount: 2000,
+    return_url: "http://www.example.com/return"
+  }
 
-```
+p JSON.parse(result)
+````
 
-```python
-// TODO
+````python
+import requests
 
-```
+r = requests.post('https://api.qvo.cl/api/webpay_plus/charge', params={
+  amount: 2000,
+  return_url: "http://www.example.com/return"
+})
+
+print r.json()
+````
 
 > Ejemplo de respuesta
 
@@ -43,7 +65,7 @@ curl --request POST "https://api.qvo.cl/api/webpay_plus/transactions" \
 }
 ```
 
-`POST /webpay_plus/transactions`
+`POST /webpay_plus/charge`
 
 Crea una transacción utilizando Webpay Plus.
 

@@ -25,7 +25,6 @@ includes:
   - withdrawals
 
   - webpay_plus
-  - webpay_oneclick
   
 search: true
 ---
