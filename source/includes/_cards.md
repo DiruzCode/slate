@@ -102,10 +102,10 @@ Por ejemplo, para `return_url = "http://www.example.com/return` se retornará el
 
 donde `uid` es igual a `woi_WZa9DgYQPzPtUqMsQdoNhQ` 
 
-Luego, para obtener el resultado de la inscripción, se debe realizar una llamada a <a href="obtener-inscripci-n-de-tarjeta">obtener inscripción de tarjeta</a>, utilizando el identificador único de inscripción `uid`.
+Luego, para obtener el resultado de la inscripción, se debe realizar una llamada a <a href="#obtener-una-inscripci-n-de-tarjeta">obtener inscripción de tarjeta</a>, utilizando el identificador único de inscripción `uid`.
 
 <aside class="warning">
-La inscripción posee una fecha de expiración de <b>10 minutos</b> luego de su fecha de creación. Si se intenta acceder a <code>redirect_url</code> luego de este tiempo, retornará <a href="errores">un error</a>.
+La inscripción posee una fecha de expiración de <b>10 minutos</b> luego de su fecha de creación. Si se intenta acceder a <code>redirect_url</code> luego de este tiempo, retornará <a href="#errores">un error</a>.
 </aside>
 
 ### Parámetros
@@ -186,7 +186,7 @@ Obtiene el resultado de una inscripción de tarjeta para un cliente.
 
 ### Respuesta
 
-Retorna el estado de la inscripción y una <a href="el-objeto-tarjeta">tarjeta</a> de haber creado una.
+Retorna el estado de la inscripción y una <a href="#el-objeto-tarjeta">tarjeta</a> de haber creado una.
 
 Esta puede tener `status`:
  - `succeeded`: La inscripción ha sido un éxito y se adjunta `card` con la información de la tarjeta resultante
