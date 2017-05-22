@@ -1,11 +1,13 @@
 # Webpay Plus
 
-El sistema permite generar transacciones de webpay plus.
+<img src="images/webpay_plus_banner.jpg" class="full-width-image" />
 
-**TODO**
+El sistema permite generar transacciones con Webpay Plus.
+
+
+
 
 ## Generar un cobro webpay plus
-
 
 > Ejemplo de llamada
 

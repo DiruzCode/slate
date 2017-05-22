@@ -1,6 +1,10 @@
 # Webpay Oneclick
 
-TODO
+<img src="images/webpay_oneclick_banner.jpg" class="full-width-image" />
+
+El sistema permite inscribir tarjetas y generar cobros con Webpay Oneclick.
+
+
 
 ## Crear una inscripción de tarjeta webpay oneclick
 
@@ -125,175 +129,177 @@ Esta puede tener `status`:
 
 
 
+## Obtener una tarjeta Webpay Oneclick
 
-
-## Autorizar pago
+> Ejemplo de llamada
 
 ```shell
-curl "https://api.qvo.cl/webpay_oneclick/authorize/qOG4Zsh7BFJKA4GjuBkFTA" \
-  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
+curl -X GET "https://api.qvo.cl/webpay_oneclick/cards/woc_bMz2iAH1mJ8M4cvv0b7IMA" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA" 
 ```
 
-> Este comando retorna la siguiente estructura JSON:
+```javascript
+// TODO
+```
+
+```ruby
+#TODO
+```
+
+```python
+// TODO
+```
+
+
+> Ejemplo de respuesta
 
 ```json
 {
-  "transaction_uid": "l8qzt_v5Pcv-0t6tsKUMHQ",
-  "status": "paid",
-  "created_at": "2017-01-16T19:57:51.202Z",
-  "updated_at": "2017-01-16T19:57:54.458Z",
+  "id": "woc_bMz2iAH1mJ8M4cvv0b7IMA",
+  "last_4_digits": "6623",
+  "card_type": "Visa",
+  "payment_type": "CD",
+  "created_at": "2017-05-19T17:07:01.924Z"
+}
+```
+
+`GET /webpay_oneclick/cards/{card_id}`
+
+Obtiene los detalles de una tarjeta Webpay Oneclick existente. Se necesita proporcionar sólo el identificador único de la tarjeta el cual fue retornado al momento de su inscripción.
+
+### Parámetros
+|||
+|--------- | -----------|
+| card_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de la tarjeta Webpay Oneclick. |
+
+
+### Respuesta
+
+Retorna un objeto de tarjeta si se provee de un identificador válido.
+
+
+
+
+
+## Realizar un cobro a una tarjeta Webpay Oneclick
+
+> Ejemplo de llamada
+
+```shell
+curl -X POST "https://api.qvo.cl/webpay_oneclick/cards/woc_bMz2iAH1mJ8M4cvv0b7IMA/authorize" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA" \
+  -d amount=3000
+```
+
+```javascript
+// TODO
+```
+
+```ruby
+#TODO
+```
+
+```python
+// TODO
+```
+
+> Ejemplo de respuesta:
+
+```json
+{
+  "id": "trx_Vk7WJYL-wYi4bjXmAaLyaw",
+  "created_at": "2017-05-17T19:12:57.759Z",
+  "amount": "3000.0",
+  "currency": "CLP",
+  "gateway": "webpay_oneclick",
+  "fee": "371.07",
+  "credits": "0.0",
+  "status": "successful",
+  "initial_balance": "0.0",
+  "final_balance": "2628.93",
+  "customer": {},
   "payment": {
-    "id": 5,
-    "amount": 1000,
-    "commerce_id": 1,
-    "details": null,
-    "status": "ok",
-    "gateway_type": "webpay_oneclick",
-    "created_at": "2017-01-16T19:57:54.453Z",
-    "updated_at": "2017-01-16T19:57:54.453Z",
-    "payment_type": "credit"
+    "amount": "3000.0",
+    "gateway": "webpay_oneclick",
+    "payment_type": "credit",
+    "installments": 0,
+    "payment_method": {
+      "id": "woc_bMz2iAH1mJ8M4cvv0b7IMA",
+      "last_4_digits": "6623",
+      "card_type": "Visa",
+      "payment_type": "CD"
+    }
+  },
+  "gateway_response": {
+    "status": "success",
+    "message": "successful transaction"
   }
 }
 ```
 
-<!-- Revisar -->
-Este endpoint permite realizar autorizar un pago para una tarjeta en específico. Retorna el estado del pago.
-
-### HTTP Request
-
-`POST https://api.qvo.cl/webpay_oneclick/authorize/{card_token}`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-card_token | El token de la tarjeta a cargar
-
-### JSON Body Parameters
-
-Parameter | Required | Type | Description
---------- | ----------- | ----------- | -----------
-amount | Yes | integer | El monto a cargar a la tarjeta
-
-## Reversar pago
-
-```shell
-curl "https://api.qvo.cl/webpay_oneclick/reverse/l8qzt_v5Pcv-0t6tsKUMHQ" \
-  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
-```
-
-> Este comando retorna la siguiente estructura JSON:
-
-```json
-{
-  "transaction_uid": "l8qzt_v5Pcv-0t6tsKUMHQ",
-  "status": "reversed",
-  "created_at": "2017-01-16T19:57:51.202Z",
-  "reverse_code": "7355785544020521896"
-}
-```
+`POST /webpay_oneclick/cards/{card_id}/authorize`
 
 <!-- Revisar -->
-Este endpoint permite realizar autorizar un pago para una tarjeta en específico. Retorna el estado del pago.
+Este endpoint permite autorizar un cobro para una tarjeta Webpay Oneclick en específico.
 
-### HTTP Request
 
-`POST https://api.qvo.cl/webpay_oneclick/reverse/{transaction_uid}`
+### Parámetros
+|||
+|--------- | -----------|
+| card_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de la inscripción. |
+| amount<p class="attr-desc warning">Requerido</p><p class="attr-desc">integer</p> | Monto a cobrar. |
 
-### URL Parameters
 
-Parameter | Description
---------- | -----------
-transaction_uid | El uid de la transacción a anular
+### Respuesta
 
-## Obtener tarjetas
+Retorna <a href="#el-objeto-transacci-n">una transacción</a> de ser existosa la transacción. De lo contrario, retornará <a href="#errores">un error</a>.
+
+
+
+
+
+
+## Obtener una lista de tarjetas Webpay Oneclick
+
+> Ejemplo de llamada
 
 ```shell
-curl "https://api.qvo.cl/webpay_oneclick/cards" \
-  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
+curl -X GET "https://api.qvo.cl/webpay_oneclick/cards" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA" 
 ```
 
-> Este comando retorna la siguiente estructura JSON:
+```javascript
+// TODO
+```
+
+```ruby
+#TODO
+```
+
+```python
+// TODO
+```
+
+
+> Ejemplo de respuesta
 
 ```json
 [
   {
-    "id": 1,
-    "commerce_id": 1,
-    "credit_card_type": "Visa",
-    "last4_card_digits": "6623",
-    "token": "qOG4Zsh7BFJKA4GjuBkFTA",
-    "created_at": "2017-01-16T19:53:36.252Z",
-    "updated_at": "2017-01-16T19:53:36.252Z",
-    "active": true
-  },
-  ...
+    "id": "woc_bMz2iAH1mJ8M4cvv0b7IMA",
+    "last_4_digits": "6623",
+    "card_type": "Visa",
+    "payment_type": "CD",
+    "created_at": "2017-05-19T17:07:01.924Z"
+  }
 ]
 ```
 
-Este endpoint permite obtener una lista de las tarjetas asociadas al comercio.
 
-### HTTP Request
+`GET /webpay_oneclick/cards`
 
-`GET https://api.qvo.cl/webpay_oneclick/cards`
+Retorna una lista de tarjetas Webpay Oneclick asociadas al comercio. Las tarjetas se encuentran ordenadas por defecto por la fecha de creación, donde los mas recientes aparecerán primero.
 
-## Obtener tarjeta específica
+### Respuesta
 
-```shell
-curl "https://api.qvo.cl/webpay_oneclick/cards/qOG4Zsh7BFJKA4GjuBkFTA" \
-  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
-```
-
-> Este comando retorna la siguiente estructura JSON:
-
-```json
-  {
-    "id": 1,
-    "commerce_id": 1,
-    "credit_card_type": "Visa",
-    "last4_card_digits": "6623",
-    "token": "qOG4Zsh7BFJKA4GjuBkFTA",
-    "created_at": "2017-01-16T19:53:36.252Z",
-    "updated_at": "2017-01-16T19:53:36.252Z",
-    "active": true
-  }
-```
-
-Este endpoint permite obtener una tarjeta específica asocioada comercio.
-
-### HTTP Request
-
-`GET https://api.qvo.cl/webpay_oneclick/cards/{card_token}`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-card_token | El token asociado del a tarjeta
-
-## Inactivar tarjeta
-
-```shell
-curl --request DELETE "https://api.qvo.cl/webpay_oneclick/cards/qOG4Zsh7BFJKA4GjuBkFTA" \
-  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
-```
-
-> Este comando retorna la siguiente estructura JSON:
-
-```json
-  {
-    "msg" : "card succesfully inactivated"
-  }
-```
-
-Este endpoint permite anular una tarjeta específica asociada al comercio.
-
-### HTTP Request
-
-`DELETE https://api.qvo.cl/webpay_oneclick/cards/{card_token}`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-card_token | El token asociado del a tarjeta a eliminar
+Un arreglo donde cada entrada representa a una tarjeta con su respectiva información.
