@@ -38,15 +38,15 @@ Un plan de suscripción, contiene la información de cobro para diferentes produ
 ### Atributos
 |||
 |--------- | -----------|
-| id<p class="attr-desc">string</p> | Identificador único del objeto |
+| id<p class="attr-desc">string</p> | Identificador único del objeto. |
 | name<p class="attr-desc">string</p> | El nombre de despliegue del plan. |
 | price<p class="attr-desc">number</p> | El precio del plan. |
 | currency<p class="attr-desc">string</p> | Código de <a href="https://www.iso.org/iso-4217-currency-codes.html">3 dígitos ISO de moneda</a> del plan. Puede ser: `CLP` o `USD` |
 | trial_period_days<p class="attr-desc">integer</p> | Número de días de prueba otorgados cuando se suscribe un cliente al plan. Es `0` si no tiene un periodo definido. |
 | status<p class="attr-desc">string</p> | Estado del plan. Puede ser: `active` o `inactive`. |
 | subscriptions<p class="attr-desc">Array<<a href="#el-objeto-suscripci-n">Subscription</a>></p> | Suscripciones activas relacionadas al plan. |
-| created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto |
-| updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto |
+| created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto. |
+| updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto. |
 
 
 ## Crear un plan

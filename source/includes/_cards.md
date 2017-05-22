@@ -25,7 +25,7 @@ _En el futuro se espera soportar múltiples operadores._
 ### Atributos
 |||
 |--------- | -----------|
-| id<p class="attr-desc">string</p> | Identificador único del objeto |
+| id<p class="attr-desc">string</p> | Identificador único del objeto. |
 | last_4_digits<p class="attr-desc">string</p> | Los últimos 4 dígitos de la tarjeta. |
 | card_type<p class="attr-desc">string</p> | Tipo de tarjeta. Puede ser: `VISA` o `MASTERCARD` |
 | payment_type<p class="attr-desc">string</p> | Tipo de pago de la tarjeta. Puede ser: `CD` (crédito) o `DB` (débito) |

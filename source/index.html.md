@@ -23,6 +23,7 @@ includes:
   - subscriptions
   - transactions
   - withdrawals
+  - events
 
   - webpay_plus
   
