@@ -64,6 +64,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
 | currency<p class="attr-desc">string</p> | Código de [3 dígitos ISO de moneda](https://www.iso.org/iso-4217-currency-codes.html). Puede ser: `CLP` o `USD`. |
 | gateway<p class="attr-desc">string</p> | Corresponde a la vía de pago por la cual se efectuó la transacción. Puede ser: `webpay_plus`, `webpay_oneclick` o `olpays`. |
 | fee<p class="attr-desc">number</p> | Comisión de la transacción. Corresponde a lo cobrado por QVO. |
+| credits<p class="attr-desc">number</p> | Créditos utilizados en la transacción. |
 | initial_balance<p class="attr-desc">number</p> | Corresponde al balance inicial del comercio al momento de iniciar la transacción. |
 | final_balance<p class="attr-desc">number</p> | Corresponde al balance final del comercio al momento de finalizar la transacción. |
 | status<p class="attr-desc">string</p> | Estado de la transacción. Puede ser: `successful`, `rejected`, `unable_to_charge`, `refunded`, `partially_refunded` o `waiting_for_response`. Una transacción que está esperando el pago está `waiting_for_response` y pasa a `successful` si el pago es exitoso. Si no es exitoso, puede pasar a `unable_to_charge` si existió un problema con la vía de pago o `rejected` si fue rechazado por la misma. Por último, una transacción está en `refunded` si se ha reembolsado la totalidad del monto, o en `partially_refunded` si se ha reembolsado un monto parcial. |
