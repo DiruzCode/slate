@@ -83,7 +83,7 @@ Luego, para obtener el resultado de la transacción, se debe realizar una llamad
 
 
 <aside class="warning">
-La transacción posee una fecha de expiración de <b>10 minutos</b> luego de su fecha de creación. Si se intenta acceder a <code>redirect_url</code> luego de este tiempo, retornará <a href="#errores">un error</a>.
+La transacción posee una fecha de expiración de <b>10 minutos</b> luego de su fecha de creación. Si se intenta acceder a <code>redirect_url</code> luego de este tiempo, retornará [un error](#errores).
 </aside>
 
 

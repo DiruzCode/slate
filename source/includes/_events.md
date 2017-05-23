@@ -1,8 +1,8 @@
 # Eventos
 
-Los eventos nos permiten comunicarte cambios relevantes en el sistema. Cuando ocurre un evento interesante, se crea un <a href="#el-objeto-evento">objeto evento</a>. Por ejemplo, cuando se cobra una suscripción, se crea un evento `transaction.payment_succeeded`; cuando un pago falla, se crea un objeto `transaction.payment_failed`. Cabe mencionar que una llamada a la API puede generar 1 o más eventos. Por ejemplo, cuando se crea una nueva suscripción para un cliente, se crearán los eventos `customer.subscription.created` y `transaction.payment_succeeded`.
+Los eventos nos permiten comunicarte cambios relevantes en el sistema. Cuando ocurre un evento interesante, se crea un objeto evento. Por ejemplo, cuando se cobra una suscripción, se crea un evento `transaction.payment_succeeded`; cuando un pago falla, se crea un objeto `transaction.payment_failed`. Cabe mencionar que una llamada a la API puede generar 1 o más eventos. Por ejemplo, cuando se crea una nueva suscripción para un cliente, se crearán los eventos `customer.subscription.created` y `transaction.payment_succeeded`.
 
-Los eventos pueden ser enviados diréctamente a tu servidor a través de la utilización de <a href="#webhooks">webhooks</a>. Puedes adminstrarlos en la configuración de tu cuenta.
+Los eventos pueden ser enviados diréctamente a tu servidor a través de la utilización de [webhooks](#webhooks). Puedes adminstrarlos en la configuración de tu cuenta.
 
 ## El objeto evento
 
@@ -155,7 +155,7 @@ Obtiene los detalles de un evento existente.
 
 ### Respuesta
 
-Retorna un objeto de evento si se provee de un identificador válido. De lo contrario, retornará <a href="#errores">un error</a>.
+Retorna un objeto de evento si se provee de un identificador válido. De lo contrario, retornará [un error](#errores).
 
 
 

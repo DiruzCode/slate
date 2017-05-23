@@ -61,16 +61,16 @@ TODO
 |--------- | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto. |
 | amount<p class="attr-desc">number</p> | Monto de la transacción. |
-| currency<p class="attr-desc">string</p> | Código de <a href="https://www.iso.org/iso-4217-currency-codes.html">3 dígitos ISO de moneda</a>. Puede ser: `CLP` o `USD`. |
+| currency<p class="attr-desc">string</p> | Código de [3 dígitos ISO de moneda](https://www.iso.org/iso-4217-currency-codes.html). Puede ser: `CLP` o `USD`. |
 | gateway<p class="attr-desc">string</p> | Corresponde a la vía de pago por la cual se efectuó la transacción. Puede ser: `webpay_plus`, `webpay_oneclick` o `olpays`. |
 | fee<p class="attr-desc">number</p> | Comisión de la transacción. Corresponde a lo cobrado por QVO. |
 | initial_balance<p class="attr-desc">number</p> | Corresponde al balance inicial del comercio al momento de iniciar la transacción. |
 | final_balance<p class="attr-desc">number</p> | Corresponde al balance final del comercio al momento de finalizar la transacción. |
 | status<p class="attr-desc">string</p> | Estado de la transacción. Puede ser: `successful`, `rejected`, `unable_to_charge`, `refunded`, `partially_refunded` o `waiting_for_response`. Una transacción que está esperando el pago está `waiting_for_response` y pasa a `successful` si el pago es exitoso. Si no es exitoso, puede pasar a `unable_to_charge` si existió un problema con la vía de pago o `rejected` si fue rechazado por la misma. Por último, una transacción está en `refunded` si se ha reembolsado la totalidad del monto, o en `partially_refunded` si se ha reembolsado un monto parcial. |
-| customer<p class="attr-desc"><a href="#el-objeto-cliente">Customer</a></p> | Cliente asociado a la transacción. |
-| payment<p class="attr-desc"><a href="#el-objeto-pago">Payment</a></p> | Pago asociado a la transacción. |
-| refunds<p class="attr-desc">Array<<a href="#el-objeto-reembolso">Refund</a>></p> | Reembolzos asociados a la transacción. |
-| transable<p class="attr-desc">hash</p> | Objeto transado en la transacción. Puede ser <a href="#el-objeto-suscripci-n">Suscripción</a>. |
+| customer<p class="attr-desc">[Customer](#el-objeto-cliente)</p> | Cliente asociado a la transacción. |
+| payment<p class="attr-desc">[Payment](#el-objeto-pago)</p> | Pago asociado a la transacción. |
+| refunds<p class="attr-desc">Array<[Refund](#el-objeto-reembolso)></p> | Reembolzos asociados a la transacción. |
+| transable<p class="attr-desc">hash</p> | Objeto transado en la transacción. Puede ser [Suscripción](#el-objeto-suscripci-n). |
 | gateway_response<p class="attr-desc">hash</p> | Respuesta obtenida de la vía de la transacción. Contiene `status` y `message`. Es acá donde se expondrán detalles en caso de un error en la transacción. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto. |
 | updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto. |
@@ -99,7 +99,7 @@ TODO
 | gateway<p class="attr-desc">string</p> | Vía de pago. Puede ser: `webpay_plus`, `webpay_oneclick` o `olpays`. |
 | payment_type<p class="attr-desc">string</p> | Tipo de pago. Puede ser: `credit` (crédito) o `debit` (débito) |
 | installments<p class="attr-desc">integer</p> | Número de cuotas (sólo aplica a crédito). |
-| payment_method<p class="attr-desc"><a href="#el-objeto-tarjeta">Card</a></p> | Medio de pago utilizado. Describe una <a href="#el-objeto-tarjeta">tarjeta</a>. |
+| payment_method<p class="attr-desc">[Card](#el-objeto-tarjeta)</p> | Medio de pago utilizado. Describe una [tarjeta](#el-objeto-tarjeta). |
 
 ## El objeto reembolso
 
@@ -218,7 +218,7 @@ Obtiene los detalles de una transacción existente.
 
 ### Respuesta
 
-Retorna un objeto de transacción si se provee de un identificador válido. De lo contrario, retornará <a href="#errores">un error</a>.
+Retorna un objeto de transacción si se provee de un identificador válido. De lo contrario, retornará [un error](#errores).
 
 
 
@@ -341,7 +341,7 @@ La vía de pago `olpays` no soporta reembolsos, por lo que esta llamada retornar
 
 ### Respuesta
 
-Retorna un objeto de transacción, junto al arreglo asociado de reembolsos o `refunds` si la llamada es exitosa. Si la vía de pago no soporta reembolsos, retornará <a href="#errores">un error</a>.
+Retorna un objeto de transacción, junto al arreglo asociado de reembolsos o `refunds` si la llamada es exitosa. Si la vía de pago no soporta reembolsos, retornará [un error](#errores).
 
 
 

@@ -61,12 +61,12 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
 |||
 |--------- | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto |
-| default_payment_method<p class="attr-desc"><a href="#el-objeto-tarjeta">Card</a></p> | Medio de pago por defecto del cliente. Describe una <a href="#el-objeto-tarjeta">Tarjeta</a>. |
+| default_payment_method<p class="attr-desc">[Card](#el-objeto-tarjeta)</p> | Medio de pago por defecto del cliente. Describe una [tarjeta](#el-objeto-tarjeta). |
 | name<p class="attr-desc">string</p> | Nombre del cliente |
 | email<p class="attr-desc">string</p> | Dirección email del cliente |
-| subscriptions<p class="attr-desc">Array<<a href="#el-objeto-suscripci-n">Subscription</a>></p> | Subscripciones activas del cliente. |
-| cards<p class="attr-desc">Array<<a href="#el-objeto-tarjeta">Card</a>></p> | Tarjetas activas del cliente. |
-| transactions<p class="attr-desc">Array<<a href="#el-objeto-transacci-n">Transaction</a>></p> | Transacciones vinculadas al cliente. |
+| subscriptions<p class="attr-desc">Array<[Subscription](#el-objeto-suscripci-n)></p> | Subscripciones activas del cliente. |
+| cards<p class="attr-desc">Array<[Card](#el-objeto-tarjeta)></p> | Tarjetas activas del cliente. |
+| transactions<p class="attr-desc">Array<[Transaction](#el-objeto-transacci-n)></p> | Transacciones vinculadas al cliente. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto |
 | updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto |
 
@@ -148,7 +148,7 @@ Crea un nuevo objeto cliente
 
 ### Respuesta
 
-Retorna un objeto de cliente si la llamada es exitosa. Si existe otro cliente con el mismo email, retornará <a href="#errores">un error</a>.
+Retorna un objeto de cliente si la llamada es exitosa. Si existe otro cliente con el mismo email, retornará [un error](#errores).
 
 
 ## Obtener un cliente
@@ -296,7 +296,7 @@ Actualiza el cliente especificado con los parametros provistos. Cualquier parám
 
 ### Respuesta
 
-Retorna el objeto del cliente si la actualización es exitosa. Retorna <a href="#errores">un error</a> si algun parámetro de actualización es inválido (ej: identificador de medio de pago inválido).
+Retorna el objeto del cliente si la actualización es exitosa. Retorna [un error](#errores) si algun parámetro de actualización es inválido (ej: identificador de medio de pago inválido).
 
 
 
@@ -355,7 +355,7 @@ Elimina permanentemente un cliente. Esta acción es irreversible. Si existieran 
 
 ### Respuesta
 
-Retorna una respuesta sin contenido si el cliente fue eliminado con éxito. Si el identificador del cliente no es válido, retornará <a href="#errores">un error</a>.
+Retorna una respuesta sin contenido si el cliente fue eliminado con éxito. Si el identificador del cliente no es válido, retornará [un error](#errores).
 
 
 

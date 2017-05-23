@@ -41,10 +41,10 @@ Un plan de suscripción, contiene la información de cobro para diferentes produ
 | id<p class="attr-desc">string</p> | Identificador único del objeto. |
 | name<p class="attr-desc">string</p> | El nombre de despliegue del plan. |
 | price<p class="attr-desc">number</p> | El precio del plan. |
-| currency<p class="attr-desc">string</p> | Código de <a href="https://www.iso.org/iso-4217-currency-codes.html">3 dígitos ISO de moneda</a> del plan. Puede ser: `CLP` o `USD` |
+| currency<p class="attr-desc">string</p> | Código de [3 dígitos ISO de moneda](https://www.iso.org/iso-4217-currency-codes.html). Puede ser: `CLP` o `USD` |
 | trial_period_days<p class="attr-desc">integer</p> | Número de días de prueba otorgados cuando se suscribe un cliente al plan. Es `0` si no tiene un periodo definido. |
 | status<p class="attr-desc">string</p> | Estado del plan. Puede ser: `active` o `inactive`. |
-| subscriptions<p class="attr-desc">Array<<a href="#el-objeto-suscripci-n">Subscription</a>></p> | Suscripciones activas relacionadas al plan. |
+| subscriptions<p class="attr-desc">Array<[Subscription](#el-objeto-suscripci-n)></p> | Suscripciones activas relacionadas al plan. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto. |
 | updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto. |
 
@@ -136,13 +136,13 @@ Crea un nuevo objeto plan.
 | id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del plan. **Único**. |
 | name<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Nombre de despliegue del plan. |
 | price<p class="attr-desc warning">Requerido</p><p class="attr-desc">number</p> | Precio del plan. |
-| currency<p class="attr-desc warning">Requerido</p><p class="attr-desc">number</p> | Código de <a href="https://www.iso.org/iso-4217-currency-codes.html">3 dígitos ISO de moneda</a> del plan. Puede ser: `CLP` o `USD`. |
+| currency<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Código de [3 dígitos ISO de moneda](https://www.iso.org/iso-4217-currency-codes.html). Puede ser: `CLP` o `USD`. |
 | trial_period_days<p class="attr-desc">integer</p> | Especifica el número de días de prueba del plan. Si incluyes un periodo de prueba, al cliente no se le cobrará hasta que termine este periodo. |
 
 
 ### Respuesta
 
-Retorna un objeto de plan si la llamada es exitosa. Si existe otro plan con el mismo `id`, retornará <a href="#errores">un error</a>.
+Retorna un objeto de plan si la llamada es exitosa. Si existe otro plan con el mismo `id`, retornará [un error](#errores).
 
 
 
@@ -290,7 +290,7 @@ Actualiza el plan especificado con los parametros provistos. Cualquier parámetr
 
 ### Respuesta
 
-Retorna el objeto de plan si la actualización es exitosa. Retorna <a href="#errores">un error</a> si algun parámetro de actualización es inválido.
+Retorna el objeto de plan si la actualización es exitosa. Retorna [un error](#errores) si algun parámetro de actualización es inválido.
 
 ## Eliminar un plan
 
@@ -341,7 +341,7 @@ Elimina permanentemente un plan. Esta acción es irreversible. Si existieran sus
 
 ### Respuesta
 
-Retorna una respuesta sin contenido si el plan fue eliminado con éxito. Si el identificador del plan no es válido, retornará <a href="#errores">un error</a>.
+Retorna una respuesta sin contenido si el plan fue eliminado con éxito. Si el identificador del plan no es válido, retornará [un error](#errores).
 
 
 

@@ -35,8 +35,8 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
 | status<p class="attr-desc">string</p> | El estado de la suscripcion. Puede ser: `active`, `canceled`, `trialing`, `unpaid`. Una suscripción que está en periodo de prueba, se encuentra en `trialing` y se mueve a `active` cuando el periodo de prueba termina. Cuando se falla un cobro para renovar la suscripción, pasa al estado `unpaid`. Cuando se cancela una suscripción, tiene el estado `canceled`. |
 | current_period_start<p class="attr-desc">datetime</p> | Fecha de inicio del periodo de facturación. |
 | current_period_end<p class="attr-desc">datetime</p> | Fecha de término del periodo de facturación. Al final de este periodo se realizará un cobro. |
-| customer<p class="attr-desc"><a href="#el-objeto-cliente">Customer</a></p> | El cliente asociado a la suscripción. |
-| plan<p class="attr-desc"><a href="#el-objeto-plan">Plan</a></p> | El plan asociado a la suscripción. |
+| customer<p class="attr-desc">[Customer](#el-objeto-cliente)</p> | El cliente asociado a la suscripción. |
+| plan<p class="attr-desc">[Plan](#el-objeto-plan)</p> | El plan asociado a la suscripción. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto |
 | updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto |
 
@@ -127,7 +127,7 @@ Crea una nueva suscripción para un cliente existente.
 
 ### Respuesta
 
-Retorna un objeto de suscripción si la llamada es exitosa. Si el cliente no posee un medio de pago asociado por defecto o el cobro falla, retornará <a href="#errores">un error</a>, a menos que el plan sea gratis o posea un periodo de prueba.
+Retorna un objeto de suscripción si la llamada es exitosa. Si el cliente no posee un medio de pago asociado por defecto o el cobro falla, retornará [un error](#errores), a menos que el plan sea gratis o posea un periodo de prueba.
 
 
 
@@ -292,7 +292,7 @@ _TODO: Explicar debt_
 
 ### Respuesta
 
-Retorna el objeto de suscripción si la actualización es exitosa. Retorna <a href="#errores">un error</a> si algun parámetro de actualización es inválido.
+Retorna el objeto de suscripción si la actualización es exitosa. Retorna [un error](#errores) si algun parámetro de actualización es inválido.
 
 
 
@@ -369,7 +369,7 @@ Cancela una suscripción. Por defecto, esta se cancelará (pasará al estado `ca
 
 ### Respuesta
 
-Retorna la suscripción si la operación fue exitosa con el parámetro `cancel_at_period_end = true`. Si el identificador de la suscripción no es válido, retornará <a href="#errores">un error</a>.
+Retorna la suscripción si la operación fue exitosa con el parámetro `cancel_at_period_end = true`. Si el identificador de la suscripción no es válido, retornará [un error](#errores).
 
 
 
