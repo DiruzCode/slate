@@ -105,7 +105,7 @@ donde `uid` es igual a `woi_WZa9DgYQPzPtUqMsQdoNhQ`
 Luego, para obtener el resultado de la inscripción, se debe realizar una llamada a [obtener inscripción de tarjeta](#obtener-una-inscripci-n-de-tarjeta), utilizando el identificador único de inscripción `uid`.
 
 <aside class="warning">
-La inscripción posee una fecha de expiración de <b>10 minutos</b> luego de su fecha de creación. Si se intenta acceder a <code>redirect_url</code> luego de este tiempo, retornará [un error](#errores).
+La inscripción posee una fecha de expiración de <b>10 minutos</b> luego de su fecha de creación. Si se intenta acceder a <code>redirect_url</code> luego de este tiempo, retornará <a href="#errores">un error</a>.
 </aside>
 
 ### Parámetros
@@ -186,7 +186,7 @@ Obtiene el resultado de una inscripción de tarjeta para un cliente.
 
 ### Respuesta
 
-Retorna el estado de la inscripción y una [tarjeta](#el-objeto-tarjeta)_ de haber creado una.
+Retorna el estado de la inscripción y una [tarjeta](#el-objeto-tarjeta) de haber creado una.
 
 Esta puede tener `status`:
 
