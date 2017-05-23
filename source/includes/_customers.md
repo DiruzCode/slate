@@ -325,10 +325,7 @@ fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', { method: 'DELE
 require 'rest-client'
 require 'json'
 
-result = RestClient.delete 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', params:
-  {
-    # TODO
-  }
+result = RestClient.delete 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg'
 
 p JSON.parse(result)
 ````
@@ -336,9 +333,7 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.delete('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', params={
-  # TODO
-})
+r = requests.delete('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg')
 
 print r.json()
 ````
