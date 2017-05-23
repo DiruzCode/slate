@@ -18,7 +18,7 @@ Los retiros permiten extraer dinero del sistema a la cuenta especificada por el 
 
 ### Atributos
 |||
-|--------- | -----------|
+|---------: | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto |
 | amount<p class="attr-desc">number</p> | Monto de retiro. |
 | status<p class="attr-desc">string</p> | Estado del retiro. Puede ser: `waiting_for_approval`, `approved` y `transfered` |
@@ -89,7 +89,7 @@ Crea un nuevo objeto retiro.
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del plan. **Único**. |
 | name<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Nombre de despliegue del plan. |
 | price<p class="attr-desc warning">Requerido</p><p class="attr-desc">number</p> | Precio del plan. |
@@ -156,7 +156,7 @@ Obtiene los detalles de un retiro existente. Se necesita proporcionar sólo el i
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | withdrawal_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del retiro. |
 
 

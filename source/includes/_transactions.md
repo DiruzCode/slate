@@ -58,7 +58,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
 
 ### Atributos
 |||
-|--------- | -----------|
+|---------: | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto. |
 | amount<p class="attr-desc">number</p> | Monto de la transacción. |
 | currency<p class="attr-desc">string</p> | Código de [3 dígitos ISO de moneda](https://www.iso.org/iso-4217-currency-codes.html). Puede ser: `CLP` o `USD`. |
@@ -94,7 +94,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
 
 ### Atributos
 |||
-|--------- | -----------|
+|---------: | -----------|
 | amount<p class="attr-desc">number</p> | Monto del pago. |
 | gateway<p class="attr-desc">string</p> | Vía de pago. Puede ser: `webpay_plus`, `webpay_oneclick` o `olpays`. |
 | payment_type<p class="attr-desc">string</p> | Tipo de pago. Puede ser: `credit` (crédito) o `debit` (débito) |
@@ -112,7 +112,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
 
 ### Atributos
 |||
-|--------- | -----------|
+|---------: | -----------|
 | amount<p class="attr-desc">number</p> | Monto del reembolso. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del reembolso. |
 
@@ -212,7 +212,7 @@ Obtiene los detalles de una transacción existente.
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | transaction_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de la transacción. |
 
 
@@ -330,7 +330,7 @@ Crea un reembolso para una transacción existente.
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | transaction_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de una transacción. |
 | amount<p class="attr-desc">string</p> | Monto a reembolsar. |
 

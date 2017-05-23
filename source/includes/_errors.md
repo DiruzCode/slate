@@ -17,7 +17,7 @@ QVO usa respuestas HTTP convencionales para indicar el éxito o fracaso de un re
 
 ### Atributos
 |||
-|--------- | -----------|
+|---------: | -----------|
 | type<p class="attr-desc">string</p> | El tipo de error. Puede ser: `api_error`, `authentication error`, `invalid_request_error` o `rate_limit_error`. |
 | message<p class="attr-desc">string</p><p class="attr-desc">opcional</p> | Un mensaje legible que provee mas detalles acerca del error. |
 | param<p class="attr-desc">string</p><p class="attr-desc">opcional</p> | El parámetro al cual se relaciona el error. |
@@ -25,7 +25,7 @@ QVO usa respuestas HTTP convencionales para indicar el éxito o fracaso de un re
 
 ### Códigos de error
 |||
-| ---------- | ------- |
+| ----------: | ------- |
 | **400**<p class="attr-desc">Bad Request</p> | Hay un problema con tu request 🙈 |
 | **401**<p class="attr-desc">Unauthorized</p> | Tu api key es incorrecta 🔐 |
 | **403**<p class="attr-desc">Forbidden</p> | No tienes permiso para ver esta página 🚫 |

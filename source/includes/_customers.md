@@ -59,7 +59,7 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
 
 ### Atributos
 |||
-|--------- | -----------|
+|---------: | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto |
 | default_payment_method<p class="attr-desc">[Card](#el-objeto-tarjeta)</p> | Medio de pago por defecto del cliente. Describe una [tarjeta](#el-objeto-tarjeta). |
 | name<p class="attr-desc">string</p> | Nombre del cliente |
@@ -142,7 +142,7 @@ Crea un nuevo objeto cliente
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | email<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Dirección email del cliente. |
 | name<p class="attr-desc">string</p> | Nombre del cliente. |
 
@@ -209,7 +209,7 @@ Obtiene los detalles de un cliente existente. Se necesita proporcionar sólo el 
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del cliente. |
 
 ### Respuesta
@@ -288,7 +288,7 @@ Actualiza el cliente especificado con los parametros provistos. Cualquier parám
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del cliente. |
 | nombre<p class="attr-desc">string</p> | Nombre. |
 | email<p class="attr-desc">string</p> | Dirección email. |
@@ -344,7 +344,7 @@ Elimina permanentemente un cliente. Esta acción es irreversible. Si existieran 
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del cliente. |
 
 

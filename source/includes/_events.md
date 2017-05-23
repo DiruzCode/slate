@@ -44,7 +44,7 @@ Los eventos pueden ser enviados diréctamente a tu servidor a través de la util
 
 ### Atributos
 |||
-|--------- | -----------|
+|---------: | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto. |
 | type<p class="attr-desc">string</p> | Descripción de el evento (ej: `transaction.payment_succeeded`, `customer.card.created`, etc.). |
 | data<p class="attr-desc">hash</p> | Objeto que contiene la información de los objetos asociados al evento. |
@@ -53,7 +53,7 @@ Los eventos pueden ser enviados diréctamente a tu servidor a través de la util
 
 ### Tipos de evento
 |||
-|--------- | -----------|
+|---------: | -----------|
 | `customer.created` | Se creó un objeto de cliente. |
 | `customer.updated` | Se actualizó un objeto de cliente. |
 | `customer.deleted` | Se eliminó un objeto de cliente. |
@@ -149,7 +149,7 @@ Obtiene los detalles de un evento existente.
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | event_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del evento. |
 
 

@@ -89,7 +89,7 @@ La transacción posee una fecha de expiración de <b>10 minutos</b> luego de su 
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | amount<p class="attr-desc warning">Requerido</p><p class="attr-desc">integer</p> | El monto de la transacción|
 | return_url<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Url (válida) de retorno de la transacción |
 

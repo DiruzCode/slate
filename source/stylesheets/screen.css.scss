@@ -467,7 +467,10 @@ img.full-width-image {
 
     td:first-child{
       min-width: 10rem;
-      text-align: right;
+    }
+
+    td:last-child{
+      width: 100%;
     }
 
     tr:last-child {

@@ -89,7 +89,7 @@ Por ejemplo, si deseamos ordenar un recurso por fecha de creación de manera asc
 
 ### Atributos
 |||
-|--------- | -----------|
+|---------: | -----------|
 | page<p class="attr-desc">integer</p> | Número de página |
 | per_page<p class="attr-desc">integer</p> | Número de entradas por página. |
 | where<p class="attr-desc">hash</p> | Corresponde a un conjunto de reglas (ej: `{"amount": {">": 2000}}`) |

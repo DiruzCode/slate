@@ -37,7 +37,7 @@ Un plan de suscripción, contiene la información de cobro para diferentes produ
 
 ### Atributos
 |||
-|--------- | -----------|
+|---------: | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto. |
 | name<p class="attr-desc">string</p> | El nombre de despliegue del plan. |
 | price<p class="attr-desc">number</p> | El precio del plan. |
@@ -132,7 +132,7 @@ Crea un nuevo objeto plan.
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del plan. **Único**. |
 | name<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Nombre de despliegue del plan. |
 | price<p class="attr-desc warning">Requerido</p><p class="attr-desc">number</p> | Precio del plan. |
@@ -203,7 +203,7 @@ Obtiene los detalles de un plan existente. Se necesita proporcionar sólo el ide
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | plan_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del plan. |
 
 
@@ -283,7 +283,7 @@ Actualiza el plan especificado con los parametros provistos. Cualquier parámetr
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | plan_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del plan. |
 | name<p class="attr-desc">string</p> | Nombre de despliegue del plan. |
 
@@ -334,7 +334,7 @@ Elimina permanentemente un plan. Esta acción es irreversible. Si existieran sus
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | plan_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del plan. |
 
 

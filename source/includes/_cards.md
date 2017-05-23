@@ -24,7 +24,7 @@ _En el futuro se espera soportar múltiples operadores._
 
 ### Atributos
 |||
-|--------- | -----------|
+|---------: | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto. |
 | last_4_digits<p class="attr-desc">string</p> | Los últimos 4 dígitos de la tarjeta. |
 | card_type<p class="attr-desc">string</p> | Tipo de tarjeta. Puede ser: `VISA` o `MASTERCARD` |
@@ -110,7 +110,7 @@ La inscripción posee una fecha de expiración de <b>10 minutos</b> luego de su 
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del cliente. |
 | return_url<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | URL válida de retorno de la inscripción. |
 
@@ -180,7 +180,7 @@ Obtiene el resultado de una inscripción de tarjeta para un cliente.
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del cliente. |
 | inscription_uid<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de la inscripción. |
 
@@ -250,7 +250,7 @@ Obtiene los detalles de una tarjeta existente para el ciente. Se necesita propor
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del cliente. |
 | card_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de la tarjeta. |
 
@@ -350,7 +350,7 @@ Este endpoint permite autorizar un cobro para una tarjeta en específico.
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del cliente. |
 | card_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de la tarjeta del cliente. |
 | amount<p class="attr-desc warning">Requerido</p><p class="attr-desc">integer</p> | Monto a cobrar. |
@@ -405,7 +405,7 @@ Elimina permanentemente una tarjeta de un cliente. Esta acción es irreversible.
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del cliente. |
 | card_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de la tarjeta. |
 
@@ -472,7 +472,7 @@ Retorna una lista de tarjetas para un cliente.
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del cliente. |
 
 ### Respuesta

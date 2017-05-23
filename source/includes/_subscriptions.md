@@ -30,7 +30,7 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
 
 ### Atributos
 |||
-|--------- | -----------|
+|---------: | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto |
 | status<p class="attr-desc">string</p> | El estado de la suscripcion. Puede ser: `active`, `canceled`, `trialing`, `unpaid`. Una suscripción que está en periodo de prueba, se encuentra en `trialing` y se mueve a `active` cuando el periodo de prueba termina. Cuando se falla un cobro para renovar la suscripción, pasa al estado `unpaid`. Cuando se cancela una suscripción, tiene el estado `canceled`. |
 | current_period_start<p class="attr-desc">datetime</p> | Fecha de inicio del periodo de facturación. |
@@ -120,7 +120,7 @@ Crea una nueva suscripción para un cliente existente.
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de un cliente. |
 | plan_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de un plan. |
 
@@ -196,7 +196,7 @@ Obtiene los detalles de una suscripción existente. Se necesita proporcionar só
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | subscription_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de la suscripción. |
 
 
@@ -285,7 +285,7 @@ _TODO: Explicar debt_
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | subscription_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de la suscripción. |
 | plan_id<p class="attr-desc">string</p> | Identificador único de un plan existente. |
 
@@ -364,7 +364,7 @@ Cancela una suscripción. Por defecto, esta se cancelará (pasará al estado `ca
 
 ### Parámetros
 |||
-|--------- | -----------|
+|---------: | -----------|
 | subscription_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de la suscripción. |
 
 ### Respuesta
