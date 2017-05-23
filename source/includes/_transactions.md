@@ -1,6 +1,6 @@
 # Transacciones
 
-TODO
+Las transacciónes representan movimientos en el sistema en torno a pagos. Estos pueden ser transaccionales o vinculados a un "transable", como una [suscripción](#suscripciones). Estos almacenan información como pagos, reembolsos y comisiones.
 
 ## El objeto transacción
 
