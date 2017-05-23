@@ -19,7 +19,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
     "name": "Jon Snow",
-    "email": "dabastard@thewatch.com"
+    "email": "lordcommander@thewatch.org"
   },
   "payment": {
     "amount": "3000.0",
@@ -169,7 +169,7 @@ print r.json()
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
     "name": "Jon Snow",
-    "email": "dabastard@thewatch.com"
+    "email": "dabastard@winterfell.com"
   },
   "payment": {
     "amount": "3000.0",
@@ -284,7 +284,7 @@ print r.json()
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
     "name": "Jon Snow",
-    "email": "dabastard@thewatch.com"
+    "email": "lordcommander@thewatch.org"
   },
   "payment": {
     "amount": "3000.0",
@@ -399,7 +399,7 @@ print r.json()
     "customer": {
       "id": "cus_qos_6r3-4I4zIiou2BVMHg",
       "name": "Jon Snow",
-      "email": "dabastard@thewatch.com"
+      "email": "dabastard@winterfell.com"
     },
     "payment": {
       "amount": "3000.0",
