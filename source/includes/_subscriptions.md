@@ -23,6 +23,16 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
     "price": "15000.0",
     "currency": "CLP"
   },
+  "transactions": [
+    {
+      "id": "trx_t0dM-kSdEXs0g3YHY4sASQ",
+      "gateway": "webpay_oneclick",
+      "amount": "15000.0",
+      "currency": "CLP",
+      "status": "successful",
+      "created_at": "2017-05-17T19:12:57.185Z"
+    }
+  ],
   "created_at": "2017-05-17T19:12:57.189Z",
   "updated_at": "2017-05-17T19:12:57.189Z"
 }
@@ -37,6 +47,7 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
 | current_period_end<p class="attr-desc">datetime</p> | Fecha de término del periodo de facturación. Al final de este periodo se realizará un cobro. |
 | customer<p class="attr-desc">[Customer](#el-objeto-cliente)</p> | El cliente asociado a la suscripción. |
 | plan<p class="attr-desc">[Plan](#el-objeto-plan)</p> | El plan asociado a la suscripción. |
+| transactions<p class="attr-desc">Array<[Transaction](#el-objeto-transacci-n)></p> | Las transacciones asociadas a la suscripción. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto |
 | updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto |
 
