@@ -58,6 +58,13 @@ table p.warning {
   font-size: 10px;
 }
 
+table p.danger {
+  color: rgba(235, 83, 84, 1);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 10px;
+}
+
 img.full-width-image {
   width: calc(100% + 56px);
   height: auto;

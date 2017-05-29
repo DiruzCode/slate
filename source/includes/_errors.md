@@ -13,7 +13,7 @@
 ```
 
 
-QVO usa respuestas HTTP convencionales para indicar el éxito o fracaso de un request. En general, códigos en el rango de los 2xx indican éxito, códigos en el rango 4xx indican un errir qye falló debido a la información proporcionada (ej: un parámetro requerido fue omitido, un pago falló, etc.), y códigos en el rango de los 5xx indican un error con los servidores de QVO (estos son raros).
+QVO usa respuestas HTTP convencionales para indicar el éxito o fracaso de un request. En general, códigos en el rango de los 2xx indican éxito, códigos en el rango 4xx indican un error que falló debido a la información proporcionada (ej: un parámetro requerido fue omitido, un pago falló, etc.), y códigos en el rango de los 5xx indican un error con los servidores de QVO (estos son raros).
 
 ### Atributos
 |||

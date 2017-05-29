@@ -238,7 +238,7 @@ print r.json()
 Retorna una lista de eventos. Los eventos se encuentran ordenadas por defecto por la fecha de creación, donde las mas recientes aparecerán primero.
 
 <aside class="notice">
-Este endpoint puede ser utilizado con <a href="#paginaci-n-filtros-y-orden">paginación, filtros y orden</a>
+Este endpoint admite <a href="#paginaci-n-filtros-y-orden">paginación, filtros y orden</a>
 </aside>
 
 ### Respuesta

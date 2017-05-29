@@ -2,10 +2,7 @@
 
 <img src="images/webpay_oneclick_banner.jpg" class="full-width-image" />
 
-La API de tarjetas provee una abstracción sobre el sistema de Webpay Oneclick. Es posible inscribir múltiples tarjetas para un cliente para luego cobrar.
-
-_En el futuro se espera soportar múltiples operadores._ 
-
+Es posible inscribir múltiples tarjetas para un cliente para luego cobrar.
 
 
 ## El objeto tarjeta
@@ -92,9 +89,15 @@ print r.json()
 
 Crea una inscripción de tarjeta para el cliente.
 
-Esta inscripción permite al cliente inscribir su tarjeta mediante la interfaz de Webpay Oneclick. Para esto, es necesario **redirigir** al cliente a `redirect_url`, para iniciar el proceso de inscripción. 
+Permite a un cliente inscribir su tarjeta mediante la interfaz de Webpay Oneclick. Esto se divide en 3 pasos:
 
-Una vez terminado el proceso de inscripción, se retornará el cliente al `return_url` proporcionado. Esta llamada, irá acompañada de un **query param** llamado `uid` (ubicado en la ruta) que representa el identificador único de la inscripción de tarjeta. 
+#### 1. Realizar la llamada y **redirigir** al cliente
+
+Una vez realizada la llamada de inscripción de tarjeta, es necesario **redirigir** al cliente a el `redirect_url` retornado por la llamada, para iniciar el proceso de inscripción. 
+
+#### 2. Capturar la respuesta
+
+Una vez terminado paso 1, se retornará el cliente con una llamada `GET` a el `return_url` proporcionado como parámetro en el paso 1. Esta llamada, irá acompañada de un parámetro llamado `uid` ubicado en la ruta, que representa el identificador único de la inscripción de tarjeta. 
 
 Por ejemplo, para `return_url = "http://www.example.com/return` se retornará el cliente a:
 
@@ -102,7 +105,9 @@ Por ejemplo, para `return_url = "http://www.example.com/return` se retornará el
 
 donde `uid` es igual a `woi_WZa9DgYQPzPtUqMsQdoNhQ` 
 
-Luego, para obtener el resultado de la inscripción, se debe realizar una llamada a [obtener inscripción de tarjeta](#obtener-una-inscripci-n-de-tarjeta), utilizando el identificador único de inscripción `uid`.
+#### 3. Obtener el resultado
+
+Para verificar si la inscripción fue exitosa, se debe realizar una llamada a [obtener inscripción de tarjeta](#obtener-una-inscripci-n-de-tarjeta), utilizando el identificador único de inscripción `uid` retornado en el paso 2.
 
 <aside class="warning">
 La inscripción posee una fecha de expiración de <b>10 minutos</b> luego de su fecha de creación. Si se intenta acceder a <code>redirect_url</code> luego de este tiempo, retornará <a href="#errores">un error</a>.
@@ -112,7 +117,7 @@ La inscripción posee una fecha de expiración de <b>10 minutos</b> luego de su 
 |||
 |---------: | -----------|
 | customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del cliente. |
-| return_url<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | URL válida de retorno de la inscripción. |
+| return_url<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | URL de retorno de la inscripción. |
 
 
 ### Respuesta
@@ -318,8 +323,6 @@ print r.json()
   "fee": "371.07",
   "credits": "0.0",
   "status": "successful",
-  "initial_balance": "0.0",
-  "final_balance": "2628.93",
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
     "name": "Jon Snow",

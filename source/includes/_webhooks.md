@@ -1,13 +1,16 @@
 # Webhooks
 
-Los [Webhooks](https://es.wikipedia.org/wiki/Webhook) son callbacks personalizados que cumplen la función de notifiación cuando ocurren [eventos](#eventos) en tu cuenta. 
+Los [Webhooks](https://es.wikipedia.org/wiki/Webhook) son callbacks que notifican cuando ocurren [eventos](#eventos) 
+en tu cuenta. 
 
-Interactuar con una API de tercero como la de QVO puede introducir dos problemas:
+Por ejemplo: Cuando se genera un cobro recurrente de una suscripción, un Webhook te permite recibir una notificación para que puedas tomar una acción, como enviar un email de agradecimiento al usuario.
 
-- Servicios no directamente responsables de hacer una llamada a la API pueden que aún necesiten saber su respuesta.
-- Algunos eventos, como los producidos por pagos recurrentes, no son resultados directos de llamadas a la API.
+Los Webhooks son útiles en dos situaciones:
 
-Los Webhooks resuelven estos problemas, al permitir registrar una URL a la cual notificaremos cada vez que un evento ocurra en tu cuenta. Cuando un evento ocurre, por ejemplo, cuando se realiza un pago exitoso de una suscripción, QVO crea un objeto de [evento](#eventos). Este objeto contiente toda la información relevante de lo ocurrido, incluido el tipo y los datos asociados a él. QVO luego envía el objeto de evento a la URL registrada para webhooks registrada en tu cuenta mediante una llamada HTTP POST. Puedes encontrar la lista completa de eventos [aquí](#tipos-de-evento).
+- Cuando se genera un evento que no es un resultado directo de una llamada a la API. Como por ejemplo el cobro de una suscripción.
+- Cuando existen servicios o funcionalidades que necesitan saber la respuesta a una llamada, pero éstos no la realizan diréctamente. Como por ejemplo un servcio de contabilidad que necesita actualizar el registro cuando se genera una transacción.
+
+Cuando un evento ocurre, QVO crea un objeto de [evento](#eventos). Este objeto contiente toda la información relevante de lo ocurrido. QVO luego envía el objeto de evento a través de una llamada HTTP POST a una URL que tú definas para ese propósito. Puedes registar la URL [aquí](https://dashboard.qvo.cl) y ver la lista completa de eventos [aquí](#tipos-de-evento).
 
 Algunos casos de uso son:
 
@@ -15,7 +18,7 @@ Algunos casos de uso son:
 - Enviar un email a un cliente cuando el pago de su suscripción falla.
 - Registrar una entrada en contabilidad cuando se realiza una transacción.
 
-Sólo necesitas utilizar Webhooks para operacioens que ocurren "tras-bambalinas". El resultado de la mayoría de las llamadas de QVO, son reportados de manera síncrona a tu código y no necesitan de un Webhook para su verificación. Por ejemplo, cuando se cobra una tarjeta, una vez realizado el pago existosamente, se retornará inmediatamente la transacción, o si falla, se retornará un error.
+Sólo necesitas utilizar Webhooks para operaciones que ocurren "tras-bambalinas". El resultado de la mayoría de las llamadas de QVO, son reportados de manera síncrona a tu código y no necesitan de un Webhook para su verificación. Por ejemplo, cuando se cobra una tarjeta, una vez realizado el pago existosamente, se retornará inmediatamente la transacción, o si falla, se retornará un error.
 
 ### Recibiendo una notificación webhook
 

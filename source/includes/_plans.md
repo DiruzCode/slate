@@ -1,6 +1,6 @@
 # Planes
 
-Un plan de suscripción, contiene la información de cobro para diferentes productos o niveles de características de tu sitio. Por ejemplo, puedes tener una plan de CLP$20.000/mes por caracterísitcas básicas y un plan distinto de CLP$40.000 por características "premium".
+Un plan de suscripción contiene la información para el cobro mensual de un servicio o producto. Por ejemplo, puedes tener una plan de CLP$20.000/mes por caracterísitcas básicas y otro de CLP$40.000 por características premium.
 
 
 ## El objeto plan
@@ -133,7 +133,7 @@ Crea un nuevo objeto plan.
 ### Parámetros
 |||
 |---------: | -----------|
-| id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del plan. **Único**. |
+| id<p class="attr-desc danger">Único</p><p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del plan. |
 | name<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Nombre de despliegue del plan. |
 | price<p class="attr-desc warning">Requerido</p><p class="attr-desc">number</p> | Precio del plan. |
 | currency<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Código de [3 dígitos ISO de moneda](https://www.iso.org/iso-4217-currency-codes.html). Puede ser: `CLP` o `USD`. |
@@ -417,7 +417,7 @@ print r.json()
 Retorna una lista de planes. Los planes se encuentran ordenados por defecto por la fecha de creación, donde los mas recientes aparecerán primero.
 
 <aside class="notice">
-Este endpoint puede ser utilizado con <a href="#paginaci-n-filtros-y-orden">paginación, filtros y orden</a>
+Este endpoint admite <a href="#paginaci-n-filtros-y-orden">paginación, filtros y orden</a>
 </aside>
 
 ### Respuesta

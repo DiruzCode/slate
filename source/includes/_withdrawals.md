@@ -1,6 +1,6 @@
 # Retiros
 
-Los retiros permiten extraer dinero del sistema a la cuenta especificada por el comercio en la configuración. Al momento de ser aprovados, existe un plazo de 48 horas hábiles en que se realizará la transferencia la cuenta del comercio.
+Los retiros permiten extraer dinero del sistema a la cuenta especificada por el comercio en la configuración. Al momento de ser aprovados, existe un plazo de máximo 72 horas hábiles en que se realizará la transferencia a la cuenta del comercio.
 
 ## El objeto retiro
 
@@ -19,11 +19,11 @@ Los retiros permiten extraer dinero del sistema a la cuenta especificada por el 
 ### Atributos
 |||
 |---------: | -----------|
-| id<p class="attr-desc">string</p> | Identificador único del objeto |
+| id<p class="attr-desc">string</p> | Identificador único del objeto. |
 | amount<p class="attr-desc">number</p> | Monto de retiro. |
-| status<p class="attr-desc">string</p> | Estado del retiro. Puede ser: `waiting_for_approval`, `approved` y `transfered` |
-| created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto |
-| updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto |
+| status<p class="attr-desc">string</p> | Estado del retiro. Puede ser: `waiting_for_approval`, `approved` y `transfered`. |
+| created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto. |
+| updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto. |
 
 
 ## Crear un retiro
@@ -221,7 +221,7 @@ print r.json()
 Retorna una lista de retiros. Los retiros se encuentran ordenados por defecto por la fecha de creación, donde los mas recientes aparecerán primero.
 
 <aside class="notice">
-Este endpoint puede ser utilizado con <a href="#paginaci-n-filtros-y-orden">paginación, filtros y orden</a>
+Este endpoint admite <a href="#paginaci-n-filtros-y-orden">paginación, filtros y orden</a>
 </aside>
 
 ### Respuesta

@@ -14,8 +14,10 @@ __      _____  _ __| | __| |
 
 > Tenemos disponibles varios SDK para distintos lenguajes que puedes encontrar [aquí](#).
 
-Bienvenido a la API de QVO. Puedes usar nuestra API para acceder a los distintos endpoins de QVO, donde podrás efectuar pagos mediante distintos métodos y obtener información de ellos.
+Bienvenido a la API de QVO. Puedes usar nuestra API para acceder a los distintos endpoins de QVO, donde podrás generar y gestionar pagos mediante distintos métodos y obtener información de ellos.
+
+El API esta organizado alrededor de [REST](https://es.wikipedia.org/wiki/Transferencia_de_Estado_Representacional). Nuestra API posee URLs predecibles y orientadas a recursos, y utiliza códigos de respuesta HTTP para indicar el resultado de la llamada. Todas las respuestas de la API retornan objetos JSON, incluyendo los errores, sin embargo, nuestros SDK convertirán las respuestas a objetos específicos de cada lenguaje.
+
+Utilizamos características incluidas en el protocolo HTTP, como authenticación y verbos, los cuales son soportados por la gran mayoría de los clientes HTTP. Soportamos [CORS](https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS), lo cual permite interactuar de manera segura con nuestra API desde una aplicación web desde el lado del cliente.
 
 Tenemos bindings para **cURL**, **Ruby**, **Node.js** y **Python**! Puedes ver ejemplos de código en el área a la derecha, y puedes cambiar el lenguaje de los ejemplos arriba a la derecha.
-
-El API esta organizado alrededor de [REST](https://es.wikipedia.org/wiki/Transferencia_de_Estado_Representacional). Nuestra API posee URLs predecibles y orientadas a recursos, y utiliza códigos de respuesta HTTP para indicar errores. Utilizamos características incluidas en el protocolo HTTP, como authenticación y verbos, los cuales son soportados por la gran mayoría de los clientes HTTP. Soportamos [CORS](https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS), lo cual permite interactuar de manera segura con nuestra API desde una aplicación web desde el lado del cliente. Todas las respuestas de la API retornan objetos JSON, incluyendo los errores, sin embargo, nuestros SDK convertirán las respuestas a objetos específicos de cada lenguaje.

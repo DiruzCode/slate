@@ -143,7 +143,7 @@ Crea un nuevo objeto cliente
 ### Parámetros
 |||
 |---------: | -----------|
-| email<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Dirección email del cliente. |
+| email<p class="attr-desc danger">Único</p><p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Dirección email del cliente. |
 | name<p class="attr-desc">string</p> | Nombre del cliente. |
 
 ### Respuesta
@@ -450,7 +450,7 @@ print r.json()
 Retorna una lista de clientes. Los clientes se encuentran ordenados por defecto por la fecha de creación, donde los mas recientes aparecerán primero.
 
 <aside class="notice">
-Este endpoint puede ser utilizado con <a href="#paginaci-n-filtros-y-orden">paginación, filtros y orden</a>
+Este endpoint admite <a href="#paginaci-n-filtros-y-orden">paginación, filtros y orden</a>
 </aside>
 
 ### Respuesta

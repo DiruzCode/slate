@@ -35,7 +35,7 @@ const qvo = require('qvo');
 let api = qvo.authorize('api_key');
 ```
 
-QVO utiliza [Token Based Authentication](https://www.w3.org/2001/sw/Europe/events/foaf-galway/papers/fp/token_based_authentication/) sobre HTTPS para la autenticación. Puedes solicitar un API token en nuestro [portal de desarrolladores](http://qvo.cl/developers). Los request no autenticados retornarán una respuesta HTTP 401. Las llamadas sobre HTTP simple también fallarán.
+QVO utiliza [Token Based Authentication](https://www.w3.org/2001/sw/Europe/events/foaf-galway/papers/fp/token_based_authentication/) sobre HTTPS para la autenticación. Para tener acceso a nuestra API solicita un token a nuestro equipo [aquí](mailto:dev@qvo.cl). Los request no autenticados retornarán una respuesta HTTP 401. Las llamadas sobre HTTP simple también fallarán.
 
 ### Header de autenticación
 

@@ -10,6 +10,7 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
 {
   "id": "sub_HnKU4UmU5GtymRulcVOEow",
   "status": "active",
+  "debt": "0.0",
   "current_period_start": "2017-05-17T19:12:57.185Z",
   "current_period_end": "2017-06-17T19:12:57.185Z",
   "customer": {
@@ -43,8 +44,9 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
 |---------: | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto |
 | status<p class="attr-desc">string</p> | El estado de la suscripcion. Puede ser: `active`, `canceled`, `trialing`, `unpaid`. Una suscripción que está en periodo de prueba, se encuentra en `trialing` y se mueve a `active` cuando el periodo de prueba termina. Cuando se falla un cobro para renovar la suscripción, pasa al estado `unpaid`. Cuando se cancela una suscripción, tiene el estado `canceled`. |
-| current_period_start<p class="attr-desc">datetime</p> | Fecha de inicio del periodo de facturación. |
-| current_period_end<p class="attr-desc">datetime</p> | Fecha de término del periodo de facturación. Al final de este periodo se realizará un cobro. |
+| debt<p class="attr-desc">number</p> | Deuda asociada a al suscripción. |
+| current_period_start<p class="attr-desc">datetime</p> | Fecha de inicio del ciclo de facturación. |
+| current_period_end<p class="attr-desc">datetime</p> | Fecha de término del ciclo de facturación. Al final de este periodo se realizará un cobro. |
 | customer<p class="attr-desc">[Customer](#el-objeto-cliente)</p> | El cliente asociado a la suscripción. |
 | plan<p class="attr-desc">[Plan](#el-objeto-plan)</p> | El plan asociado a la suscripción. |
 | transactions<p class="attr-desc">Array<[Transaction](#el-objeto-transacci-n)></p> | Las transacciones asociadas a la suscripción. |
@@ -107,6 +109,7 @@ print r.json()
 {
   "id": "sub_HnKU4UmU5GtymRulcVOEow",
   "status": "active",
+  "debt": "0.0",
   "current_period_start": "2017-05-17T19:12:57.185Z",
   "current_period_end": "2017-06-17T19:12:57.185Z",
   "customer": {
@@ -128,6 +131,9 @@ print r.json()
 `POST /subscriptions`
 
 Crea una nueva suscripción para un cliente existente.
+
+Al momento de crear una suscripción, se cobrará automáticamente el costo del plan al medio de pago por defecto del cliente, a menos que el plan posea días de prueba o sea gratis (precio igual a 0).
+
 
 ### Parámetros
 |||
@@ -183,6 +189,7 @@ print r.json()
 {
   "id": "sub_HnKU4UmU5GtymRulcVOEow",
   "status": "active",
+  "debt": "0.0",
   "current_period_start": "2017-05-17T19:12:57.185Z",
   "current_period_end": "2017-06-17T19:12:57.185Z",
   "customer": {
@@ -225,14 +232,14 @@ Retorna un objeto de suscripción si se provee de un identificador válido.
 ````shell
 curl --request PUT "https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow" \
   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA" \
-  -d plan_id="plata"
+  -d plan_id="platino"
 ````
 
 
 ````javascript
 const request = require('node-fetch');
 fetch('http://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', { method: 'PUT'}, {
-  plan_id: "plata"
+  plan_id: "platino"
 })
 .then(function(res) {
     return res.json();
@@ -247,7 +254,7 @@ require 'json'
 
 result = RestClient.put 'http://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', params:
   {
-    plan_id: "plata"
+    plan_id: "platino"
   }
 
 p JSON.parse(result)
@@ -257,7 +264,7 @@ p JSON.parse(result)
 import requests
 
 r = requests.put('http://api.qvo.cl/subscriptions/oro', params={
-  plan_id: "plata"
+  plan_id: "platino"
 })
 
 print r.json()
@@ -269,6 +276,7 @@ print r.json()
 {
   "id": "sub_HnKU4UmU5GtymRulcVOEow",
   "status": "active",
+  "debt": "35000.0",
   "current_period_start": "2017-05-17T19:12:57.185Z",
   "current_period_end": "2017-06-17T19:12:57.185Z",
   "customer": {
@@ -277,13 +285,13 @@ print r.json()
     "email": "dabastad@thewatch.org"
   },
   "plan": {
-    "id": "plata",
-    "name": "Plan Plata",
-    "price": "5000.0",
+    "id": "platino",
+    "name": "Plan Platino",
+    "price": "50000.0",
     "currency": "CLP"
   },
   "created_at": "2017-05-17T19:12:57.189Z",
-  "updated_at": "2017-05-18T11:20:57.201Z"
+  "updated_at": "2017-05-17T19:12:57.185Z"
 }
 ```
 
@@ -292,7 +300,9 @@ print r.json()
 
 Actualiza la suscripción especificada con los parametros provistos. Cualquier parámetro que no se provea quedará inalterado.
 
-_TODO: Explicar debt_
+Cuando se cambia un plan de mayor precio, es necesario cobrar la diferencia del uso del nuevo plan por el periodo restante, el cual va desde fecha de actualización hasta la fecha de término del ciclo de facturación. Esto se almacenará en la suscripcipción como una **deuda** o `debt` y se cobrará al término del ciclo de facturación.
+
+En el caso contrario, en el que el plan es de menor precio, se le otorgará al cliente **créditos** que serán descontados del próximo cobro.
 
 ### Parámetros
 |||
@@ -450,7 +460,7 @@ print r.json()
 Retorna una lista de suscripciones activas. Las suscripciones se encuentran ordenadas por defecto por la fecha de creación, donde las mas recientes aparecerán primero.
 
 <aside class="notice">
-Este endpoint puede ser utilizado con <a href="#paginaci-n-filtros-y-orden">paginación, filtros y orden</a>
+Este endpoint admite <a href="#paginaci-n-filtros-y-orden">paginación, filtros y orden</a>
 </aside>
 
 ### Respuesta

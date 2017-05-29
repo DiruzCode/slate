@@ -2,7 +2,7 @@
 
 <img src="images/webpay_plus_banner.jpg" class="full-width-image" />
 
-El sistema permite generar transacciones con Webpay Plus.
+El sistema permite generar cobros con Webpay Plus.
 
 
 
@@ -71,11 +71,17 @@ print r.json()
 
 `POST /webpay_plus/charge`
 
-Crea una transacción utilizando Webpay Plus.
+Crea una cobro utilizando Webpay Plus.
 
-Permite realizar un cobro mediante la interfaz de Webpay Plus. Para esto, es necesario **redirigir** al cliente a `redirect_url` para iniciar el proceso. 
+Permite a un realizar un cobro mediante la interfaz de Webpay Plus. Esto se divide en 3 pasos:
 
-Una vez terminado el proceso de transacción, se retornará el cliente al `return_url` proporcionado. Esta llamada, irá acompañada de un **query param** llamado `transaction_id` (ubicado en la ruta) que representa el identificador único de la transacción. 
+#### 1. Realizar la llamada y **redirigir** al cliente
+
+Una vez realizada la llamada de cobro, es necesario **redirigir** al cliente a el `redirect_url` retornado por la llamada, para iniciar el proceso de cobro. 
+
+#### 2. Capturar la respuesta
+
+Una vez terminado paso 1, se retornará el cliente con una llamada `GET` a el `return_url` proporcionado como parámetro en el paso 1. Esta llamada, irá acompañada de un parámetro llamado `transaction_id` ubicado en la ruta, que representa el identificador único de la transacción. 
 
 Por ejemplo, para `return_url = "http://www.example.com/return` se retornará el cliente a:
 
@@ -83,11 +89,13 @@ Por ejemplo, para `return_url = "http://www.example.com/return` se retornará el
 
 donde `transaction_id` es igual a `trx_fzmNpXvJJZBWwGbH5fW8cw` 
 
-Luego, para obtener el resultado de la transacción, se debe realizar una llamada a <a href="#obtener-una-transacci-n">obtener una transacción</a>, utilizando el identificador único de inscripción `transaction_id`.
+#### 3. Obtener el resultado
+
+Para verificar si la transacción fue exitosa, se debe realizar una llamada a [obtener una transacción](#obtener-una-transacci-n), tilizando el identificador único de la transacción `transaction_id`. retornado en el paso 2.
 
 
 <aside class="warning">
-La transacción posee una fecha de expiración de <b>10 minutos</b> luego de su fecha de creación. Si se intenta acceder a <code>redirect_url</code> luego de este tiempo, retornará <a href="#errores">un error</a>.
+La cobro posee una fecha de expiración de <b>10 minutos</b> luego de su fecha de creación. Si se intenta acceder a <code>redirect_url</code> luego de este tiempo, retornará <a href="#errores">un error</a>.
 </aside>
 
 
@@ -95,10 +103,10 @@ La transacción posee una fecha de expiración de <b>10 minutos</b> luego de su 
 |||
 |---------: | -----------|
 | amount<p class="attr-desc warning">Requerido</p><p class="attr-desc">integer</p> | El monto de la transacción|
-| return_url<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Url (válida) de retorno de la transacción |
+| return_url<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | URL de retorno de la transacción |
 | customer_id<p class="attr-desc">string</p> | Identificador único de cliente. |
 
 
 ### Respuesta
 
-Retorna los parámetros para iniciar una transacción con Webpay Plus.
+Retorna los parámetros para iniciar un cobro con Webpay Plus.
