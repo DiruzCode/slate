@@ -10,7 +10,7 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
 {
   "id": "cus_qos_6r3-4I4zIiou2BVMHg",
   "default_payment_method": {
-    "id": "opc_m_c3zyh5BEl8EITxvLbMzw",
+    "id": "woc_m_c3zyh5BEl8EITxvLbMzw",
     "last_4_digits": "4242",
     "card_type": "VISA",
     "payment_type": "CD"
@@ -26,7 +26,7 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
       "plan": {
         "id": "test-plan-03",
         "name": "Test plan 03",
-        "price": "3000.0",
+        "price": 3000,
         "currency": "CLP"
       },
       "current_period_start": "2017-05-17T19:12:57.185Z",
@@ -37,7 +37,7 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
   ],
   "cards": [
     {
-      "id": "opc_m_c3zyh5BEl8EITxvLbMzw",
+      "id": "woc_m_c3zyh5BEl8EITxvLbMzw",
       "last_4_digits": "4242",
       "card_type": "VISA",
       "payment_type": "CD"
@@ -46,10 +46,10 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
   "transactions": [
     {
       "id": "trx_Vk7WJYL-wYi4bjXmAaLyaw",
-      "amount": "3000.0",
-      "gateway": "olpays",
-      "fee": "371.07",
-      "credits": "0.0",
+      "amount": 3000,
+      "gateway": "Webpay Oneclick",
+      "fee": 372,
+      "credits": 0,
       "status": "successful",
       "created_at": "2017-05-17T19:12:57.759Z"
     }
@@ -397,7 +397,7 @@ print r.json()
   {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
     "default_payment_method": {
-      "id": "opc_m_c3zyh5BEl8EITxvLbMzw",
+      "id": "woc_m_c3zyh5BEl8EITxvLbMzw",
       "last_4_digits": "4242",
       "card_type": "VISA",
       "payment_type": "CD"
@@ -413,7 +413,7 @@ print r.json()
         "plan": {
           "id": "test-plan-03",
           "name": "Test plan 03",
-          "price": "3000.0",
+          "price": 3000,
           "currency": "CLP"
         },
         "current_period_start": "2017-05-17T19:12:57.185Z",
@@ -424,7 +424,7 @@ print r.json()
     ],
     "cards": [
       {
-        "id": "opc_m_c3zyh5BEl8EITxvLbMzw",
+        "id": "woc_m_c3zyh5BEl8EITxvLbMzw",
         "last_4_digits": "4242",
         "card_type": "VISA",
         "payment_type": "CD"
@@ -433,10 +433,10 @@ print r.json()
     "transactions": [
       {
         "id": "trx_Vk7WJYL-wYi4bjXmAaLyaw",
-        "amount": "3000.0",
-        "gateway": "olpays",
-        "fee": "371.07",
-        "credits": "0.0",
+        "amount": 3000,
+        "gateway": "Webpay Oneclick",
+        "fee": 372,
+        "credits": 0,
         "status": "successful",
         "created_at": "2017-05-17T19:12:57.759Z"
       }

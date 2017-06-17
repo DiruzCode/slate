@@ -11,7 +11,7 @@ Un plan de suscripción contiene la información para el cobro mensual de un ser
 {
   "id": "oro",
   "name": "Plan oro",
-  "price": "3000.0",
+  "price": 3000,
   "currency": "CLP",
   "trial_period_days": 0,
   "status": "active",
@@ -40,7 +40,7 @@ Un plan de suscripción contiene la información para el cobro mensual de un ser
 |---------: | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto. |
 | name<p class="attr-desc">string</p> | El nombre de despliegue del plan. |
-| price<p class="attr-desc">number</p> | El precio del plan. |
+| price<p class="attr-desc">integer</p> | El precio del plan. |
 | currency<p class="attr-desc">string</p> | Código de [3 dígitos ISO de moneda](https://www.iso.org/iso-4217-currency-codes.html). Puede ser: `CLP` o `USD` |
 | trial_period_days<p class="attr-desc">integer</p> | Número de días de prueba otorgados cuando se suscribe un cliente al plan. Es `0` si no tiene un periodo definido. |
 | status<p class="attr-desc">string</p> | Estado del plan. Puede ser: `active` o `inactive`. |
@@ -116,7 +116,7 @@ print r.json()
 {
   "id": "oro",
   "name": "Plan oro",
-  "price": "15000.0",
+  "price": 15000,
   "currency": "CLP",
   "trial_period_days": 10,
   "status": "active",
@@ -135,7 +135,7 @@ Crea un nuevo objeto plan.
 |---------: | -----------|
 | id<p class="attr-desc danger">Único</p><p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del plan. |
 | name<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Nombre de despliegue del plan. |
-| price<p class="attr-desc warning">Requerido</p><p class="attr-desc">number</p> | Precio del plan. |
+| price<p class="attr-desc warning">Requerido</p><p class="attr-desc">integer</p> | Precio del plan. |
 | currency<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Código de [3 dígitos ISO de moneda](https://www.iso.org/iso-4217-currency-codes.html). Puede ser: `CLP` o `USD`. |
 | trial_period_days<p class="attr-desc">integer</p> | Especifica el número de días de prueba del plan. Si incluyes un periodo de prueba, al cliente no se le cobrará hasta que termine este periodo. |
 
@@ -187,7 +187,7 @@ print r.json()
 {
   "id": "oro",
   "name": "Plan oro",
-  "price": "15000.0",
+  "price": 15000,
   "currency": "CLP",
   "trial_period_days": 10,
   "status": "active",
@@ -265,7 +265,7 @@ print r.json()
 {
   "id": "oro",
   "name": "Di Oro",
-  "price": "15000.0",
+  "price": 15000,
   "currency": "CLP",
   "trial_period_days": 10,
   "status": "active",
@@ -387,7 +387,7 @@ print r.json()
   {
     "id": "oro",
     "name": "Plan Oro",
-    "price": "15000.0",
+    "price": 15000,
     "currency": "CLP",
     "trial_period_days": 10,
     "status": "active",

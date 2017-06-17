@@ -8,11 +8,11 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
 {
   "id": "trx_Vk7WJYL-wYi4bjXmAaLyaw",
   "created_at": "2017-05-17T19:12:57.759Z",
-  "amount": "3000.0",
+  "amount": 3000,
   "currency": "CLP",
   "gateway": "webpay_oneclick",
-  "fee": "371.07",
-  "credits": "0.0",
+  "fee": 372,
+  "credits": 0,
   "status": "successful",
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
@@ -20,7 +20,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
     "email": "lordcommander@thewatch.org"
   },
   "payment": {
-    "amount": "3000.0",
+    "amount": 3000,
     "gateway": "webpay_oneclick",
     "payment_type": "credit",
     "installments": 0,
@@ -31,7 +31,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
       "payment_type": "CD"
     }
   },
-  "refunds": [],
+  "refund": null,
   "transable": {
     "type": "Subscription",
     "id": "sub_HnKU4UmU5GtymRulcVOEow",
@@ -41,7 +41,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
     "plan": {
       "id": "oro",
       "name": "Plan Oro",
-      "price": "3000.0",
+      "price": 3000,
       "currency": "CLP"
     },
     "created_at": "2017-05-17T19:12:57.189Z",
@@ -58,15 +58,15 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
 |||
 |---------: | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto. |
-| amount<p class="attr-desc">number</p> | Monto de la transacción. |
+| amount<p class="attr-desc">integer</p> | Monto de la transacción. |
 | currency<p class="attr-desc">string</p> | Código de [3 dígitos ISO de moneda](https://www.iso.org/iso-4217-currency-codes.html). Puede ser: `CLP` o `USD`. |
 | gateway<p class="attr-desc">string</p> | Corresponde a la vía de pago por la cual se efectuó la transacción. Puede ser: `webpay_plus`, `webpay_oneclick` o `olpays`. |
-| fee<p class="attr-desc">number</p> | Comisión de la transacción. Corresponde a lo cobrado por QVO. |
-| credits<p class="attr-desc">number</p> | Créditos utilizados en la transacción. |
-| status<p class="attr-desc">string</p> | Estado de la transacción. Puede ser: `successful`, `rejected`, `unable_to_charge`, `refunded`, `partially_refunded` o `waiting_for_response`. Una transacción que está esperando el pago está `waiting_for_response` y pasa a `successful` si el pago es exitoso. Si no es exitoso, puede pasar a `unable_to_charge` si existió un problema con la vía de pago o `rejected` si fue rechazado por la misma. Por último, una transacción está en `refunded` si se ha reembolsado la totalidad del monto, o en `partially_refunded` si se ha reembolsado un monto parcial. |
+| fee<p class="attr-desc">integer</p> | Comisión de la transacción. Corresponde a lo cobrado por QVO. |
+| credits<p class="attr-desc">integer</p> | Créditos utilizados en la transacción. |
+| status<p class="attr-desc">string</p> | Estado de la transacción. Puede ser: `successful`, `rejected`, `unable_to_charge`, `refunded` o `waiting_for_response`. Una transacción que está esperando el pago está `waiting_for_response` y pasa a `successful` si el pago es exitoso. Si no es exitoso, puede pasar a `unable_to_charge` si existió un problema con la vía de pago o `rejected` si fue rechazado por la misma. Por último, una transacción está en `refunded` si se ha reembolsado la totalidad del monto. |
 | customer<p class="attr-desc">[Customer](#el-objeto-cliente)</p> | Cliente asociado a la transacción. |
-| payment<p class="attr-desc">[Payment](#el-objeto-pago)</p> | Pago asociado a la transacción. |
-| refunds<p class="attr-desc">Array<[Refund](#el-objeto-reembolso)></p> | Reembolzos asociados a la transacción. |
+| payment<p class="attr-desc">[Payment](#el-objeto-pago)</p> | Pago asociado a la transacción. Puede ser `null` |
+| refund<p class="attr-desc">[Refund](#el-objeto-reembolso)</p> | Reembolzo asociado a la transacción. Puede ser `null` |
 | transable<p class="attr-desc">hash</p> | Objeto transado en la transacción. Puede ser [Suscripción](#el-objeto-suscripci-n). |
 | gateway_response<p class="attr-desc">hash</p> | Respuesta obtenida de la vía de la transacción. Contiene `status` y `message`. Es acá donde se expondrán detalles en caso de un error en la transacción. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto. |
@@ -76,7 +76,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
 
 ```json
 {
-  "amount": "3000.0",
+  "amount": 3000,
   "gateway": "webpay_oneclick",
   "payment_type": "credit",
   "installments": 0,
@@ -92,7 +92,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
 ### Atributos
 |||
 |---------: | -----------|
-| amount<p class="attr-desc">number</p> | Monto del pago. |
+| amount<p class="attr-desc">integer</p> | Monto del pago. |
 | gateway<p class="attr-desc">string</p> | Vía de pago. Puede ser: `webpay_plus`, `webpay_oneclick` o `olpays`. |
 | payment_type<p class="attr-desc">string</p> | Tipo de pago. Puede ser: `credit` (crédito) o `debit` (débito) |
 | installments<p class="attr-desc">integer</p> | Número de cuotas (sólo aplica a crédito). |
@@ -102,7 +102,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
 
 ```json
 {
-  "amount": "3000.0",
+  "amount": 3000,
   "created_at": "2017-05-17T19:12:57.189Z"
 }
 ```
@@ -110,7 +110,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
 ### Atributos
 |||
 |---------: | -----------|
-| amount<p class="attr-desc">number</p> | Monto del reembolso. |
+| amount<p class="attr-desc">integer</p> | Monto del reembolso. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del reembolso. |
 
 
@@ -155,11 +155,11 @@ print r.json()
 {
   "id": "trx_Vk7WJYL-wYi4bjXmAaLyaw",
   "created_at": "2017-05-17T19:12:57.759Z",
-  "amount": "3000.0",
+  "amount": 3000,
   "currency": "CLP",
   "gateway": "webpay_oneclick",
-  "fee": "371.07",
-  "credits": "0.0",
+  "fee": 372,
+  "credits": 0,
   "status": "successful",
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
@@ -167,7 +167,7 @@ print r.json()
     "email": "dabastard@winterfell.com"
   },
   "payment": {
-    "amount": "3000.0",
+    "amount": 3000,
     "gateway": "webpay_oneclick",
     "payment_type": "credit",
     "installments": 0,
@@ -178,7 +178,7 @@ print r.json()
       "payment_type": "CD"
     }
   },
-  "refunds": [],
+  "refund": null,
   "transable": {
     "type": "Subscription",
     "id": "sub_HnKU4UmU5GtymRulcVOEow",
@@ -188,7 +188,7 @@ print r.json()
     "plan": {
       "id": "oro",
       "name": "Plan Oro",
-      "price": "3000.0",
+      "price": 3000,
       "currency": "CLP"
     },
     "created_at": "2017-05-17T19:12:57.189Z",
@@ -222,7 +222,7 @@ Retorna un objeto de transacción si se provee de un identificador válido. De l
 > Ejemplo de llamada
 
 ````shell
-curl --request POST "https://api.qvo.cl/tramsactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refunds" \
+curl --request POST "https://api.qvo.cl/tramsactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund" \
   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA" \
   -d amount=1000
 ````
@@ -230,7 +230,7 @@ curl --request POST "https://api.qvo.cl/tramsactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/
 
 ````javascript
 const request = require('node-fetch');
-fetch('http://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refunds', { method: 'POST'}, {
+fetch('http://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', { method: 'POST'}, {
   amount: 1000
 })
 .then(function(res) {
@@ -244,7 +244,7 @@ fetch('http://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refunds', { met
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'http://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refunds', params:
+result = RestClient.post 'http://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', params:
   {
     amount: 1000
   }
@@ -255,7 +255,7 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.post('http://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refunds', params={
+r = requests.post('http://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', params={
   amount: 1000
 })
 
@@ -268,11 +268,11 @@ print r.json()
 {
   "id": "trx_Vk7WJYL-wYi4bjXmAaLyaw",
   "created_at": "2017-05-17T19:12:57.759Z",
-  "amount": "3000.0",
+  "amount": 3000,
   "currency": "CLP",
   "gateway": "webpay_oneclick",
-  "fee": "371.07",
-  "credits": "0.0",
+  "fee": 372,
+  "credits": 0,
   "status": "refunded",
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
@@ -280,7 +280,7 @@ print r.json()
     "email": "lordcommander@thewatch.org"
   },
   "payment": {
-    "amount": "3000.0",
+    "amount": 3000,
     "gateway": "webpay_oneclick",
     "payment_type": "credit",
     "installments": 0,
@@ -291,10 +291,10 @@ print r.json()
       "payment_type": "CD"
     }
   },
-  "refunds" : [{
-    "amount": "3000.0",
+  "refund" : {
+    "amount": 3000,
     "created_at": "2017-05-17T19:12:57.189Z"
-  }],
+  },
   "transable": {
     "type": "Subscription",
     "id": "sub_HnKU4UmU5GtymRulcVOEow",
@@ -304,7 +304,7 @@ print r.json()
     "plan": {
       "id": "oro",
       "name": "Plan Oro",
-      "price": "3000.0",
+      "price": 3000,
       "currency": "CLP"
     },
     "created_at": "2017-05-17T19:12:57.189Z",
@@ -317,26 +317,20 @@ print r.json()
 }
 ```
 
-`POST /transactions/{transaction_id}/refunds`
+`POST /transactions/{transaction_id}/refund`
 
-Crea un reembolso para una transacción existente.
+Crea un reembolso para una transacción existente. Se reembolzará la totalidad del monto pagado y los créditos correspondientes.
 
 ### Parámetros
 |||
 |---------: | -----------|
 | transaction_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de una transacción. |
-| amount<p class="attr-desc">string</p> | Monto a reembolsar. |
-
-Cabe mencionar, que `amount` o el monto a reembolsar, es requerido sólo para las vías de pago en donde es soportado el reembolso parcial, como `webpay_plus`.
 
 La vía de pago `olpays` no soporta reembolsos, por lo que esta llamada retornará un error.
 
-
 ### Respuesta
 
-Retorna un objeto de transacción, junto al arreglo asociado de reembolsos o `refunds` si la llamada es exitosa. Si la vía de pago no soporta reembolsos, retornará [un error](#errores).
-
-
+Retorna un objeto de transacción con el objeto `refund` si la llamada es exitosa. Si la vía de pago no soporta reembolsos, retornará [un error](#errores).
 
 
 ## Obtener una lista de transacciones
@@ -381,11 +375,11 @@ print r.json()
   {
     "id": "trx_Vk7WJYL-wYi4bjXmAaLyaw",
     "created_at": "2017-05-17T19:12:57.759Z",
-    "amount": "3000.0",
+    "amount": 3000,
     "currency": "CLP",
     "gateway": "webpay_oneclick",
-    "fee": "371.07",
-    "credits": "0.0",
+    "fee": 372,
+    "credits": 0,
     "status": "successful",
     "customer": {
       "id": "cus_qos_6r3-4I4zIiou2BVMHg",
@@ -393,7 +387,7 @@ print r.json()
       "email": "dabastard@winterfell.com"
     },
     "payment": {
-      "amount": "3000.0",
+      "amount": 3000,
       "gateway": "webpay_oneclick",
       "payment_type": "credit",
       "installments": 0,
@@ -404,7 +398,7 @@ print r.json()
         "payment_type": "CD"
       }
     },
-    "refunds": [],
+    "refund": null,
     "transable": {
       "type": "Subscription",
       "id": "sub_HnKU4UmU5GtymRulcVOEow",
@@ -414,7 +408,7 @@ print r.json()
       "plan": {
         "id": "oro",
         "name": "Plan Oro",
-        "price": "3000.0",
+        "price": 3000,
         "currency": "CLP"
       },
       "created_at": "2017-05-17T19:12:57.189Z",

@@ -11,7 +11,7 @@ Es posible inscribir múltiples tarjetas para un cliente para luego cobrar.
 
 ```json
 {
-  "id": "opc_m_c3zyh5BEl8EITxvLbMzw",
+  "id": "woc_m_c3zyh5BEl8EITxvLbMzw",
   "last_4_digits": "4242",
   "card_type": "VISA",
   "payment_type": "CD",
@@ -93,17 +93,17 @@ Permite a un cliente inscribir su tarjeta mediante la interfaz de Webpay Oneclic
 
 #### 1. Realizar la llamada y **redirigir** al cliente
 
-Una vez realizada la llamada de inscripción de tarjeta, es necesario **redirigir** al cliente a el `redirect_url` retornado por la llamada, para iniciar el proceso de inscripción. 
+Una vez realizada la llamada de inscripción de tarjeta, es necesario **redirigir** al cliente a el `redirect_url` retornado por la llamada, para iniciar el proceso de inscripción.
 
 #### 2. Capturar la respuesta
 
-Una vez terminado paso 1, se retornará el cliente con una llamada `GET` a el `return_url` proporcionado como parámetro en el paso 1. Esta llamada, irá acompañada de un parámetro llamado `uid` ubicado en la ruta, que representa el identificador único de la inscripción de tarjeta. 
+Una vez terminado paso 1, se retornará el cliente con una llamada `GET` a el `return_url` proporcionado como parámetro en el paso 1. Esta llamada, irá acompañada de un parámetro llamado `uid` ubicado en la ruta, que representa el identificador único de la inscripción de tarjeta.
 
 Por ejemplo, para `return_url = "http://www.example.com/return` se retornará el cliente a:
 
 `GET http://www.example.com/return?uid=woi_WZa9DgYQPzPtUqMsQdoNhQ`
 
-donde `uid` es igual a `woi_WZa9DgYQPzPtUqMsQdoNhQ` 
+donde `uid` es igual a `woi_WZa9DgYQPzPtUqMsQdoNhQ`
 
 #### 3. Obtener el resultado
 
@@ -317,11 +317,11 @@ print r.json()
 {
   "id": "trx_Vk7WJYL-wYi4bjXmAaLyaw",
   "created_at": "2017-05-17T19:12:57.759Z",
-  "amount": "3000.0",
+  "amount": 3000,
   "currency": "CLP",
   "gateway": "webpay_oneclick",
-  "fee": "371.07",
-  "credits": "0.0",
+  "fee": 372,
+  "credits": 0,
   "status": "successful",
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
@@ -329,7 +329,7 @@ print r.json()
     "email": "dabastard@winterfell.com"
   },
   "payment": {
-    "amount": "3000.0",
+    "amount": 3000,
     "gateway": "webpay_oneclick",
     "payment_type": "credit",
     "installments": 0,
@@ -340,6 +340,7 @@ print r.json()
       "payment_type": "CD"
     }
   },
+  "refund": null,
   "gateway_response": {
     "status": "success",
     "message": "successful transaction"
