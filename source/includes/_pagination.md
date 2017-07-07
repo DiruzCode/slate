@@ -10,18 +10,6 @@
     -d 'order_by=amount DESC'
 ```
 
-```javascript
-// TODO
-```
-
-```ruby
-# TODO
-```
-
-```python
-# TODO
-```
-
 Todos los recursos que retornen un arreglo o lista, soportan paginación, filtros y orden. Por defecto, los valores se ordenan por fecha de creación, donde los mas recientes se ubicarán primero en el arreglo.
 
 #### Paginación
@@ -32,7 +20,7 @@ Por ejemplo, para obtener la segunda página desplegando 20 entradas por página
 
 `GET /recurso&page=1&per_page=20`
 
-Para facilitar la navegación y el despliegue de número de páginas, en la respuesta existen los headers `X-Page`, `X-Per-Page` y `X-Total` que representan la **página actual**, la **cantidad de entradas por página** y el **total de entradas** respectivamente. 
+Para facilitar la navegación y el despliegue de número de páginas, en la respuesta existen los headers `X-Page`, `X-Per-Page` y `X-Total` que representan la **página actual**, la **cantidad de entradas por página** y el **total de entradas** respectivamente.
 
 Por ejemplo si `X-Page = 2`, `X-Per-Page = 10` y `X-Total = 45`, es fácil definir que se trata de 5 páginas en total.
 
@@ -41,7 +29,7 @@ Por ejemplo si `X-Page = 2`, `X-Per-Page = 10` y `X-Total = 45`, es fácil defin
 > Ejemplo de filtro
 
 ```json
-{ 
+{
   "amount" : {
     ">=" : 1000,
     "<" : 8000

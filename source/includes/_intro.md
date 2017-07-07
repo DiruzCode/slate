@@ -1,10 +1,10 @@
 # Introducción
 
 ```
- _          _ _             
-| |__   ___| | | ___        
-| '_ \ / _ \ | |/ _ \       
-| | | |  __/ | | (_) |      
+ _          _ _
+| |__   ___| | | ___
+| '_ \ / _ \ | |/ _ \
+| | | |  __/ | | (_) |
 |_| |_|\___|_|_|\___/     _
 __      _____  _ __| | __| |
 \ \ /\ / / _ \| '__| |/ _` |
@@ -21,3 +21,7 @@ El API esta organizado alrededor de [REST](https://es.wikipedia.org/wiki/Transfe
 Utilizamos características incluidas en el protocolo HTTP, como authenticación y verbos, los cuales son soportados por la gran mayoría de los clientes HTTP. Soportamos [CORS](https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS), lo cual permite interactuar de manera segura con nuestra API desde una aplicación web desde el lado del cliente.
 
 Tenemos bindings para **cURL**, **Ruby**, **Node.js** y **Python**! Puedes ver ejemplos de código en el área a la derecha, y puedes cambiar el lenguaje de los ejemplos arriba a la derecha.
+
+<aside class="notice">
+El ambiente de sandbox se encuentra ubicado en la url <br><code>https://playground.qvo.cl</code>.
+</aside>
