@@ -14,7 +14,7 @@ __      _____  _ __| | __| |
 
 > Tenemos disponibles varios SDK para distintos lenguajes que puedes encontrar [aquí](#).
 
-Bienvenido a la API de QVO. Puedes usar nuestra API para acceder a los distintos endpoins de QVO, donde podrás generar y gestionar pagos mediante distintos métodos y obtener información de ellos.
+Bienvenido al API de QVO. Puedes usar nuestra API para acceder a los distintos endpoins de QVO, donde podrás generar y gestionar pagos mediante distintos métodos y obtener información de ellos.
 
 El API esta organizado alrededor de [REST](https://es.wikipedia.org/wiki/Transferencia_de_Estado_Representacional). Nuestra API posee URLs predecibles y orientadas a recursos, y utiliza códigos de respuesta HTTP para indicar el resultado de la llamada. Todas las respuestas de la API retornan objetos JSON, incluyendo los errores, sin embargo, nuestros SDK convertirán las respuestas a objetos específicos de cada lenguaje.
 

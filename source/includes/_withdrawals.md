@@ -1,6 +1,6 @@
 # Retiros
 
-Los retiros permiten extraer dinero del sistema a la cuenta especificada por el comercio en la configuración. Al momento de ser aprovados, existe un plazo de máximo 72 horas hábiles en que se realizará la transferencia a la cuenta del comercio.
+Los retiros permiten extraer dinero del sistema a la cuenta especificada por el comercio en la configuración. Al momento de ser aprobados, existe un plazo de máximo 72 horas hábiles en que se realizará la transferencia a la cuenta del comercio.
 
 ## El objeto retiro
 
