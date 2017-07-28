@@ -59,12 +59,33 @@ r = requests.post('https://api.qvo.cl/api/webpay_plus/charge', params={
 print r.json()
 ````
 
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('POST', 'https://api.qvo.cl/api/webpay_plus/charge', [
+  'json' => [
+    'amount' => 2000,
+    'return_url' => "http://www.example.com/return",
+    'customer_id' => "cus_VhiEhjVHoYui_6ykz9fOsg"
+  ],
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
+````
+
 > Ejemplo de respuesta
 
 ```json
 {
   "transaction_id": "trx_fzmNpXvJJZBWwGbH5fW8cw",
-  "redirect_url": "http://api.qvo.cl/webpay_plus/init_transaction/wpt_y7CUkd3EqiLB8TV1O7fhGQ",
+  "redirect_url": "https://api.qvo.cl/webpay_plus/init_transaction/wpt_y7CUkd3EqiLB8TV1O7fhGQ",
   "expiration_date": "2017-05-21T23:43:41.332Z"
 }
 ```
@@ -77,17 +98,17 @@ Permite a un realizar un cobro mediante la interfaz de Webpay Plus. Esto se divi
 
 #### 1. Realizar la llamada y **redirigir** al cliente
 
-Una vez realizada la llamada de cobro, es necesario **redirigir** al cliente a el `redirect_url` retornado por la llamada, para iniciar el proceso de cobro. 
+Una vez realizada la llamada de cobro, es necesario **redirigir** al cliente a el `redirect_url` retornado por la llamada, para iniciar el proceso de cobro.
 
 #### 2. Capturar la respuesta
 
-Una vez terminado paso 1, se retornará el cliente con una llamada `GET` a el `return_url` proporcionado como parámetro en el paso 1. Esta llamada, irá acompañada de un parámetro llamado `transaction_id` ubicado en la ruta, que representa el identificador único de la transacción. 
+Una vez terminado paso 1, se retornará el cliente con una llamada `GET` a el `return_url` proporcionado como parámetro en el paso 1. Esta llamada, irá acompañada de un parámetro llamado `transaction_id` ubicado en la ruta, que representa el identificador único de la transacción.
 
 Por ejemplo, para `return_url = "http://www.example.com/return` se retornará el cliente a:
 
 `GET http://www.example.com/return?transaction_id=trx_fzmNpXvJJZBWwGbH5fW8cw`
 
-donde `transaction_id` es igual a `trx_fzmNpXvJJZBWwGbH5fW8cw` 
+donde `transaction_id` es igual a `trx_fzmNpXvJJZBWwGbH5fW8cw`
 
 #### 3. Obtener el resultado
 

@@ -75,6 +75,25 @@ r = requests.post('https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards
 print r.json()
 ````
 
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('POST', 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions', [
+  'json' => [
+    'return_url' => "http://example.com/return",
+  ],
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
+````
+
 > Ejemplo de respuesta
 
 ```json
@@ -160,6 +179,22 @@ r = requests.get('https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/
 print r.json()
 ````
 
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('GET', 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions/woi_WZa9DgYQPzPtUqMsQdoNhQ', [
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
+````
+
 > Ejemplo de respuesta
 
 ```json
@@ -237,6 +272,23 @@ r = requests.get('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/
 print r.json()
 ````
 
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('GET', 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/woc_1Flhy3a-5UnARb7S4Ho3FQ', [
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
+````
+
+
 > Ejemplo de respuesta
 
 ````json
@@ -309,6 +361,25 @@ r = requests.post('https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards
 })
 
 print r.json()
+````
+
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('POST', 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/woc_bMz2iAH1mJ8M4cvv0b7IMA/charge', [
+  'json' => [
+    'amount' => 3000
+  ],
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
 ````
 
 > Ejemplo de respuesta:
@@ -403,6 +474,23 @@ r = requests.delete('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/car
 print r.json()
 ````
 
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('DELETE', 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/woc_1Flhy3a-5UnARb7S4Ho3FQ', [
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
+````
+
+
 `DELETE /customers/{customer_id}/cards/{card_id}`
 
 Elimina permanentemente una tarjeta de un cliente. Esta acción es irreversible.
@@ -454,6 +542,22 @@ import requests
 r = requests.get('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards')
 
 print r.json()
+````
+
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('GET', 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards', [
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
 ````
 
 > Ejemplo de respuesta

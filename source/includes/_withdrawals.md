@@ -39,7 +39,7 @@ curl --request POST "https://api.qvo.cl/withdrawals" \
 
 ````javascript
 const request = require('node-fetch');
-fetch('http://api.qvo.cl/withdrawals', { method: 'POST'}, {
+fetch('https://api.qvo.cl/withdrawals', { method: 'POST'}, {
   amount: 100
 })
 .then(function(res) {
@@ -53,7 +53,7 @@ fetch('http://api.qvo.cl/withdrawals', { method: 'POST'}, {
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'http://api.qvo.cl/withdrawals', params:
+result = RestClient.post 'https://api.qvo.cl/withdrawals', params:
   {
     amount: 100
   }
@@ -64,11 +64,30 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.post('http://api.qvo.cl/withdrawals', params={
+r = requests.post('https://api.qvo.cl/withdrawals', params={
   amount: 100
 })
 
 print r.json()
+````
+
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('POST', 'https://api.qvo.cl/withdrawals', [
+  'json' => [
+    'amount' => 100
+  ],
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
 ````
 
 > Ejemplo de respuesta
@@ -114,7 +133,7 @@ curl --request GET "https://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A" \
 
 ````javascript
 const request = require('node-fetch');
-fetch('http://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A', { method: 'GET'})
+fetch('https://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A', { method: 'GET'})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -126,16 +145,32 @@ fetch('http://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A', { method: 'GET
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'http://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A'
+result = RestClient.get 'https://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A'
 p JSON.parse(result)
 ````
 
 ````python
 import requests
 
-r = requests.get('http://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A')
+r = requests.get('https://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A')
 
 print r.json()
+````
+
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('GET', 'https://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A', [
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
 ````
 
 > Ejemplo de respuesta
@@ -200,6 +235,22 @@ import requests
 r = requests.get('https://api.qvo.cl/withdrawals')
 
 print r.json()
+````
+
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('GET', 'https://api.qvo.cl/withdrawals', [
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
 ````
 
 > Ejemplo de respuesta

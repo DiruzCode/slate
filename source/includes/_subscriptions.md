@@ -68,7 +68,8 @@ curl --request POST "https://api.qvo.cl/subscriptions" \
 
 ````javascript
 const request = require('node-fetch');
-fetch('http://api.qvo.cl/subscriptions', { method: 'POST'}, {
+
+fetch('https://api.qvo.cl/subscriptions', { method: 'POST'}, {
   customer_id: "cus_qos_6r3-4I4zIiou2BVMHg",
   plan_id: "oro"
 })
@@ -83,7 +84,7 @@ fetch('http://api.qvo.cl/subscriptions', { method: 'POST'}, {
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'http://api.qvo.cl/subscriptions', params:
+result = RestClient.post 'https://api.qvo.cl/subscriptions', params:
   {
     customer_id: "cus_qos_6r3-4I4zIiou2BVMHg",
     plan_id: "oro"
@@ -95,13 +96,33 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.post('http://api.qvo.cl/subscriptions', params={
+r = requests.post('https://api.qvo.cl/subscriptions', params={
   customer_id: "cus_qos_6r3-4I4zIiou2BVMHg",
   plan_id: "oro"
 })
 
 print r.json()
 ````
+
+```php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('POST', 'https://api.qvo.cl/subscriptions', [
+  'json' => [
+    'customer_id' => 'cus_qos_6r3-4I4zIiou2BVMHg',
+    'plan_id' => 'oro'
+  ],
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
+```
 
 > Ejemplo de respuesta
 
@@ -159,7 +180,7 @@ curl --request GET "https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow"
 
 ````javascript
 const request = require('node-fetch');
-fetch('http://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', { method: 'GET'})
+fetch('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', { method: 'GET'})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -171,17 +192,34 @@ fetch('http://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', { method: 'G
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'http://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow'
+result = RestClient.get 'https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow'
+
 p JSON.parse(result)
 ````
 
 ````python
 import requests
 
-r = requests.get('http://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow')
+r = requests.get('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow')
 
 print r.json()
 ````
+
+```php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('GET', 'https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', [
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
+```
 
 > Ejemplo de respuesta
 
@@ -238,7 +276,7 @@ curl --request PUT "https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow"
 
 ````javascript
 const request = require('node-fetch');
-fetch('http://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', { method: 'PUT'}, {
+fetch('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', { method: 'PUT'}, {
   plan_id: "platino"
 })
 .then(function(res) {
@@ -252,7 +290,7 @@ fetch('http://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', { method: 'P
 require 'rest-client'
 require 'json'
 
-result = RestClient.put 'http://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', params:
+result = RestClient.put 'https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', params:
   {
     plan_id: "platino"
   }
@@ -263,12 +301,32 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.put('http://api.qvo.cl/subscriptions/oro', params={
+r = requests.put('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', params={
   plan_id: "platino"
 })
 
 print r.json()
 ````
+
+```php
+<? php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('PUT', 'https://api.qvo.cl/subscriptions', [
+  'json' => [
+    'plan_id' => 'platino'
+  ],
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
+```
+
 
 > Ejemplo de respuesta
 
@@ -329,7 +387,7 @@ curl -x DELETE "https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow" \
 
 ````javascript
 const request = require('node-fetch');
-fetch('http://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', { method: 'DELETE'})
+fetch('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', { method: 'DELETE'})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -341,16 +399,32 @@ fetch('http://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', { method: 'D
 require 'rest-client'
 require 'json'
 
-result = RestClient.delete 'http://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow'
+result = RestClient.delete 'https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow'
 p JSON.parse(result)
 ````
 
 ````python
 import requests
 
-r = requests.delete('http://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow')
+r = requests.delete('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow')
 
 print r.json()
+````
+
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('DELETE', 'https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', [
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
 ````
 
 > Ejemplo de respuesta
@@ -427,6 +501,22 @@ import requests
 r = requests.get('https://api.qvo.cl/subscriptions')
 
 print r.json()
+````
+
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('GET', 'https://api.qvo.cl/subscriptions', [
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
 ````
 
 > Ejemplo de respuesta

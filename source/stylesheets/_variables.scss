@@ -70,7 +70,7 @@ $phone-width: $tablet-width - $nav-width !default; // min width before reverting
 ////////////////////
 
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,700');
-@import url('https://fonts.googleapis.com/css?family=Oswald:500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Catamaran:700');
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono');
 
 
@@ -80,8 +80,8 @@ $phone-width: $tablet-width - $nav-width !default; // min width before reverting
 }
 
 %header-font {
-  font-family: 'Oswald', sans-serif;
-  font-weight: normal;
+  font-family: 'Catamaran', sans-serif;
+  font-weight: 700;
 }
 
 %code-font {

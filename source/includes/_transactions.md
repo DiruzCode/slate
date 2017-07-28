@@ -125,7 +125,7 @@ curl --request GET "https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw" 
 
 ````javascript
 const request = require('node-fetch');
-fetch('http://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw', { method: 'GET'})
+fetch('https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw', { method: 'GET'})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -137,16 +137,32 @@ fetch('http://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw', { method: 'GE
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'http://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw'
+result = RestClient.get 'https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw'
 p JSON.parse(result)
 ````
 
 ````python
 import requests
 
-r = requests.get('http://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw')
+r = requests.get('https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw')
 
 print r.json()
+````
+
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('GET', 'https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw', [
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
 ````
 
 > Ejemplo de respuesta
@@ -230,7 +246,7 @@ curl --request POST "https://api.qvo.cl/tramsactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/
 
 ````javascript
 const request = require('node-fetch');
-fetch('http://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', { method: 'POST'}, {
+fetch('https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', { method: 'POST'}, {
   amount: 1000
 })
 .then(function(res) {
@@ -244,7 +260,7 @@ fetch('http://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', { meth
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'http://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', params:
+result = RestClient.post 'https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', params:
   {
     amount: 1000
   }
@@ -255,11 +271,31 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.post('http://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', params={
+r = requests.post('https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', params={
   amount: 1000
 })
 
 print r.json()
+````
+
+
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('POST', 'https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', [
+  'json'=> [
+    'amount' => 1000
+  ],
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
 ````
 
 > Ejemplo de respuesta
@@ -366,6 +402,23 @@ import requests
 r = requests.get('https://api.qvo.cl/transactions')
 
 print r.json()
+````
+
+
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('GET', 'https://api.qvo.cl/transactions', [
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
 ````
 
 > Ejemplo de respuesta

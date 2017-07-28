@@ -83,7 +83,7 @@ curl --request GET "https://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg" \
 
 ````javascript
 const request = require('node-fetch');
-fetch('http://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg', { method: 'GET'})
+fetch('https://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg', { method: 'GET'})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -95,16 +95,33 @@ fetch('http://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg', { method: 'GET'})
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'http://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg'
+result = RestClient.get 'https://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg'
 p JSON.parse(result)
 ````
 
 ````python
 import requests
 
-r = requests.get('http://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg')
+r = requests.get('https://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg')
 
 print r.json()
+````
+
+
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('GET', 'https://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg', [
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
 ````
 
 > Ejemplo de respuesta
@@ -193,6 +210,22 @@ import requests
 r = requests.get('https://api.qvo.cl/events')
 
 print r.json()
+````
+
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('GET', 'https://api.qvo.cl/events', [
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
 ````
 
 > Ejemplo de respuesta

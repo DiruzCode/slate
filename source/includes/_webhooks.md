@@ -1,7 +1,7 @@
 # Webhooks
 
-Los [Webhooks](https://es.wikipedia.org/wiki/Webhook) son callbacks que notifican cuando ocurren [eventos](#eventos) 
-en tu cuenta. 
+Los [Webhooks](https://es.wikipedia.org/wiki/Webhook) son callbacks que notifican cuando ocurren [eventos](#eventos)
+en tu cuenta.
 
 Por ejemplo: Cuando se genera un cobro recurrente de una suscripción, un Webhook te permite recibir una notificación para que puedas tomar una acción, como enviar un email de agradecimiento al usuario.
 
@@ -26,7 +26,7 @@ Sólo necesitas utilizar Webhooks para operaciones que ocurren "tras-bambalinas"
 // Using Express
 app.post("/my/webhook/url", function(request, response) {
   // Retrieve the request's body and parse it as JSON
-  var event_json = JSON.parse(request.body);
+  const event_json = JSON.parse(request.body);
 
   // Do something with event_json
 
@@ -40,7 +40,7 @@ require "json"
 # Using Sinatra
 post "/my/webhook/url" do
   # Retrieve the request's body and parse it as JSON
-  event_json = JSON.parse(request.body.read)
+  event_json = JSON.parse request.body.read
 
   # Do something with event_json
 
@@ -61,6 +61,20 @@ def my_webhook_view(request):
 
   return HttpResponse(status=200)
 ```
+
+````php
+<?php
+$body = @file_get_contents('php://input');
+$event_json = json_decode($body);
+
+// Do Something with $event_json
+
+http_response_code(200);
+
+// if PHP < 5.4
+// header("HTTP/1.1 200 OK");
+?>
+````
 
 Crear un endpoint para recibir webhooks, no es distinto a crear cualquier otra página en tu sitio. Basta con crear una nueva ruta con la URL deseada.
 

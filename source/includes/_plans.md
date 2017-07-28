@@ -66,7 +66,7 @@ curl --request POST "https://api.qvo.cl/plans" \
 
 ````javascript
 const request = require('node-fetch');
-fetch('http://api.qvo.cl/plans', { method: 'POST'}, {
+fetch('https://api.qvo.cl/plans', { method: 'POST'}, {
   id: "oro",
   name: "Plan Oro",
   price: 15000,
@@ -84,7 +84,7 @@ fetch('http://api.qvo.cl/plans', { method: 'POST'}, {
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'http://api.qvo.cl/plans', params:
+result = RestClient.post 'https://api.qvo.cl/plans', params:
   {
     id: "oro",
     name: "Plan Oro",
@@ -99,7 +99,7 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.post('http://api.qvo.cl/plans', params={
+r = requests.post('https://api.qvo.cl/plans', params={
   id: "oro",
   name: "Plan Oro",
   price: 15000,
@@ -108,6 +108,29 @@ r = requests.post('http://api.qvo.cl/plans', params={
 })
 
 print r.json()
+````
+
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('POST', 'https://api.qvo.cl/plans', [
+  'json' => [
+    'id' => 'oro',
+    'name' => 'Plan Oro',
+    'price' => 15000,
+    'currency' => 'CLP',
+    'trial_period_days' => 10
+  ],
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
 ````
 
 > Ejemplo de respuesta
@@ -157,7 +180,7 @@ curl --request GET "https://api.qvo.cl/plans/oro" \
 
 ````javascript
 const request = require('node-fetch');
-fetch('http://api.qvo.cl/plans/oro', { method: 'GET'})
+fetch('https://api.qvo.cl/plans/oro', { method: 'GET'})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -169,17 +192,33 @@ fetch('http://api.qvo.cl/plans/oro', { method: 'GET'})
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'http://api.qvo.cl/plans/oro'
+result = RestClient.get 'https://api.qvo.cl/plans/oro'
 p JSON.parse(result)
 ````
 
 ````python
 import requests
 
-r = requests.get('http://api.qvo.cl/plans/oro')
+r = requests.get('https://api.qvo.cl/plans/oro')
 
 print r.json()
 ````
+
+```php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('GET', 'https://api.qvo.cl/plans/oro', [
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
+```
 
 > Ejemplo de respuesta
 
@@ -227,7 +266,7 @@ curl --request PUT "https://api.qvo.cl/plans/oro" \
 
 ````javascript
 const request = require('node-fetch');
-fetch('http://api.qvo.cl/plans/oro', { method: 'PUT'}, {
+fetch('https://api.qvo.cl/plans/oro', { method: 'PUT'}, {
   name: "Di Oro"
 })
 .then(function(res) {
@@ -241,7 +280,7 @@ fetch('http://api.qvo.cl/plans/oro', { method: 'PUT'}, {
 require 'rest-client'
 require 'json'
 
-result = RestClient.put 'http://api.qvo.cl/plans/oro', params:
+result = RestClient.put 'https://api.qvo.cl/plans/oro', params:
   {
     name: "Di Oro"
   }
@@ -252,11 +291,30 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.put('http://api.qvo.cl/plans/oro', params={
+r = requests.put('https://api.qvo.cl/plans/oro', params={
   name: "Di Oro"
 })
 
 print r.json()
+````
+
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('PUT', 'https://api.qvo.cl/plans/oro', [
+  'json' => [
+    'name' => "Di Oro"
+  ],
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
 ````
 
 > Ejemplo de respuesta
@@ -304,7 +362,7 @@ curl -x DELETE "https://api.qvo.cl/plans/oro" \
 
 ````javascript
 const request = require('node-fetch');
-fetch('http://api.qvo.cl/plans/oro', { method: 'DELETE'})
+fetch('https://api.qvo.cl/plans/oro', { method: 'DELETE'})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -316,16 +374,32 @@ fetch('http://api.qvo.cl/plans/oro', { method: 'DELETE'})
 require 'rest-client'
 require 'json'
 
-result = RestClient.delete 'http://api.qvo.cl/plans/oro'
+result = RestClient.delete 'https://api.qvo.cl/plans/oro'
 p JSON.parse(result)
 ````
 
 ````python
 import requests
 
-r = requests.delete('http://api.qvo.cl/plans/oro')
+r = requests.delete('https://api.qvo.cl/plans/oro')
 
 print r.json()
+````
+
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('DELETE', 'https://api.qvo.cl/plans/oro', [
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
 ````
 
 `DELETE /plans/{plan_id}`
@@ -378,6 +452,22 @@ import requests
 r = requests.get('https://api.qvo.cl/plans')
 
 print r.json()
+````
+
+````php
+<?php
+require 'guzzle.phar';
+
+$client = new Guzzle\Http\Client();
+
+$response = $client->request('GET', 'https://api.qvo.cl/plans', [
+  'headers' => [
+    'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  ]
+]);
+
+var_dump($response->json());
+?>
 ````
 
 > Ejemplo de respuesta
