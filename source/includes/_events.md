@@ -82,7 +82,7 @@ curl --request GET "https://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg" \
 ````
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg', { method: 'GET'})
 .then(function(res) {
     return res.json();
@@ -187,7 +187,7 @@ curl --request GET "https://api.qvo.cl/events" \
 ````
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/events', { method: 'GET'})
 .then(function(res) {
     return res.json();

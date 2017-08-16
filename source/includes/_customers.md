@@ -84,7 +84,7 @@ curl --request POST "https://api.qvo.cl/customers" \
 
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/customers', { method: 'POST'}, {
   email: "theimp@lannistercorp.gov",
   name: "Tyrion Lannister"
@@ -181,7 +181,7 @@ curl -X get "https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg" \
 ```
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', { method: 'GET'})
 .then(function(res) {
     return res.json();
@@ -266,7 +266,7 @@ curl --request PUT "https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg" \
 ````
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', { method: 'PUT'}, {
   email: "theimp@lannistercorp.gov",
   name: "Tyrion Lannister"
@@ -368,7 +368,7 @@ curl -x DELETE "https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg" \
 
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', { method: 'DELETE'})
 .then(function(res) {
     return res.json();
@@ -436,7 +436,7 @@ curl --request GET "https://api.qvo.cl/customers" \
 ````
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/customers', { method: 'GET'})
 .then(function(res) {
     return res.json();

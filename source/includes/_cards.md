@@ -42,7 +42,7 @@ curl -X POST "https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/insc
 ````
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions', { method: 'POST'}, {
   return_url: "http://example.com/return"
 })
@@ -154,7 +154,7 @@ curl -X GET "https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscr
 ````
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions/woi_WZa9DgYQPzPtUqMsQdoNhQ', { method: 'GET'})
 .then(function(res) {
     return res.json();
@@ -246,7 +246,7 @@ curl -X GET "https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/woc_1
 
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/woc_1Flhy3a-5UnARb7S4Ho3FQ', { method: 'GET'})
 .then(function(res) {
     return res.json();
@@ -330,7 +330,7 @@ curl -X POST "https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/woc_
 ```
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/woc_bMz2iAH1mJ8M4cvv0b7IMA/charge', { method: 'POST'}, {
   amount: 3000
 })
@@ -449,7 +449,7 @@ curl -X DELETE "https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/wo
 ````
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/woc_1Flhy3a-5UnARb7S4Ho3FQ', { method: 'DELETE'})
 .then(function(res) {
     return res.json();
@@ -519,7 +519,7 @@ curl -X get "https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards" \
 
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards', { method: 'GET'})
 .then(function(res) {
     return res.json();

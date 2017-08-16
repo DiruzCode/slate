@@ -124,7 +124,7 @@ curl --request GET "https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw" 
 ````
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw', { method: 'GET'})
 .then(function(res) {
     return res.json();
@@ -245,7 +245,7 @@ curl --request POST "https://api.qvo.cl/tramsactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/
 
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', { method: 'POST'}, {
   amount: 1000
 })
@@ -379,7 +379,7 @@ curl --request GET "https://api.qvo.cl/transactions" \
 ````
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/transactions', { method: 'GET'})
 .then(function(res) {
     return res.json();

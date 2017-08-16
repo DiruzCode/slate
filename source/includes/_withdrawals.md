@@ -38,7 +38,7 @@ curl --request POST "https://api.qvo.cl/withdrawals" \
 
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/withdrawals', { method: 'POST'}, {
   amount: 100
 })
@@ -132,7 +132,7 @@ curl --request GET "https://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A" \
 ````
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A', { method: 'GET'})
 .then(function(res) {
     return res.json();
@@ -212,7 +212,7 @@ curl --request GET "https://api.qvo.cl/withdrawals" \
 ````
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/withdrawals', { method: 'GET'})
 .then(function(res) {
     return res.json();

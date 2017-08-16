@@ -67,7 +67,7 @@ curl --request POST "https://api.qvo.cl/subscriptions" \
 
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 
 fetch('https://api.qvo.cl/subscriptions', { method: 'POST'}, {
   customer_id: "cus_qos_6r3-4I4zIiou2BVMHg",
@@ -179,7 +179,7 @@ curl --request GET "https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow"
 ````
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', { method: 'GET'})
 .then(function(res) {
     return res.json();
@@ -275,7 +275,7 @@ curl --request PUT "https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow"
 
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', { method: 'PUT'}, {
   plan_id: "platino"
 })
@@ -386,7 +386,7 @@ curl -x DELETE "https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow" \
 
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', { method: 'DELETE'})
 .then(function(res) {
     return res.json();
@@ -478,7 +478,7 @@ curl --request GET "https://api.qvo.cl/subscriptions" \
 ````
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/subscriptions', { method: 'GET'})
 .then(function(res) {
     return res.json();

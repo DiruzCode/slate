@@ -20,7 +20,7 @@ curl --request POST "https://api.qvo.cl/api/webpay_plus/charge" \
 ```
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/api/webpay_plus/charge', { method: 'POST'}, {
   amount: 2000,
   return_url: "http://www.example.com/return",

@@ -65,7 +65,7 @@ curl --request POST "https://api.qvo.cl/plans" \
 
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/plans', { method: 'POST'}, {
   id: "oro",
   name: "Plan Oro",
@@ -179,7 +179,7 @@ curl --request GET "https://api.qvo.cl/plans/oro" \
 ````
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/plans/oro', { method: 'GET'})
 .then(function(res) {
     return res.json();
@@ -265,7 +265,7 @@ curl --request PUT "https://api.qvo.cl/plans/oro" \
 
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/plans/oro', { method: 'PUT'}, {
   name: "Di Oro"
 })
@@ -361,7 +361,7 @@ curl -x DELETE "https://api.qvo.cl/plans/oro" \
 
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/plans/oro', { method: 'DELETE'})
 .then(function(res) {
     return res.json();
@@ -429,7 +429,7 @@ curl --request GET "https://api.qvo.cl/plans" \
 ````
 
 ````javascript
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 fetch('https://api.qvo.cl/plans', { method: 'GET'})
 .then(function(res) {
     return res.json();
