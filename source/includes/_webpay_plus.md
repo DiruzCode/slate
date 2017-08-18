@@ -21,7 +21,12 @@ curl --request POST "https://api.qvo.cl/webpay_plus/charge" \
 
 ````javascript
 const fetch = require('node-fetch');
-fetch('https://api.qvo.cl/webpay_plus/charge', { method: 'POST'}, {
+fetch('https://api.qvo.cl/webpay_plus/charge', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+}, {
   amount: 2000,
   return_url: "http://www.example.com/return",
   customer_id: "cus_VhiEhjVHoYui_6ykz9fOsg"

@@ -9,7 +9,7 @@ Los retiros permiten extraer dinero del sistema a la cuenta especificada por el 
 ```json
 {
   "id": "wdl_nPe9BeVau5rQyV2h7Env0A",
-  "amount": 100,
+  "amount": 1000,
   "status": "processing",
   "created_at": "2017-05-21T22:55:14.975Z",
   "updated_at": "2017-05-21T22:55:14.975Z"
@@ -33,14 +33,19 @@ Los retiros permiten extraer dinero del sistema a la cuenta especificada por el 
 ````shell
 curl --request POST "https://api.qvo.cl/withdrawals" \
   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA" \
-  -d amount=100
+  -d amount=1000
 ````
 
 
 ````javascript
 const fetch = require('node-fetch');
-fetch('https://api.qvo.cl/withdrawals', { method: 'POST'}, {
-  amount: 100
+fetch('https://api.qvo.cl/withdrawals', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+}, {
+  amount: 1000
 })
 .then(function(res) {
     return res.json();
@@ -55,7 +60,7 @@ require 'json'
 
 result = RestClient.post 'https://api.qvo.cl/withdrawals', params:
   {
-    amount: 100
+    amount: 1000
   }
 
 p JSON.parse(result)
@@ -65,7 +70,7 @@ p JSON.parse(result)
 import requests
 
 r = requests.post('https://api.qvo.cl/withdrawals', params={
-  amount: 100
+  amount: 1000
 })
 
 print r.json()
@@ -79,7 +84,7 @@ $client = new Guzzle\Http\Client();
 
 $response = $client->request('POST', 'https://api.qvo.cl/withdrawals', [
   'json' => [
-    'amount' => 100
+    'amount' => 1000
   ],
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
@@ -95,7 +100,7 @@ var_dump($response->json());
 ```json
 {
   "id": "wdl_nPe9BeVau5rQyV2h7Env0A",
-  "amount": 100,
+  "amount": 1000,
   "status": "processing",
   "created_at": "2017-05-21T22:55:14.975Z",
   "updated_at": "2017-05-21T22:55:14.975Z"
@@ -133,7 +138,12 @@ curl --request GET "https://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A" \
 
 ````javascript
 const fetch = require('node-fetch');
-fetch('https://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A', { method: 'GET'})
+fetch('https://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A', {
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -178,7 +188,7 @@ var_dump($response->json());
 ```json
 {
   "id": "wdl_nPe9BeVau5rQyV2h7Env0A",
-  "amount": 100,
+  "amount": 1000,
   "status": "processing",
   "created_at": "2017-05-21T22:55:14.975Z",
   "updated_at": "2017-05-21T22:55:14.975Z"
@@ -213,7 +223,12 @@ curl --request GET "https://api.qvo.cl/withdrawals" \
 
 ````javascript
 const fetch = require('node-fetch');
-fetch('https://api.qvo.cl/withdrawals', { method: 'GET'})
+fetch('https://api.qvo.cl/withdrawals', {
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -259,7 +274,7 @@ var_dump($response->json());
 [
   {
     "id": "wdl_nPe9BeVau5rQyV2h7Env0A",
-    "amount": 100,
+    "amount": 1000,
     "status": "processing",
     "created_at": "2017-05-21T22:55:14.975Z",
     "updated_at": "2017-05-21T22:55:14.975Z"

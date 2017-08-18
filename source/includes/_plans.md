@@ -66,7 +66,12 @@ curl --request POST "https://api.qvo.cl/plans" \
 
 ````javascript
 const fetch = require('node-fetch');
-fetch('https://api.qvo.cl/plans', { method: 'POST'}, {
+fetch('https://api.qvo.cl/plans', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+}, {
   id: "oro",
   name: "Plan Oro",
   price: 15000,
@@ -180,7 +185,12 @@ curl --request GET "https://api.qvo.cl/plans/oro" \
 
 ````javascript
 const fetch = require('node-fetch');
-fetch('https://api.qvo.cl/plans/oro', { method: 'GET'})
+fetch('https://api.qvo.cl/plans/oro', {
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -266,7 +276,12 @@ curl --request PUT "https://api.qvo.cl/plans/oro" \
 
 ````javascript
 const fetch = require('node-fetch');
-fetch('https://api.qvo.cl/plans/oro', { method: 'PUT'}, {
+fetch('https://api.qvo.cl/plans/oro', {
+  method: 'PUT',
+  headers: {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+}, {
   name: "Di Oro"
 })
 .then(function(res) {
@@ -362,7 +377,12 @@ curl -x DELETE "https://api.qvo.cl/plans/oro" \
 
 ````javascript
 const fetch = require('node-fetch');
-fetch('https://api.qvo.cl/plans/oro', { method: 'DELETE'})
+fetch('https://api.qvo.cl/plans/oro', {
+  method: 'DELETE',
+  headers: {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -430,7 +450,12 @@ curl --request GET "https://api.qvo.cl/plans" \
 
 ````javascript
 const fetch = require('node-fetch');
-fetch('https://api.qvo.cl/plans', { method: 'GET'})
+fetch('https://api.qvo.cl/plans', {
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {

@@ -12,7 +12,7 @@ __      _____  _ __| | __| |
   \_/\_/ \___/|_|  |_|\__,_|
 ```
 
-> Tenemos disponibles varios SDK para distintos lenguajes que puedes encontrar [aquí](#).
+
 
 Bienvenido al API de QVO. Puedes usar nuestra API para acceder a los distintos endpoins de QVO, donde podrás generar y gestionar pagos mediante distintos métodos y obtener información de ellos.
 
@@ -21,7 +21,3 @@ El API esta organizado alrededor de [REST](https://es.wikipedia.org/wiki/Transfe
 Utilizamos características incluidas en el protocolo HTTP, como authenticación y verbos, los cuales son soportados por la gran mayoría de los clientes HTTP. Soportamos [CORS](https://developer.mozilla.org/es/docs/Web/HTTP/Access_control_CORS), lo cual permite interactuar de manera segura con nuestra API desde una aplicación web desde el lado del cliente.
 
 Tenemos bindings para **cURL**, **PHP**, **Ruby**, **Node.js** y **Python**! Puedes ver ejemplos de código en el área a la derecha, y puedes cambiar el lenguaje de los ejemplos arriba a la derecha.
-
-<aside class="notice">
-El ambiente de sandbox se encuentra ubicado en la url <br><code>https://playground.qvo.cl</code>.
-</aside>

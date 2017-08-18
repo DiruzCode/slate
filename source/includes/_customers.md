@@ -85,7 +85,12 @@ curl --request POST "https://api.qvo.cl/customers" \
 
 ````javascript
 const fetch = require('node-fetch');
-fetch('https://api.qvo.cl/customers', { method: 'POST'}, {
+fetch('https://api.qvo.cl/customers', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+}, {
   email: "theimp@lannistercorp.gov",
   name: "Tyrion Lannister"
 })
@@ -182,7 +187,12 @@ curl -X get "https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg" \
 
 ````javascript
 const fetch = require('node-fetch');
-fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', { method: 'GET'})
+fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', {
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -267,7 +277,12 @@ curl --request PUT "https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg" \
 
 ````javascript
 const fetch = require('node-fetch');
-fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', { method: 'PUT'}, {
+fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', {
+  method: 'PUT',
+  headers: {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+}, {
   email: "theimp@lannistercorp.gov",
   name: "Tyrion Lannister"
 })
@@ -369,7 +384,12 @@ curl -x DELETE "https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg" \
 
 ````javascript
 const fetch = require('node-fetch');
-fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', { method: 'DELETE'})
+fetch('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', {
+  method: 'DELETE',
+  headers: {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
@@ -437,7 +457,12 @@ curl --request GET "https://api.qvo.cl/customers" \
 
 ````javascript
 const fetch = require('node-fetch');
-fetch('https://api.qvo.cl/customers', { method: 'GET'})
+fetch('https://api.qvo.cl/customers', {
+  method: 'GET',
+  headers: {
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+})
 .then(function(res) {
     return res.json();
 }).then(function(body) {
