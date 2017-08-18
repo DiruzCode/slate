@@ -12,7 +12,7 @@ El sistema permite generar cobros con Webpay Plus.
 > Ejemplo de llamada
 
 ```shell
-curl --request POST "https://api.qvo.cl/api/webpay_plus/charge" \
+curl --request POST "https://api.qvo.cl/webpay_plus/charge" \
   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA" \
   -d amount=2000 \
   -d return_url="http://www.example.com/return"
@@ -21,7 +21,7 @@ curl --request POST "https://api.qvo.cl/api/webpay_plus/charge" \
 
 ````javascript
 const fetch = require('node-fetch');
-fetch('https://api.qvo.cl/api/webpay_plus/charge', { method: 'POST'}, {
+fetch('https://api.qvo.cl/webpay_plus/charge', { method: 'POST'}, {
   amount: 2000,
   return_url: "http://www.example.com/return",
   customer_id: "cus_VhiEhjVHoYui_6ykz9fOsg"
@@ -37,7 +37,7 @@ fetch('https://api.qvo.cl/api/webpay_plus/charge', { method: 'POST'}, {
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'https://api.qvo.cl/api/webpay_plus/charge', params:
+result = RestClient.post 'https://api.qvo.cl/webpay_plus/charge', params:
   {
     amount: 2000,
     return_url: "http://www.example.com/return",
@@ -50,7 +50,7 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.post('https://api.qvo.cl/api/webpay_plus/charge', params={
+r = requests.post('https://api.qvo.cl/webpay_plus/charge', params={
   amount: 2000,
   return_url: "http://www.example.com/return",
   customer_id: "cus_VhiEhjVHoYui_6ykz9fOsg"
@@ -65,7 +65,7 @@ require 'guzzle.phar';
 
 $client = new Guzzle\Http\Client();
 
-$response = $client->request('POST', 'https://api.qvo.cl/api/webpay_plus/charge', [
+$response = $client->request('POST', 'https://api.qvo.cl/webpay_plus/charge', [
   'json' => [
     'amount' => 2000,
     'return_url' => "http://www.example.com/return",
