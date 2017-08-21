@@ -11,7 +11,8 @@ Luego, para realizar pruebas, basta con apuntar las llamadas a esa URL.
 ### Tarjetas de prueba
 |||
 | ----------: | ------- |
-| **Genérica**<p class="attr-desc warning">Débito</p><p class="attr-desc">Aprobar o rechazar</p> | Emisor: Test Commerce Bank<br>Num: 4242424242424242 |
+| **VISA**<p class="attr-desc warning">Débito</p><p class="attr-desc">Aprobar o rechazar</p> | Num: 4051885600446623<br>Emisor: Test Commerce Bank |
+| **MasterCard**<p class="attr-desc warning">Débito</p><p class="attr-desc">Siempre rechaza</p> | Num: 5186059559590568<br>Emisor: Test Commerce Bank |
 | **VISA**<p class="attr-desc warning">Crédito</p><p class="attr-desc">Aprobar o rechazar</p> | Num: 4051885600446623<br>Fechas: Cualquiera<br>CVV: 123 |
 | **MasterCard**<p class="attr-desc warning">Crédito</p><p class="attr-desc">Siempre rechaza</p> | Num: 5186059559590568<br>Fechas: Cualquiera<br>CVV: 123 |
 
