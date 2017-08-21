@@ -20,4 +20,4 @@ Luego, para realizar pruebas, basta con apuntar las llamadas a esa URL.
 
 |||
 | ----------: | ------- |
-| **Interfaz Webpay**<p class="attr-desc">Banco prueba</p> | RUT : 11.111.11-1<br>Password  : 123<br>|
+| **Interfaz Webpay**<p class="attr-desc">Banco prueba</p> | RUT : 11.111.111-1<br>Password  : 123<br>|
