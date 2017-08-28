@@ -38,19 +38,18 @@ curl --request POST "https://api.qvo.cl/withdrawals" \
 
 
 ````javascript
-const fetch = require('node-fetch');
+const fetch = require('node-fetch-json');
+
 fetch('https://api.qvo.cl/withdrawals', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  },
+  body: {
+    amount: 1000
   }
-}, {
-  amount: 1000
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
+}).then(function(response) {
+  console.log(response);
 });
 ````
 
@@ -137,17 +136,14 @@ curl --request GET "https://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A" \
 ````
 
 ````javascript
-const fetch = require('node-fetch');
+const fetch = require('node-fetch-json');
+
 fetch('https://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A', {
-  method: 'GET',
   headers: {
     'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   }
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
+}).then(function(response) {
+  console.log(response);
 });
 ````
 
@@ -222,17 +218,14 @@ curl --request GET "https://api.qvo.cl/withdrawals" \
 ````
 
 ````javascript
-const fetch = require('node-fetch');
+const fetch = require('node-fetch-json');
+
 fetch('https://api.qvo.cl/withdrawals', {
-  method: 'GET',
   headers: {
     'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   }
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
+}).then(function(response) {
+  console.log(response);
 });
 ````
 

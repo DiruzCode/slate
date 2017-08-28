@@ -82,17 +82,14 @@ curl --request GET "https://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg" \
 ````
 
 ````javascript
-const fetch = require('node-fetch');
+const fetch = require('node-fetch-json');
+
 fetch('https://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg', {
-  method: 'GET',
   headers: {
     'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   }
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
+}).then(function(response) {
+  console.log(response);
 });
 ````
 
@@ -111,7 +108,6 @@ r = requests.get('https://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg')
 
 print r.json()
 ````
-
 
 ````php
 <?php
@@ -192,17 +188,14 @@ curl --request GET "https://api.qvo.cl/events" \
 ````
 
 ````javascript
-const fetch = require('node-fetch');
+const fetch = require('node-fetch-json');
+
 fetch('https://api.qvo.cl/events', {
-  method: 'GET',
   headers: {
     'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   }
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
+}).then(function(response) {
+  console.log(response);
 });
 ````
 

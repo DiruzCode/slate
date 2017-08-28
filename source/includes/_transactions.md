@@ -124,17 +124,14 @@ curl --request GET "https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw" 
 ````
 
 ````javascript
-const fetch = require('node-fetch');
+const fetch = require('node-fetch-json');
+
 fetch('https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw', {
-  method: 'GET',
   headers: {
     'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   }
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
+}).then(function(response) {
+  console.log(response);
 });
 ````
 
@@ -250,19 +247,18 @@ curl --request POST "https://api.qvo.cl/tramsactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/
 
 
 ````javascript
-const fetch = require('node-fetch');
+const fetch = require('node-fetch-json');
+
 fetch('https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', {
   method: 'POST',
   headers: {
     'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  },
+  body: {
+    amount: 1000
   }
-}, {
-  amount: 1000
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
+}).then(function(response) {
+  console.log(response);
 });
 ````
 
@@ -389,17 +385,14 @@ curl --request GET "https://api.qvo.cl/transactions" \
 ````
 
 ````javascript
-const fetch = require('node-fetch');
+const fetch = require('node-fetch-json');
+
 fetch('https://api.qvo.cl/transactions', {
-  method: 'GET',
   headers: {
     'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   }
-})
-.then(function(res) {
-    return res.json();
-}).then(function(body) {
-    console.log(body);
+}).then(function(response) {
+  console.log(response);
 });
 ````
 
