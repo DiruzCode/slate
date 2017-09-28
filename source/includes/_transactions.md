@@ -361,14 +361,12 @@ var_dump($response->json());
 
 `POST /transactions/{transaction_id}/refund`
 
-Crea un reembolso para una transacción existente. Se reembolzará la totalidad del monto pagado y los créditos correspondientes.
+Crea un reembolso para una transacción existente. Se reembolzará la totalidad del monto pagado y los créditos correspondientes. Sólo se soportan reembolosos para los pagos en crédito de los gateway `webpay_plus` y `webpay_oneclick`
 
 ### Parámetros
 |||
 |---------: | -----------|
 | transaction_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de una transacción. |
-
-La vía de pago `olpays` no soporta reembolsos, por lo que esta llamada retornará un error.
 
 ### Respuesta
 
