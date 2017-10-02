@@ -14,8 +14,8 @@ You're going to need:
 
 ### Getting Set Up
 
-1. Clone the repo with `git clone https://github.com/qvo-team/qvo-api-documentation.git`
-2. `cd qvo-api-documentation`
+1. Clone the repo with `git clone https://github.com/qvo-team/qvo-docs.git`
+2. `cd qvo-docs`
 3. Initialize and start Slate. You can either do this locally, or with Vagrant:
 
 ```bash
@@ -47,4 +47,4 @@ And copy the contents of the `build/` folder into any static site hosting and yo
 Need Help? Found a bug?
 --------------------
 
-[Submit an issue](https://github.com/qvo-team/qvo-api-documentation/issues) if you need any help. And, of course, feel free to submit pull requests with bug fixes or changes.
+[Submit an issue](https://github.com/qvo-team/qvo-docs/issues) if you need any help. And, of course, feel free to submit pull requests with bug fixes or changes.
