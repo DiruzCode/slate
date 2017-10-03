@@ -98,11 +98,11 @@ var_dump($response->json());
 
 Crea una cobro utilizando Webpay Plus.
 
-Permite a un realizar un cobro mediante la interfaz de Webpay Plus. Esto se divide en 3 pasos:
+Permite realizar un cobro mediante la interfaz de Webpay Plus. El proceso se divide en 3 pasos:
 
 #### 1. Realizar la llamada y **redirigir** al cliente
 
-Una vez realizada la llamada de cobro, es necesario **redirigir** al cliente a el `redirect_url` retornado por la llamada, para iniciar el proceso de cobro.
+Realiza la llamada de cobro `POST /webpay_plus/charge`. Una vez realizada la llamada, es necesario **redirigir** al cliente a el `redirect_url` retornado por la llamada, para iniciar el proceso de cobro.
 
 #### 2. Capturar la respuesta
 
