@@ -337,7 +337,8 @@ Retorna un objeto de tarjeta si se provee de un identificador válido.
 ```shell
 curl -X POST "https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/woc_bMz2iAH1mJ8M4cvv0b7IMA/charge" \
   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA" \
-  -d amount=3000
+  -d amount=3000 \
+  -d description="For the watch"
 ```
 
 ````javascript
@@ -349,7 +350,8 @@ fetch('https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/woc_bMz2iAH
     'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   },
   body: {
-    amount: 3000
+    amount: 3000,
+    description: 'For the watch'
   }
 }).then(function(resposne) {
   console.log(resposne);
@@ -362,7 +364,8 @@ require 'json'
 
 result = RestClient.post 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/woc_bMz2iAH1mJ8M4cvv0b7IMA/charge', params:
   {
-    amount: 3000
+    amount: 3000,
+    description: 'For the watch'
   }
 
 p JSON.parse(result)
@@ -372,7 +375,8 @@ p JSON.parse(result)
 import requests
 
 r = requests.post('https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/woc_bMz2iAH1mJ8M4cvv0b7IMA/charge', params={
-  amount: 3000
+  amount: 3000,
+  description: 'For the watch'
 })
 
 print r.json()
@@ -386,7 +390,8 @@ $client = new Guzzle\Http\Client();
 
 $response = $client->request('POST', 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/woc_bMz2iAH1mJ8M4cvv0b7IMA/charge', [
   'json' => [
-    'amount' => 3000
+    'amount' => 3000,
+    'description' => 'For the watch'
   ],
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
@@ -405,6 +410,7 @@ var_dump($response->json());
   "created_at": "2017-05-17T19:12:57.759Z",
   "amount": 3000,
   "currency": "CLP",
+  "description": "For the watch",
   "gateway": "webpay_oneclick",
   "fee": 372,
   "credits": 0,
@@ -444,6 +450,7 @@ Este endpoint permite autorizar un cobro para una tarjeta en específico.
 | customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del cliente. |
 | card_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de la tarjeta del cliente. |
 | amount<p class="attr-desc warning">Requerido</p><p class="attr-desc">integer</p> | Monto a cobrar. |
+| description<p class="attr-desc">string</p> | Descripción de la transacción. |
 
 
 ### Respuesta

@@ -15,8 +15,9 @@ El sistema permite generar cobros con Webpay Plus.
 curl --request POST "https://api.qvo.cl/webpay_plus/charge" \
   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA" \
   -d amount=2000 \
-  -d return_url="http://www.example.com/return"
-  -d customer_id="cus_VhiEhjVHoYui_6ykz9fOsg"
+  -d return_url="http://www.example.com/return" \
+  -d customer_id="cus_VhiEhjVHoYui_6ykz9fOsg" \
+  -d description="Cobro de Prueba"
 ```
 
 ````javascript
@@ -130,6 +131,7 @@ La cobro posee una fecha de expiración de <b>10 minutos</b> luego de su fecha d
 | amount<p class="attr-desc warning">Requerido</p><p class="attr-desc">integer</p> | El monto de la transacción|
 | return_url<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | URL de retorno de la transacción |
 | customer_id<p class="attr-desc">string</p> | Identificador único de cliente. |
+| description<p class="attr-desc">string</p> | Descripción de la transacción. |
 
 
 ### Respuesta
