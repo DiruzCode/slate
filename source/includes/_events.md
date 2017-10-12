@@ -97,7 +97,11 @@ fetch('https://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg', {
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'https://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg'
+result =
+  RestClient.get 'https://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg', {
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+
 p JSON.parse(result)
 ````
 
@@ -203,7 +207,11 @@ fetch('https://api.qvo.cl/events', {
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'https://api.qvo.cl/events'
+result =
+  RestClient.get 'https://api.qvo.cl/events', {
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+
 p JSON.parse(result)
 ````
 

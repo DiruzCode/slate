@@ -88,13 +88,15 @@ fetch('https://api.qvo.cl/plans', {
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'https://api.qvo.cl/plans', params:
-  {
+result =
+  RestClient.post 'https://api.qvo.cl/plans', {
     id: "oro",
     name: "Plan Oro",
     price: 15000,
     currency: "CLP",
     trial_period_days: 10
+  }, {
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   }
 
 p JSON.parse(result)
@@ -198,7 +200,11 @@ fetch('https://api.qvo.cl/plans/oro', {
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'https://api.qvo.cl/plans/oro'
+result =
+  RestClient.get 'https://api.qvo.cl/plans/oro', {
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+
 p JSON.parse(result)
 ````
 
@@ -290,9 +296,11 @@ fetch('https://api.qvo.cl/plans/oro', {
 require 'rest-client'
 require 'json'
 
-result = RestClient.put 'https://api.qvo.cl/plans/oro', params:
-  {
+result =
+  RestClient.put 'https://api.qvo.cl/plans/oro', {
     name: "Di Oro"
+  }, {
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   }
 
 p JSON.parse(result)
@@ -387,7 +395,11 @@ fetch('https://api.qvo.cl/plans/oro', {
 require 'rest-client'
 require 'json'
 
-result = RestClient.delete 'https://api.qvo.cl/plans/oro'
+result =
+  RestClient.delete 'https://api.qvo.cl/plans/oro', {
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+
 p JSON.parse(result)
 ````
 
@@ -457,7 +469,11 @@ fetch('https://api.qvo.cl/plans', {
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'https://api.qvo.cl/plans'
+result =
+  RestClient.get 'https://api.qvo.cl/plans', {
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+
 p JSON.parse(result)
 ````
 

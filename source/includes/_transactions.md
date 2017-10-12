@@ -141,7 +141,11 @@ fetch('https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw', {
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw'
+result =
+  RestClient.get 'https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw', {
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+
 p JSON.parse(result)
 ````
 
@@ -268,9 +272,11 @@ fetch('https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', {
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', params:
-  {
+result =
+  RestClient.post 'https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', {
     amount: 1000
+  }, {
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   }
 
 p JSON.parse(result)
@@ -400,7 +406,11 @@ fetch('https://api.qvo.cl/transactions', {
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'https://api.qvo.cl/transactions'
+result =
+  RestClient.get 'https://api.qvo.cl/transactions', {
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+
 p JSON.parse(result)
 ````
 

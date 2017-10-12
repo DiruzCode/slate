@@ -57,9 +57,11 @@ fetch('https://api.qvo.cl/withdrawals', {
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'https://api.qvo.cl/withdrawals', params:
-  {
+result =
+  RestClient.post 'https://api.qvo.cl/withdrawals', {
     amount: 1000
+  }, {
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   }
 
 p JSON.parse(result)

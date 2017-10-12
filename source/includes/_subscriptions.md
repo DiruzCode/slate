@@ -87,10 +87,12 @@ fetch('https://api.qvo.cl/subscriptions', {
 require 'rest-client'
 require 'json'
 
-result = RestClient.post 'https://api.qvo.cl/subscriptions', params:
-  {
+result =
+  RestClient.post 'https://api.qvo.cl/subscriptions', {
     customer_id: "cus_qos_6r3-4I4zIiou2BVMHg",
     plan_id: "oro"
+  }, {
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   }
 
 p JSON.parse(result)
@@ -197,7 +199,10 @@ fetch('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', {
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow'
+result =
+  RestClient.get 'https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', {
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
 
 p JSON.parse(result)
 ````
@@ -299,9 +304,11 @@ fetch('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', {
 require 'rest-client'
 require 'json'
 
-result = RestClient.put 'https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', params:
-  {
+result =
+  RestClient.put 'https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', {
     plan_id: "platino"
+  }, {
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   }
 
 p JSON.parse(result)
@@ -411,7 +418,11 @@ fetch('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', {
 require 'rest-client'
 require 'json'
 
-result = RestClient.delete 'https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow'
+result =
+  RestClient.delete 'https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', {
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+
 p JSON.parse(result)
 ````
 
@@ -505,7 +516,11 @@ fetch('https://api.qvo.cl/subscriptions', {
 require 'rest-client'
 require 'json'
 
-result = RestClient.get 'https://api.qvo.cl/subscriptions'
+result =
+  RestClient.get 'https://api.qvo.cl/subscriptions', {
+    Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+  }
+
 p JSON.parse(result)
 ````
 
