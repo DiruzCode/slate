@@ -128,7 +128,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('POST', 'https://api.qvo.cl/customers', [
   'json' => [
@@ -217,7 +217,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('GET', 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', [
   'headers' => [
@@ -316,7 +316,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('PUT', 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', [
   'json' => [
@@ -411,7 +411,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('DELETE', 'https://api.qvo.cl/customers.cus_I-ZNs9TlY2FmdOUByQ5Ieg', [
   'headers' => [
@@ -481,7 +481,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('GET', 'https://api.qvo.cl/customers', [
   'headers' => [

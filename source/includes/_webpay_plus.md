@@ -68,7 +68,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('POST', 'https://api.qvo.cl/webpay_plus/charge', [
   'json' => [

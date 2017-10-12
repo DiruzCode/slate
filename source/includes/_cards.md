@@ -84,7 +84,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('POST', 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions', [
   'json' => [
@@ -191,7 +191,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('GET', 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions/woi_WZa9DgYQPzPtUqMsQdoNhQ', [
   'headers' => [
@@ -287,7 +287,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('GET', 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/woc_1Flhy3a-5UnARb7S4Ho3FQ', [
   'headers' => [
@@ -386,7 +386,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('POST', 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/woc_bMz2iAH1mJ8M4cvv0b7IMA/charge', [
   'json' => [
@@ -503,7 +503,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('DELETE', 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/woc_1Flhy3a-5UnARb7S4Ho3FQ', [
   'headers' => [
@@ -576,7 +576,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('GET', 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards', [
   'headers' => [

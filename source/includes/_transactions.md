@@ -157,7 +157,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('GET', 'https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw', [
   'headers' => [
@@ -291,7 +291,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('POST', 'https://api.qvo.cl/transactions/trx_Vk7WJYL-wYi4bjXmAaLyaw/refund', [
   'json'=> [
@@ -417,7 +417,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('GET', 'https://api.qvo.cl/transactions', [
   'headers' => [

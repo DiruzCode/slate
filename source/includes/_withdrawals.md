@@ -79,7 +79,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('POST', 'https://api.qvo.cl/withdrawals', [
   'json' => [
@@ -167,7 +167,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('GET', 'https://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A', [
   'headers' => [
@@ -249,7 +249,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('GET', 'https://api.qvo.cl/withdrawals', [
   'headers' => [

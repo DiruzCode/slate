@@ -113,7 +113,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('GET', 'https://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg', [
   'headers' => [
@@ -219,7 +219,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('GET', 'https://api.qvo.cl/events', [
   'headers' => [

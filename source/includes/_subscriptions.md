@@ -111,7 +111,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('POST', 'https://api.qvo.cl/subscriptions', [
   'json' => [
@@ -214,7 +214,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('GET', 'https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', [
   'headers' => [
@@ -318,10 +318,10 @@ print r.json()
 ````
 
 ```php
-<? php
+<?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('PUT', 'https://api.qvo.cl/subscriptions', [
   'json' => [
@@ -427,7 +427,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('DELETE', 'https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', [
   'headers' => [
@@ -521,7 +521,7 @@ print r.json()
 <?php
 require 'guzzle.phar';
 
-$client = new Guzzle\Http\Client();
+$client = new GuzzleHttp\Client();
 
 $response = $client->request('GET', 'https://api.qvo.cl/subscriptions', [
   'headers' => [
