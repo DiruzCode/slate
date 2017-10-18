@@ -9,7 +9,8 @@ language_tabs:
   - python: Python
 
 toc_footers:
-  - <a href='mailto:dev@qvo.cl'>Obtén tu llave de accesso</a>
+  - <a href='https://dashboard-test.qvo.cl/signup/account-info'>Crea tu cuenta</a>
+  - <a href='mailto:soporte@qvo.cl'>Contacta a soporte</a>
   - <a href='http://qvo.cl'>Página principal de QVO</a>
 
 includes:
