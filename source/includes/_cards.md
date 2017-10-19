@@ -95,9 +95,11 @@ $response = $client->request('POST', 'https://api.qvo.cl/customers/cus_qos_6r3-4
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]
-]);
+])->getBody();
 
-var_dump($response->json());
+$response = json_decode($body);
+
+var_dump($response);
 ?>
 ````
 
@@ -203,9 +205,11 @@ $response = $client->request('GET', 'https://api.qvo.cl/customers/cus_qos_6r3-4I
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]
-]);
+])->getBody();
 
-var_dump($response->json());
+$response = json_decode($body);
+
+var_dump($response);
 ?>
 ````
 
@@ -302,9 +306,11 @@ $response = $client->request('GET', 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]
-]);
+])->getBody();
 
-var_dump($response->json());
+$response = json_decode($body);
+
+var_dump($response);
 ?>
 ````
 
@@ -407,9 +413,11 @@ $response = $client->request('POST', 'https://api.qvo.cl/customers/cus_qos_6r3-4
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]
-]);
+])->getBody();
 
-var_dump($response->json());
+$response = json_decode($body);
+
+var_dump($response);
 ?>
 ````
 
@@ -600,9 +608,11 @@ $response = $client->request('GET', 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]
-]);
+])->getBody();
 
-var_dump($response->json());
+$response = json_decode($body);
+
+var_dump($response);
 ?>
 ````
 
