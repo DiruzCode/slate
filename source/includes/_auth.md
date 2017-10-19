@@ -1,41 +1,6 @@
 # Autenticación
 
-```ruby
-require 'base64'
-api_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
-# => "YTcxODNlMWI3ZTlhYjA5YjhhNWNmYTg3ZDE5MzRjM2M6"
-
-headers = {
-  "Authorization" => "Bearer " + api_token
-}
-```
-
-```python
-import qvo
-
-api = qvo.authorize('api_key')
-```
-
-```shell
-$ curl "https://api.qvo.cl/v1/payments"
-      -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA"
-      
-...
-
-> GET /v1/payments/ HTTP/1.1
-> Host: api.qvo.cl
-> Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA
-
-...
-```
-
-```javascript
-const qvo = require('qvo');
-
-let api = qvo.authorize('api_key');
-```
-
-QVO utiliza [Token Based Authentication](https://www.w3.org/2001/sw/Europe/events/foaf-galway/papers/fp/token_based_authentication/) sobre HTTPS para la autenticación. Para tener acceso a nuestra API solicita un token a nuestro equipo [aquí](mailto:dev@qvo.cl). Los request no autenticados retornarán una respuesta HTTP 401. Las llamadas sobre HTTP simple también fallarán.
+QVO utiliza [Token Based Authentication](https://www.w3.org/2001/sw/Europe/events/foaf-galway/papers/fp/token_based_authentication/) sobre HTTPS para la autenticación. Para tener acceso a nuestra API, accede a tu cuenta en nuestro panel y utiliza el token que se encuentra en la sección **API**. Si no tienes una cuenta, puedes crearla [aquí](https://dashboard-test.qvo.cl/signup/account-info). Los request no autenticados retornarán una respuesta HTTP 401. Las llamadas sobre HTTP simple también fallarán.
 
 ### Header de autenticación
 
