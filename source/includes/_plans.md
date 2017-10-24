@@ -1,6 +1,6 @@
 # Planes
 
-Un plan de suscripción contiene la información para el cobro mensual de un servicio o producto. Por ejemplo, puedes tener una plan de CLP$20.000/mes por caracterísitcas básicas y otro de CLP$40.000 por características premium.
+Un plan de suscripción contiene la información para el cobro recurrente de un servicio o producto. Por ejemplo, puedes tener una plan de CLP$20.000 al mes por caracterísitcas básicas y otro de CLP$40.000 por características premium.
 
 
 ## El objeto plan
@@ -13,6 +13,8 @@ Un plan de suscripción contiene la información para el cobro mensual de un ser
   "name": "Plan oro",
   "price": 3000,
   "currency": "CLP",
+  "interval": "month",
+  "interval_count": 1,
   "trial_period_days": 0,
   "status": "active",
   "subscriptions": [
@@ -42,6 +44,8 @@ Un plan de suscripción contiene la información para el cobro mensual de un ser
 | name<p class="attr-desc">string</p> | El nombre de despliegue del plan. |
 | price<p class="attr-desc">integer</p> | El precio del plan. |
 | currency<p class="attr-desc">string</p> | Código de [3 dígitos ISO de moneda](https://www.iso.org/iso-4217-currency-codes.html). Puede ser: `CLP` o `USD` |
+| interval<p class="attr-desc">string</p> | Intervalo del plan. Puede ser: `day` día, `week` semana, `month` mes o `year` año. El valor por defecto es `month`. |
+| interval_count<p class="attr-desc">integer</p> | Cantidad del intervalo. Debe ser un entero positivo mayor a `1`. Por ejemplo, si este valor es `3` e `interval` es igual a `week`, el plan tenrá un periodo de facturación de 3 semanas. El valor por defecto es `1`. |
 | trial_period_days<p class="attr-desc">integer</p> | Número de días de prueba otorgados cuando se suscribe un cliente al plan. Es `0` si no tiene un periodo definido. |
 | status<p class="attr-desc">string</p> | Estado del plan. Puede ser: `active` o `inactive`. |
 | subscriptions<p class="attr-desc">Array<[Subscription](#el-objeto-suscripci-n)></p> | Suscripciones activas relacionadas al plan. |
@@ -147,6 +151,8 @@ var_dump($response->json());
   "name": "Plan oro",
   "price": 15000,
   "currency": "CLP",
+  "interval": "month",
+  "interval_count": 1,
   "trial_period_days": 10,
   "status": "active",
   "subscriptions": [],
@@ -166,6 +172,8 @@ Crea un nuevo objeto plan.
 | name<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Nombre de despliegue del plan. |
 | price<p class="attr-desc warning">Requerido</p><p class="attr-desc">integer</p> | Precio del plan. |
 | currency<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Código de [3 dígitos ISO de moneda](https://www.iso.org/iso-4217-currency-codes.html). Puede ser: `CLP` o `USD`. |
+| interval<p class="attr-desc">string</p> | Intervalo del plan. Puede ser: `day` día, `week` semana, `month` mes o `year` año. Si no se especifica, el valor por defecto es `month`. |
+| interval_count<p class="attr-desc">integer</p> | Cantidad del intervalo. Debe ser un entero positivo mayor a `1`. Por ejemplo, si este valor es `3` e `interval` es igual a `week`, el plan tenrá un periodo de facturación de 3 semanas. El valor por defecto es `1`. |
 | trial_period_days<p class="attr-desc">integer</p> | Especifica el número de días de prueba del plan. Si incluyes un periodo de prueba, al cliente no se le cobrará hasta que termine este periodo. |
 
 
@@ -242,6 +250,8 @@ var_dump($response);
   "name": "Plan oro",
   "price": 15000,
   "currency": "CLP",
+  "interval": "month",
+  "interval_count": 1,
   "trial_period_days": 10,
   "status": "active",
   "subscriptions": [],
@@ -345,6 +355,8 @@ var_dump($response->json());
   "name": "Di Oro",
   "price": 15000,
   "currency": "CLP",
+  "interval": "month",
+  "interval_count": 1,
   "trial_period_days": 10,
   "status": "active",
   "subscriptions": [],
@@ -514,6 +526,8 @@ var_dump($response);
     "name": "Plan Oro",
     "price": 15000,
     "currency": "CLP",
+    "interval": "month",
+    "interval_count": 1,
     "trial_period_days": 10,
     "status": "active",
     "subscriptions": [

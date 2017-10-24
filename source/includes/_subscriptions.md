@@ -22,7 +22,9 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
     "id": "oro",
     "name": "Plan Oro",
     "price": 15000,
-    "currency": "CLP"
+    "currency": "CLP",
+    "interval": "month",
+    "interval_count": 1
   },
   "transactions": [
     {
@@ -147,7 +149,9 @@ var_dump($response->json());
     "id": "oro",
     "name": "Plan Oro",
     "price": 15000,
-    "currency": "CLP"
+    "currency": "CLP",
+    "interval": "month",
+    "interval_count": 1
   },
   "created_at": "2017-05-17T19:12:57.189Z",
   "updated_at": "2017-05-17T19:12:57.189Z"
@@ -251,7 +255,9 @@ var_dump($response);
     "id": "oro",
     "name": "Plan Oro",
     "price": 15000,
-    "currency": "CLP"
+    "currency": "CLP",
+    "interval": "month",
+    "interval_count": 1
   },
   "created_at": "2017-05-17T19:12:57.189Z",
   "updated_at": "2017-05-17T19:12:57.189Z"
@@ -364,7 +370,9 @@ var_dump($response->json());
     "id": "platino",
     "name": "Plan Platino",
     "price": 50000,
-    "currency": "CLP"
+    "currency": "CLP",
+    "interval": "month",
+    "interval_count": 1
   },
   "created_at": "2017-05-17T19:12:57.189Z",
   "updated_at": "2017-05-17T19:12:57.185Z"
@@ -470,7 +478,9 @@ var_dump($response->json());
     "id": "oro",
     "name": "Plan Oro",
     "price": 15000,
-    "currency": "CLP"
+    "currency": "CLP",
+    "interval": "month",
+    "interval_count": 1
   },
   "created_at": "2017-05-17T19:12:57.189Z",
   "updated_at": "2017-05-17T19:12:57.189Z"
@@ -570,7 +580,9 @@ var_dump($response);
       "id": "oro",
       "name": "Plan Oro",
       "price": 15000,
-      "currency": "CLP"
+      "currency": "CLP",
+      "interval": "month",
+      "interval_count": 1
     },
     "created_at": "2017-05-17T19:12:57.189Z",
     "updated_at": "2017-05-17T19:12:57.189Z"
