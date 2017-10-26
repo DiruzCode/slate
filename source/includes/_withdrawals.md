@@ -115,11 +115,8 @@ Crea un nuevo objeto retiro.
 ### Parámetros
 |||
 |---------: | -----------|
-| id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del plan. **Único**. |
-| name<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Nombre de despliegue del plan. |
-| price<p class="attr-desc warning">Requerido</p><p class="attr-desc">integer</p> | Precio del plan. |
-| currency<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Código de [3 dígitos ISO de moneda](https://www.iso.org/iso-4217-currency-codes.html). Puede ser: `CLP` o `USD`. |
-| trial_period_days<p class="attr-desc">integer</p> | Especifica el número de días de prueba del plan. Si incluyes un periodo de prueba, al cliente no se le cobrará hasta que termine este periodo. |
+| amount<p class="attr-desc warning">Requerido</p><p class="attr-desc">integer</p> | Monto del retiro. |
+
 
 
 ### Respuesta

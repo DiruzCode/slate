@@ -60,7 +60,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
 |---------: | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto. |
 | amount<p class="attr-desc">integer</p> | Monto de la transacción. |
-| currency<p class="attr-desc">string</p> | Código de [3 dígitos ISO de moneda](https://www.iso.org/iso-4217-currency-codes.html). Puede ser: `CLP` o `USD`. |
+| currency<p class="attr-desc">string</p> | Código correspondiente a la moneda. Puede ser: `CLP` o `USD`. |
 | description<p class="attr-desc">string</p> | Corresponde a la descripción de la transacción. Puede ser útil para identificar un producto u orden de compra del comercio. |
 | gateway<p class="attr-desc">string</p> | Corresponde a la vía de pago por la cual se efectuó la transacción. Puede ser: `webpay_plus`, `webpay_oneclick` o `olpays`. |
 | fee<p class="attr-desc">integer</p> | Comisión de la transacción. Corresponde a lo cobrado por QVO. |
