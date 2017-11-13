@@ -123,7 +123,7 @@ Para verificar si la transacción fue exitosa, se debe realizar una llamada a [o
 
 
 <aside class="warning">
-La cobro posee una fecha de expiración de <b>10 minutos</b> luego de su fecha de creación. Si se intenta acceder a <code>redirect_url</code> luego de este tiempo, retornará <a href="#errores">un error</a>.
+El cobro posee una fecha de expiración de <b>10 minutos</b> luego de su fecha de creación. Si se intenta acceder a <code>redirect_url</code> luego de este tiempo, retornará <a href="#errores">un error</a>.
 </aside>
 
 
