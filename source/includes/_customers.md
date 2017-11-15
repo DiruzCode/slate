@@ -26,7 +26,7 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
       "plan": {
         "id": "test-plan-03",
         "name": "Test plan 03",
-        "price": 3000,
+        "price": "3000.0",
         "currency": "CLP"
       },
       "current_period_start": "2017-05-17T19:12:57.185Z",
@@ -533,7 +533,7 @@ var_dump($response);
         "plan": {
           "id": "test-plan-03",
           "name": "Test plan 03",
-          "price": 3000,
+          "price": "3000.0",
           "currency": "CLP"
         },
         "current_period_start": "2017-05-17T19:12:57.185Z",

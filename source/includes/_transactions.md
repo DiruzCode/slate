@@ -42,7 +42,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
     "plan": {
       "id": "oro",
       "name": "Plan Oro",
-      "price": 3000,
+      "price": "3000.0",
       "currency": "CLP"
     },
     "created_at": "2017-05-17T19:12:57.189Z",
@@ -214,7 +214,7 @@ var_dump($response);
     "plan": {
       "id": "oro",
       "name": "Plan Oro",
-      "price": 3000,
+      "price": "3000.0",
       "currency": "CLP"
     },
     "created_at": "2017-05-17T19:12:57.189Z",
@@ -356,7 +356,7 @@ var_dump($response->json());
     "plan": {
       "id": "oro",
       "name": "Plan Oro",
-      "price": 3000,
+      "price": "3000.0",
       "currency": "CLP"
     },
     "created_at": "2017-05-17T19:12:57.189Z",
@@ -483,7 +483,7 @@ var_dump($response);
       "plan": {
         "id": "oro",
         "name": "Plan Oro",
-        "price": 3000,
+        "price": "3000.0",
         "currency": "CLP"
       },
       "created_at": "2017-05-17T19:12:57.189Z",

@@ -11,7 +11,7 @@ Un plan de suscripción contiene la información para el cobro recurrente de un 
 {
   "id": "oro",
   "name": "Plan oro",
-  "price": 3000,
+  "price": "3000.0",
   "currency": "CLP",
   "interval": "month",
   "interval_count": 1,
@@ -42,7 +42,7 @@ Un plan de suscripción contiene la información para el cobro recurrente de un 
 |---------: | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto. |
 | name<p class="attr-desc">string</p> | El nombre de despliegue del plan. |
-| price<p class="attr-desc">integer</p> | El precio del plan. |
+| price<p class="attr-desc">decimal</p> | El precio del plan. |
 | currency<p class="attr-desc">string</p> | Código correpondiente a la moneda. Puede ser: `CLP` o `UF` |
 | interval<p class="attr-desc">string</p> | Intervalo del plan. Puede ser: `day` día, `week` semana, `month` mes o `year` año. |
 | interval_count<p class="attr-desc">integer</p> | Cantidad del intervalo del plan. Por ejemplo, si este valor es `3` e `interval` es igual a `week`, el plan tendrá un periodo de 3 semanas. |
@@ -149,7 +149,7 @@ var_dump($response->json());
 {
   "id": "oro",
   "name": "Plan oro",
-  "price": 15000,
+  "price": "15000.0",
   "currency": "CLP",
   "interval": "month",
   "interval_count": 1,
@@ -170,7 +170,7 @@ Crea un nuevo objeto plan.
 |---------: | -----------|
 | id<p class="attr-desc danger">Único</p><p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del plan. |
 | name<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Nombre de despliegue del plan. |
-| price<p class="attr-desc warning">Requerido</p><p class="attr-desc">integer</p> | Precio del plan. |
+| price<p class="attr-desc warning">Requerido</p><p class="attr-desc">integer or decimal</p> | Precio del plan. Ciertas monedas soportan `decimal` como `UF`, pero en general es un `integer` |
 | currency<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Código correspondiente a la moneda. Puede ser: `CLP` o `UF`. |
 | interval<p class="attr-desc">string</p> | Intervalo del plan. Puede ser: `day` día, `week` semana, `month` mes o `year` año. Si no se especifica, el valor por defecto es `month`. |
 | interval_count<p class="attr-desc">integer</p> | Cantidad del intervalo del plan. Debe ser un entero positivo mayor o igual a `1`. Por ejemplo, si este valor es `3` e `interval` es igual a `week`, el plan tenrá un periodo de facturación de 3 semanas. El valor por defecto es `1`. |
@@ -248,7 +248,7 @@ var_dump($response);
 {
   "id": "oro",
   "name": "Plan oro",
-  "price": 15000,
+  "price": "15000.0",
   "currency": "CLP",
   "interval": "month",
   "interval_count": 1,
@@ -353,7 +353,7 @@ var_dump($response->json());
 {
   "id": "oro",
   "name": "Di Oro",
-  "price": 15000,
+  "price": "15000.0",
   "currency": "CLP",
   "interval": "month",
   "interval_count": 1,
@@ -524,7 +524,7 @@ var_dump($response);
   {
     "id": "oro",
     "name": "Plan Oro",
-    "price": 15000,
+    "price": "15000.0",
     "currency": "CLP",
     "interval": "month",
     "interval_count": 1,

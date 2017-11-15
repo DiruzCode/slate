@@ -21,7 +21,7 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
   "plan": {
     "id": "oro",
     "name": "Plan Oro",
-    "price": 15000,
+    "price": "15000.0",
     "currency": "CLP",
     "interval": "month",
     "interval_count": 1
@@ -148,7 +148,7 @@ var_dump($response->json());
   "plan": {
     "id": "oro",
     "name": "Plan Oro",
-    "price": 15000,
+    "price": "15000.0",
     "currency": "CLP",
     "interval": "month",
     "interval_count": 1
@@ -254,7 +254,7 @@ var_dump($response);
   "plan": {
     "id": "oro",
     "name": "Plan Oro",
-    "price": 15000,
+    "price": "15000.0",
     "currency": "CLP",
     "interval": "month",
     "interval_count": 1
@@ -369,7 +369,7 @@ var_dump($response->json());
   "plan": {
     "id": "platino",
     "name": "Plan Platino",
-    "price": 50000,
+    "price": "50000.0",
     "currency": "CLP",
     "interval": "month",
     "interval_count": 1
@@ -477,7 +477,7 @@ var_dump($response->json());
   "plan": {
     "id": "oro",
     "name": "Plan Oro",
-    "price": 15000,
+    "price": "15000.0",
     "currency": "CLP",
     "interval": "month",
     "interval_count": 1
@@ -579,7 +579,7 @@ var_dump($response);
     "plan": {
       "id": "oro",
       "name": "Plan Oro",
-      "price": 15000,
+      "price": "15000.0",
       "currency": "CLP",
       "interval": "month",
       "interval_count": 1
