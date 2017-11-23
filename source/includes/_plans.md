@@ -234,7 +234,7 @@ require 'guzzle.phar';
 
 $client = new GuzzleHttp\Client();
 
-$response = $client->request('GET', 'https://api.qvo.cl/plans/oro', [
+$body = $client->request('GET', 'https://api.qvo.cl/plans/oro', [
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]
@@ -515,7 +515,7 @@ require 'guzzle.phar';
 
 $client = new GuzzleHttp\Client();
 
-$response = $client->request('GET', 'https://api.qvo.cl/plans', [
+$body = $client->request('GET', 'https://api.qvo.cl/plans', [
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]

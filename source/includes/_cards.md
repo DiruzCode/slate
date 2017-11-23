@@ -90,7 +90,7 @@ require 'guzzle.phar';
 
 $client = new GuzzleHttp\Client();
 
-$response = $client->request('POST', 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions', [
+$body = $client->request('POST', 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions', [
   'json' => [
     'return_url' => "http://example.com/return",
   ],
@@ -205,7 +205,7 @@ require 'guzzle.phar';
 
 $client = new GuzzleHttp\Client();
 
-$response = $client->request('GET', 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions/woi_WZa9DgYQPzPtUqMsQdoNhQ', [
+$body = $client->request('GET', 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/inscriptions/woi_WZa9DgYQPzPtUqMsQdoNhQ', [
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]
@@ -308,7 +308,7 @@ require 'guzzle.phar';
 
 $client = new GuzzleHttp\Client();
 
-$response = $client->request('GET', 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/woc_1Flhy3a-5UnARb7S4Ho3FQ', [
+$body = $client->request('GET', 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards/woc_1Flhy3a-5UnARb7S4Ho3FQ', [
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]
@@ -413,7 +413,7 @@ require 'guzzle.phar';
 
 $client = new GuzzleHttp\Client();
 
-$response = $client->request('POST', 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/woc_bMz2iAH1mJ8M4cvv0b7IMA/charge', [
+$body = $client->request('POST', 'https://api.qvo.cl/customers/cus_qos_6r3-4I4zIiou2BVMHg/cards/woc_bMz2iAH1mJ8M4cvv0b7IMA/charge', [
   'json' => [
     'amount' => 3000,
     'description' => 'For the watch'
@@ -616,7 +616,7 @@ require 'guzzle.phar';
 
 $client = new GuzzleHttp\Client();
 
-$response = $client->request('GET', 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards', [
+$body = $client->request('GET', 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg/cards', [
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]

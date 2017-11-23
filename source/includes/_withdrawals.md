@@ -172,7 +172,7 @@ require 'guzzle.phar';
 
 $client = new GuzzleHttp\Client();
 
-$response = $client->request('GET', 'https://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A', [
+$body = $client->request('GET', 'https://api.qvo.cl/withdrawals/wdl_nPe9BeVau5rQyV2h7Env0A', [
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]
@@ -258,7 +258,7 @@ require 'guzzle.phar';
 
 $client = new GuzzleHttp\Client();
 
-$response = $client->request('GET', 'https://api.qvo.cl/withdrawals', [
+$body = $client->request('GET', 'https://api.qvo.cl/withdrawals', [
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]

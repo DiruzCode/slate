@@ -229,7 +229,7 @@ require 'guzzle.phar';
 
 $client = new GuzzleHttp\Client();
 
-$response = $client->request('GET', 'https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', [
+$body = $client->request('GET', 'https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', [
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]
@@ -560,7 +560,7 @@ require 'guzzle.phar';
 
 $client = new GuzzleHttp\Client();
 
-$response = $client->request('GET', 'https://api.qvo.cl/subscriptions', [
+$body = $client->request('GET', 'https://api.qvo.cl/subscriptions', [
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]
