@@ -110,11 +110,13 @@ p JSON.parse(result)
 import requests
 
 r = requests.post('https://api.qvo.cl/plans', params={
-  id: "oro",
-  name: "Plan Oro",
-  price: 15000,
-  currency: "CLP",
-  trial_period_days: 10
+  'id': 'oro',
+  'name': 'Plan Oro',
+  'price': 15000,
+  'currency': 'CLP',
+  'trial_period_days': 10
+}, headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
 })
 
 print r.json()
@@ -219,7 +221,9 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.get('https://api.qvo.cl/plans/oro')
+r = requests.get('https://api.qvo.cl/plans/oro', headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+})
 
 print r.json()
 ````
@@ -322,7 +326,9 @@ p JSON.parse(result)
 import requests
 
 r = requests.put('https://api.qvo.cl/plans/oro', params={
-  name: "Di Oro"
+  'name': 'Di Oro'
+}, headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
 })
 
 print r.json()
@@ -420,7 +426,9 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.delete('https://api.qvo.cl/plans/oro')
+r = requests.delete('https://api.qvo.cl/plans/oro', headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+})
 
 print r.json()
 ````
@@ -494,7 +502,9 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.get('https://api.qvo.cl/plans')
+r = requests.get('https://api.qvo.cl/plans', headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+})
 
 print r.json()
 ````

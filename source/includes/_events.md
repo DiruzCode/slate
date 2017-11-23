@@ -108,7 +108,9 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.get('https://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg')
+r = requests.get('https://api.qvo.cl/events/evt_fdyXA5uWS9F8mEwMXBPcNg', headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+})
 
 print r.json()
 ````
@@ -220,7 +222,9 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.get('https://api.qvo.cl/events')
+r = requests.get('https://api.qvo.cl/events', headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+})
 
 print r.json()
 ````

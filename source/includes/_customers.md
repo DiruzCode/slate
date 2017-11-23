@@ -119,8 +119,10 @@ p JSON.parse(result)
 import requests
 
 r = requests.post('https://api.qvo.cl/customers', params={
-  email: "theimp@lannistercorp.gov",
-  name: "Tyrion Lannister"
+  'email': 'theimp@lannistercorp.gov',
+  'name': 'Tyrion Lannister'
+}, headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
 })
 
 print r.json()
@@ -213,7 +215,9 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.get('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg')
+r = requests.get('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+})
 
 print r.json()
 ````
@@ -314,8 +318,10 @@ p JSON.parse(result)
 import requests
 
 r = requests.put('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', params={
-  email: "theimp@lannistercorp.gov",
-  name: "Tyrion Lannister"
+  'email': 'theimp@lannistercorp.gov',
+  'name': 'Tyrion Lannister'
+}, headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
 })
 
 print r.json()
@@ -414,7 +420,9 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.delete('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg')
+r = requests.delete('https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+})
 
 print r.json()
 ````
@@ -487,7 +495,9 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.get('https://api.qvo.cl/customers')
+r = requests.get('https://api.qvo.cl/customers', headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+})
 
 print r.json()
 ````

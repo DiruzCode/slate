@@ -104,8 +104,10 @@ p JSON.parse(result)
 import requests
 
 r = requests.post('https://api.qvo.cl/subscriptions', params={
-  customer_id: "cus_qos_6r3-4I4zIiou2BVMHg",
-  plan_id: "oro"
+  'customer_id': "cus_qos_6r3-4I4zIiou2BVMHg",
+  'plan_id': "oro"
+}, headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
 })
 
 print r.json()
@@ -214,7 +216,9 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.get('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow')
+r = requests.get('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+})
 
 print r.json()
 ````
@@ -326,7 +330,9 @@ p JSON.parse(result)
 import requests
 
 r = requests.put('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', params={
-  plan_id: "platino"
+  'plan_id': 'platino'
+}, headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
 })
 
 print r.json()
@@ -439,7 +445,9 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.delete('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow')
+r = requests.delete('https://api.qvo.cl/subscriptions/sub_HnKU4UmU5GtymRulcVOEow', headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+})
 
 print r.json()
 ````
@@ -539,7 +547,9 @@ p JSON.parse(result)
 ````python
 import requests
 
-r = requests.get('https://api.qvo.cl/subscriptions')
+r = requests.get('https://api.qvo.cl/subscriptions', headers={
+  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
+})
 
 print r.json()
 ````
