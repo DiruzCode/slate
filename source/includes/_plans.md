@@ -128,7 +128,7 @@ require 'guzzle.phar';
 
 $client = new GuzzleHttp\Client();
 
-$response = $client->request('POST', 'https://api.qvo.cl/plans', [
+$body = $client->request('POST', 'https://api.qvo.cl/plans', [
   'json' => [
     'id' => 'oro',
     'name' => 'Plan Oro',
@@ -139,9 +139,11 @@ $response = $client->request('POST', 'https://api.qvo.cl/plans', [
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]
-]);
+])->getBody();
 
-var_dump($response->json());
+$response = json_decode($body);
+
+var_dump($response);
 ?>
 ````
 
@@ -340,16 +342,18 @@ require 'guzzle.phar';
 
 $client = new GuzzleHttp\Client();
 
-$response = $client->request('PUT', 'https://api.qvo.cl/plans/oro', [
+$body = $client->request('PUT', 'https://api.qvo.cl/plans/oro', [
   'json' => [
     'name' => "Di Oro"
   ],
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]
-]);
+])->getBody();
 
-var_dump($response->json());
+$response = json_decode($body);
+
+var_dump($response);
 ?>
 ````
 
@@ -439,13 +443,15 @@ require 'guzzle.phar';
 
 $client = new GuzzleHttp\Client();
 
-$response = $client->request('DELETE', 'https://api.qvo.cl/plans/oro', [
+$body = $client->request('DELETE', 'https://api.qvo.cl/plans/oro', [
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]
-]);
+])->getBody();
 
-var_dump($response->json());
+$response = json_decode($body);
+
+var_dump($response);
 ?>
 ````
 

@@ -85,16 +85,18 @@ require 'guzzle.phar';
 
 $client = new GuzzleHttp\Client();
 
-$response = $client->request('POST', 'https://api.qvo.cl/withdrawals', [
+$body = $client->request('POST', 'https://api.qvo.cl/withdrawals', [
   'json' => [
     'amount' => 1000
   ],
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]
-]);
+])->getBody();
 
-var_dump($response->json());
+$response = json_decode($body);
+
+var_dump($response);
 ?>
 ````
 
