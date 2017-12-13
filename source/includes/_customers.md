@@ -437,7 +437,7 @@ require 'guzzle.phar';
 
 $client = new GuzzleHttp\Client();
 
-$body = $client->request('DELETE', 'https://api.qvo.cl/customers.cus_I-ZNs9TlY2FmdOUByQ5Ieg', [
+$body = $client->request('DELETE', 'https://api.qvo.cl/customers/cus_I-ZNs9TlY2FmdOUByQ5Ieg', [
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   ]
