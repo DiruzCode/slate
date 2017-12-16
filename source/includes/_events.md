@@ -68,6 +68,7 @@ Los eventos pueden ser enviados diréctamente a tu servidor a través de la util
 | `transaction.payment_succeeded` | Pago exitoso para una transacción. |
 | `transaction.payment_failed` | Ocurrió un error en el pago de una transacción. |
 | `transaction.refunded` | Ocurrió un reembolso en una trasacción. |
+| `transaction.response_timeout` | La transacción agotó el tiempo de espera. |
 
 
 
