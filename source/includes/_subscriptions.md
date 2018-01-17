@@ -45,7 +45,7 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
 |||
 |---------: | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto |
-| status<p class="attr-desc">string</p> | El estado de la suscripcion. Puede ser: `active`, `canceled`, `trialing`, `unpaid`. Una suscripción que está en periodo de prueba, se encuentra en `trialing` y se mueve a `active` cuando el periodo de prueba termina. Cuando se falla un cobro para renovar la suscripción, pasa al estado `unpaid`. Cuando se cancela una suscripción, tiene el estado `canceled`. |
+| status<p class="attr-desc">string</p> | El estado de la suscripcion. Puede ser: `active`, `canceled`, `trialing`, `unpaid`. Una suscripción que está en periodo de prueba, se encuentra en `trialing` y se mueve a `active` cuando el periodo de prueba termina. Cuando se falla un cobro para renovar la suscripción, pasa al estado `retrying` donde se reintentarán los cobros por un periodo determinado. Una vez que acaban los reintentos pasará al estado `unpaid`. Cuando se cancela una suscripción, tiene el estado `canceled`. |
 | debt<p class="attr-desc">integer</p> | Deuda asociada a al suscripción. |
 | current_period_start<p class="attr-desc">datetime</p> | Fecha de inicio del ciclo de facturación. |
 | current_period_end<p class="attr-desc">datetime</p> | Fecha de término del ciclo de facturación. Al final de este periodo se realizará un cobro. |
