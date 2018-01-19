@@ -45,7 +45,7 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
 |||
 |---------: | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto |
-| status<p class="attr-desc">string</p> | El estado de la suscripcion. Puede ser: `active`, `canceled`, `trialing`, `unpaid`. Una suscripción que está en periodo de prueba, se encuentra en `trialing` y se mueve a `active` cuando el periodo de prueba termina. Cuando se falla un cobro para renovar la suscripción, pasa al estado `retrying` donde se reintentarán los cobros por un periodo determinado. Una vez que acaban los reintentos pasará al estado `unpaid`. Cuando se cancela una suscripción, tiene el estado `canceled`. |
+| status<p class="attr-desc">string</p> | El estado de la suscripcion. Puede ser: `active`, `canceled`, `trialing`, `retrying`, `inactive` y `unpaid`. Una suscripción que está en periodo de prueba, se encuentra en `trialing` y se mueve a `active` cuando el periodo de prueba termina. Cuando se falla un cobro para renovar la suscripción, pasa al estado `retrying` donde se reintentarán los cobros por un periodo determinado. Una vez que acaban los reintentos pasará al estado `unpaid`. Cuando una suscripción tiene una fecha de inicio en el futuro, esta `inactive` y pasará a `active` o `trialing` cuando llege esa fecha. Cuando se cancela una suscripción, tiene el estado `canceled`. |
 | debt<p class="attr-desc">integer</p> | Deuda asociada a al suscripción. |
 | current_period_start<p class="attr-desc">datetime</p> | Fecha de inicio del ciclo de facturación. |
 | current_period_end<p class="attr-desc">datetime</p> | Fecha de término del ciclo de facturación. Al final de este periodo se realizará un cobro. |
@@ -166,7 +166,7 @@ var_dump($response);
 
 Crea una nueva suscripción para un cliente existente.
 
-Al momento de crear una suscripción, se cobrará automáticamente el costo del plan al medio de pago por defecto del cliente, a menos que el plan posea días de prueba o sea gratis (precio igual a 0).
+Al momento de crear una suscripción, se cobrará automáticamente el costo del plan al medio de pago por defecto del cliente, a menos que el plan posea días de prueba, sea gratis (precio igual a 0) o tenga una fecha de inicio en el futuro.
 
 
 ### Parámetros
@@ -174,6 +174,7 @@ Al momento de crear una suscripción, se cobrará automáticamente el costo del 
 |---------: | -----------|
 | customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de un cliente. |
 | plan_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de un plan. |
+| start<p class="attr-desc">datetime</p> | Fecha de inicio de la suscripción. Debe ser una fecha en el futuro. |
 
 
 ### Respuesta
