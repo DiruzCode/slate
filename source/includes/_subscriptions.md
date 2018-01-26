@@ -11,6 +11,7 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
   "id": "sub_HnKU4UmU5GtymRulcVOEow",
   "status": "active",
   "debt": 0,
+  "start": "2017-05-17T19:12:57.185Z",
   "current_period_start": "2017-05-17T19:12:57.185Z",
   "current_period_end": "2017-06-17T19:12:57.185Z",
   "customer": {
@@ -36,6 +37,8 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
       "created_at": "2017-05-17T19:12:57.185Z"
     }
   ],
+  "tax_name": "IVA",
+  "tax_percent": "19.0",
   "created_at": "2017-05-17T19:12:57.189Z",
   "updated_at": "2017-05-17T19:12:57.189Z"
 }
@@ -47,11 +50,14 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
 | id<p class="attr-desc">string</p> | Identificador único del objeto |
 | status<p class="attr-desc">string</p> | El estado de la suscripcion. Puede ser: `active`, `canceled`, `trialing`, `retrying`, `inactive` y `unpaid`. Una suscripción que está en periodo de prueba, se encuentra en `trialing` y se mueve a `active` cuando el periodo de prueba termina. Cuando se falla un cobro para renovar la suscripción, pasa al estado `retrying` donde se reintentarán los cobros por un periodo determinado. Una vez que acaban los reintentos pasará al estado `unpaid`. Cuando una suscripción tiene una fecha de inicio en el futuro, esta `inactive` y pasará a `active` o `trialing` cuando llege esa fecha. Cuando se cancela una suscripción, tiene el estado `canceled`. |
 | debt<p class="attr-desc">integer</p> | Deuda asociada a al suscripción. |
+| start<p class="attr-desc">datetime</p> | Fecha de inicio de la suscripción. |
 | current_period_start<p class="attr-desc">datetime</p> | Fecha de inicio del ciclo de facturación. |
 | current_period_end<p class="attr-desc">datetime</p> | Fecha de término del ciclo de facturación. Al final de este periodo se realizará un cobro. |
 | customer<p class="attr-desc">[Customer](#el-objeto-cliente)</p> | El cliente asociado a la suscripción. |
 | plan<p class="attr-desc">[Plan](#el-objeto-plan)</p> | El plan asociado a la suscripción. |
 | transactions<p class="attr-desc">Array<[Transaction](#el-objeto-transacci-n)></p> | Las transacciones asociadas a la suscripción. |
+| tax_name<p class="attr-desc">string</p> | Nombre del impuesto de la suscripción. |
+| tax_percent<p class="attr-desc">decimal</p> | El porcentaje de impuesto de la suscripción. Si existe, cada cobro generado por esta suscripción se aplicará este porcentaje por sobre el total, aumentando el monto cobrado al cliente. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto |
 | updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto |
 
@@ -142,6 +148,7 @@ var_dump($response);
   "id": "sub_HnKU4UmU5GtymRulcVOEow",
   "status": "active",
   "debt": 0,
+  "start": "2017-05-17T19:12:57.185Z",
   "current_period_start": "2017-05-17T19:12:57.185Z",
   "current_period_end": "2017-06-17T19:12:57.185Z",
   "customer": {
@@ -157,6 +164,8 @@ var_dump($response);
     "interval": "month",
     "interval_count": 1
   },
+  "tax_name": null,
+  "tax_percent": null,
   "created_at": "2017-05-17T19:12:57.189Z",
   "updated_at": "2017-05-17T19:12:57.189Z"
 }
@@ -175,6 +184,8 @@ Al momento de crear una suscripción, se cobrará automáticamente el costo del 
 | customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de un cliente. |
 | plan_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de un plan. |
 | start<p class="attr-desc">datetime</p> | Fecha de inicio de la suscripción. Debe ser una fecha en el futuro. |
+| tax_name<p class="attr-desc">string</p> | Nombre del impuesto que se mostrará en el detalle de la transacción. Por ejemplo: IVA. |
+| tax_percent<p class="attr-desc">decimal</p> | Un decimal no negativo entre 0 y 100. Esto rerpesenta el porcentaje de impuesto que se aplicará en el cobro de esta suscripción. Por ejemplo para un plan que cobra $10.000 con un `tax_percent` de 19.0, se cobrará $11.900. |
 
 
 ### Respuesta
@@ -251,6 +262,7 @@ var_dump($response);
   "id": "sub_HnKU4UmU5GtymRulcVOEow",
   "status": "active",
   "debt": 0,
+  "start": "2017-05-17T19:12:57.185Z",
   "current_period_start": "2017-05-17T19:12:57.185Z",
   "current_period_end": "2017-06-17T19:12:57.185Z",
   "customer": {
@@ -266,6 +278,8 @@ var_dump($response);
     "interval": "month",
     "interval_count": 1
   },
+  "tax_name": "IVA",
+  "tax_percent": "19.0",
   "created_at": "2017-05-17T19:12:57.189Z",
   "updated_at": "2017-05-17T19:12:57.189Z"
 }
@@ -370,6 +384,7 @@ var_dump($response);
   "id": "sub_HnKU4UmU5GtymRulcVOEow",
   "status": "active",
   "debt": 35000,
+  "start": "2017-05-17T19:12:57.185Z",
   "current_period_start": "2017-05-17T19:12:57.185Z",
   "current_period_end": "2017-06-17T19:12:57.185Z",
   "customer": {
@@ -385,6 +400,8 @@ var_dump($response);
     "interval": "month",
     "interval_count": 1
   },
+  "tax_name": "IVA",
+  "tax_percent": "19.0",
   "created_at": "2017-05-17T19:12:57.189Z",
   "updated_at": "2017-05-17T19:12:57.185Z"
 }
@@ -481,6 +498,7 @@ var_dump($response);
 {
   "id": "sub_HnKU4UmU5GtymRulcVOEow",
   "status": "active",
+  "start": "2017-05-17T19:12:57.185Z",
   "current_period_start": "2017-05-17T19:12:57.185Z",
   "current_period_end": "2017-06-17T19:12:57.185Z",
   "cancel_at_period_end": true,
@@ -497,6 +515,8 @@ var_dump($response);
     "interval": "month",
     "interval_count": 1
   },
+  "tax_name": "IVA",
+  "tax_percent": "19.0",
   "created_at": "2017-05-17T19:12:57.189Z",
   "updated_at": "2017-05-17T19:12:57.189Z"
 }
@@ -586,6 +606,7 @@ var_dump($response);
   {
     "id": "sub_HnKU4UmU5GtymRulcVOEow",
     "status": "active",
+    "start": "2017-05-17T19:12:57.185Z",
     "current_period_start": "2017-05-17T19:12:57.185Z",
     "current_period_end": "2017-06-17T19:12:57.185Z",
     "customer": {
@@ -601,6 +622,8 @@ var_dump($response);
       "interval": "month",
       "interval_count": 1
     },
+    "tax_name": "IVA",
+    "tax_percent": "19.0",
     "created_at": "2017-05-17T19:12:57.189Z",
     "updated_at": "2017-05-17T19:12:57.189Z"
   }
