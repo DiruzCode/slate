@@ -69,7 +69,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
 | customer<p class="attr-desc">[Customer](#el-objeto-cliente)</p> | Cliente asociado a la transacción. |
 | payment<p class="attr-desc">[Payment](#el-objeto-pago)</p> | Pago asociado a la transacción. Puede ser `null` |
 | refund<p class="attr-desc">[Refund](#el-objeto-reembolso)</p> | Reembolzo asociado a la transacción. Puede ser `null` |
-| transable<p class="attr-desc">hash</p> | Objeto transado en la transacción. Puede ser [Suscripción](#el-objeto-suscripci-n). |
+| transable<p class="attr-desc">hash</p> | Objeto transado en la transacción. Puede ser [Suscripción](#el-objeto-suscripcion). |
 | gateway_response<p class="attr-desc">hash</p> | Respuesta obtenida de la vía de la transacción. Contiene `status` y `message`. Es acá donde se expondrán detalles en caso de un error en la transacción. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto. |
 | updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto. |
@@ -510,7 +510,7 @@ var_dump($response);
 Retorna una lista de transacciones. Las transacciones se encuentran ordenadas por defecto por la fecha de creación, donde las mas recientes aparecerán primero.
 
 <aside class="notice">
-Este endpoint admite <a href="#paginaci-n-filtros-y-orden">paginación, filtros y orden</a>
+Este endpoint admite <a href="#paginacion-filtros-y-orden">paginación, filtros y orden</a>
 </aside>
 
 ### Respuesta

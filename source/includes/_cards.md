@@ -137,7 +137,7 @@ donde `uid` es igual a `woi_WZa9DgYQPzPtUqMsQdoNhQ`
 
 #### 3. Obtener el resultado
 
-Para verificar si la inscripción fue exitosa, se debe realizar una llamada a [obtener inscripción de tarjeta](#obtener-una-inscripci-n-de-tarjeta), utilizando el identificador único de inscripción `uid` retornado en el paso 2.
+Para verificar si la inscripción fue exitosa, se debe realizar una llamada a [obtener inscripción de tarjeta](#obtener-una-inscripcion-de-tarjeta), utilizando el identificador único de inscripción `uid` retornado en el paso 2.
 
 <aside class="warning">
 La inscripción posee una fecha de expiración de <b>10 minutos</b> luego de su fecha de creación. Si se intenta acceder a <code>redirect_url</code> luego de este tiempo, retornará <a href="#errores">un error</a>.
@@ -482,7 +482,7 @@ Este endpoint permite autorizar un cobro para una tarjeta en específico.
 
 ### Respuesta
 
-De ser exitosa la llamada, retorna [una transacción](#el-objeto-transacci-n). De lo contrario, retornará [un error](#errores).
+De ser exitosa la llamada, retorna [una transacción](#el-objeto-transaccion). De lo contrario, retornará [un error](#errores).
 
 
 

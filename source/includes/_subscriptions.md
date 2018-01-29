@@ -55,7 +55,7 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
 | current_period_end<p class="attr-desc">datetime</p> | Fecha de término del ciclo de facturación. Al final de este periodo se realizará un cobro. |
 | customer<p class="attr-desc">[Customer](#el-objeto-cliente)</p> | El cliente asociado a la suscripción. |
 | plan<p class="attr-desc">[Plan](#el-objeto-plan)</p> | El plan asociado a la suscripción. |
-| transactions<p class="attr-desc">Array<[Transaction](#el-objeto-transacci-n)></p> | Las transacciones asociadas a la suscripción. |
+| transactions<p class="attr-desc">Array<[Transaction](#el-objeto-transaccion)></p> | Las transacciones asociadas a la suscripción. |
 | tax_name<p class="attr-desc">string</p> | Nombre del impuesto de la suscripción. |
 | tax_percent<p class="attr-desc">decimal</p> | El porcentaje de impuesto de la suscripción. Si existe, cada cobro generado por esta suscripción se aplicará este porcentaje por sobre el total, aumentando el monto cobrado al cliente. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto |
@@ -635,7 +635,7 @@ var_dump($response);
 Retorna una lista de suscripciones activas. Las suscripciones se encuentran ordenadas por defecto por la fecha de creación, donde las mas recientes aparecerán primero.
 
 <aside class="notice">
-Este endpoint admite <a href="#paginaci-n-filtros-y-orden">paginación, filtros y orden</a>
+Este endpoint admite <a href="#paginacion-filtros-y-orden">paginación, filtros y orden</a>
 </aside>
 
 ### Respuesta

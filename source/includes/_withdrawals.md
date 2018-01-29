@@ -291,7 +291,7 @@ var_dump($response);
 Retorna una lista de retiros. Los retiros se encuentran ordenados por defecto por la fecha de creación, donde los mas recientes aparecerán primero.
 
 <aside class="notice">
-Este endpoint admite <a href="#paginaci-n-filtros-y-orden">paginación, filtros y orden</a>
+Este endpoint admite <a href="#paginacion-filtros-y-orden">paginación, filtros y orden</a>
 </aside>
 
 ### Respuesta

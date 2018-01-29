@@ -64,9 +64,9 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
 | default_payment_method<p class="attr-desc">[Card](#el-objeto-tarjeta)</p> | Medio de pago por defecto del cliente. Describe una [tarjeta](#el-objeto-tarjeta). |
 | name<p class="attr-desc">string</p> | Nombre del cliente |
 | email<p class="attr-desc">string</p> | Dirección email del cliente |
-| subscriptions<p class="attr-desc">Array<[Subscription](#el-objeto-suscripci-n)></p> | Subscripciones activas del cliente. |
+| subscriptions<p class="attr-desc">Array<[Subscription](#el-objeto-suscripcion)></p> | Subscripciones activas del cliente. |
 | cards<p class="attr-desc">Array<[Card](#el-objeto-tarjeta)></p> | Tarjetas activas del cliente. |
-| transactions<p class="attr-desc">Array<[Transaction](#el-objeto-transacci-n)></p> | Transacciones vinculadas al cliente. |
+| transactions<p class="attr-desc">Array<[Transaction](#el-objeto-transaccion)></p> | Transacciones vinculadas al cliente. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto |
 | updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto |
 
@@ -586,7 +586,7 @@ var_dump($response);
 Retorna una lista de clientes. Los clientes se encuentran ordenados por defecto por la fecha de creación, donde los mas recientes aparecerán primero.
 
 <aside class="notice">
-Este endpoint admite <a href="#paginaci-n-filtros-y-orden">paginación, filtros y orden</a>
+Este endpoint admite <a href="#paginacion-filtros-y-orden">paginación, filtros y orden</a>
 </aside>
 
 ### Respuesta

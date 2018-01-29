@@ -48,7 +48,7 @@ Un plan de suscripción contiene la información para el cobro recurrente de un 
 | interval_count<p class="attr-desc">integer</p> | Cantidad del intervalo del plan. Por ejemplo, si este valor es `3` e `interval` es igual a `week`, el plan tendrá un periodo de 3 semanas. |
 | trial_period_days<p class="attr-desc">integer</p> | Número de días de prueba otorgados cuando se suscribe un cliente al plan. Es `0` si no tiene un periodo definido. |
 | status<p class="attr-desc">string</p> | Estado del plan. Puede ser: `active` o `inactive`. |
-| subscriptions<p class="attr-desc">Array<[Subscription](#el-objeto-suscripci-n)></p> | Suscripciones activas relacionadas al plan. |
+| subscriptions<p class="attr-desc">Array<[Subscription](#el-objeto-suscripcion)></p> | Suscripciones activas relacionadas al plan. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto. |
 | updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto. |
 
@@ -572,7 +572,7 @@ var_dump($response);
 Retorna una lista de planes. Los planes se encuentran ordenados por defecto por la fecha de creación, donde los mas recientes aparecerán primero.
 
 <aside class="notice">
-Este endpoint admite <a href="#paginaci-n-filtros-y-orden">paginación, filtros y orden</a>
+Este endpoint admite <a href="#paginacion-filtros-y-orden">paginación, filtros y orden</a>
 </aside>
 
 ### Respuesta
