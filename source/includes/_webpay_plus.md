@@ -123,7 +123,7 @@ donde `transaction_id` es igual a `trx_fzmNpXvJJZBWwGbH5fW8cw`
 
 #### 3. Obtener el resultado
 
-Para verificar si la transacción fue exitosa, se debe realizar una llamada a [obtener una transacción](#obtener-una-transacci-n), tilizando el identificador único de la transacción `transaction_id`. retornado en el paso 2.
+Para verificar si la transacción fue exitosa, se debe realizar una llamada a [obtener una transacción](#obtener-una-transacci-n), utilizando el identificador único de la transacción `transaction_id`. retornado en el paso 2.
 
 
 <aside class="warning">
