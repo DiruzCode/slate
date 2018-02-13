@@ -12,6 +12,8 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
   "status": "active",
   "debt": 0,
   "start": "2017-05-17T19:12:57.185Z",
+  "end": "2018-05-17T19:12:57.185Z",
+  "cycle_count": 12,
   "current_period_start": "2017-05-17T19:12:57.185Z",
   "current_period_end": "2017-06-17T19:12:57.185Z",
   "customer": {
@@ -48,9 +50,11 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
 |||
 |---------: | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto |
-| status<p class="attr-desc">string</p> | El estado de la suscripcion. Puede ser: `active`, `canceled`, `trialing`, `retrying`, `inactive` y `unpaid`. Una suscripción que está en periodo de prueba, se encuentra en `trialing` y se mueve a `active` cuando el periodo de prueba termina. Cuando se falla un cobro para renovar la suscripción, pasa al estado `retrying` donde se reintentarán los cobros por un periodo determinado. Una vez que acaban los reintentos pasará al estado `unpaid`. Cuando una suscripción tiene una fecha de inicio en el futuro, esta `inactive` y pasará a `active` o `trialing` cuando llege esa fecha. Cuando se cancela una suscripción, tiene el estado `canceled`. |
+| status<p class="attr-desc">string</p> | El estado de la suscripcion. Puede ser: `active`, `canceled`, `trialing`, `retrying`, `inactive` y `unpaid`. Una suscripción que está en periodo de prueba, se encuentra en `trialing` y se mueve a `active` cuando el periodo de prueba termina. Cuando se falla un cobro para renovar la suscripción, pasa al estado `retrying` donde se reintentarán los cobros por un periodo determinado. Una vez que acaban los reintentos pasará al estado `unpaid`. Cuando una suscripción tiene una fecha de inicio en el futuro, esta `inactive` y pasará a `active` o `trialing` cuando llege esa fecha. Cuando una suscripción termina su número de ciclos y llega la fecha de fin descrita en `end`, pasará a `ended`. Cuando se cancela una suscripción, tiene el estado `canceled`. |
 | debt<p class="attr-desc">integer</p> | Deuda asociada a al suscripción. |
 | start<p class="attr-desc">datetime</p> | Fecha de inicio de la suscripción. |
+| end<p class="attr-desc">datetime</p> | Fecha de fin de la suscripción. Al llegar a esta fecha, la suscripción terminará. |
+| cycle_count<p class"attr-desc">integer</p> | Número de ciclos de la suscripción. |
 | current_period_start<p class="attr-desc">datetime</p> | Fecha de inicio del ciclo de facturación. |
 | current_period_end<p class="attr-desc">datetime</p> | Fecha de término del ciclo de facturación. Al final de este periodo se realizará un cobro. |
 | customer<p class="attr-desc">[Customer](#el-objeto-cliente)</p> | El cliente asociado a la suscripción. |
@@ -149,6 +153,8 @@ var_dump($response);
   "status": "active",
   "debt": 0,
   "start": "2017-05-17T19:12:57.185Z",
+  "end": null,
+  "cycle_count": null,
   "current_period_start": "2017-05-17T19:12:57.185Z",
   "current_period_end": "2017-06-17T19:12:57.185Z",
   "customer": {
@@ -184,6 +190,7 @@ Al momento de crear una suscripción, se cobrará automáticamente el costo del 
 | customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de un cliente. |
 | plan_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de un plan. |
 | start<p class="attr-desc">datetime</p> | Fecha de inicio de la suscripción. Debe ser una fecha en el futuro. |
+| cycle_count<p class="attr-desc">integer</p> | Número de ciclos de la suscripción. Debe ser un entero positivo. Por ejemplo si la suscripción pertenece a un plan mensual y `cycle_count` es igual a 6, la suscripción durará por 6 meses. Este parámetro sobrescribirá `default_cycle_plan` definido por el [Plan](#el-objeto-plan). |
 | tax_name<p class="attr-desc">string</p> | Nombre del impuesto que se mostrará en el detalle de la transacción. Por ejemplo: IVA. |
 | tax_percent<p class="attr-desc">decimal</p> | Un decimal no negativo entre 0 y 100. Esto rerpesenta el porcentaje de impuesto que se aplicará en el cobro de esta suscripción. Por ejemplo para un plan que cobra $10.000 con un `tax_percent` de 19.0, se cobrará $11.900. |
 
@@ -263,6 +270,8 @@ var_dump($response);
   "status": "active",
   "debt": 0,
   "start": "2017-05-17T19:12:57.185Z",
+  "end": null,
+  "cycle_count": null,
   "current_period_start": "2017-05-17T19:12:57.185Z",
   "current_period_end": "2017-06-17T19:12:57.185Z",
   "customer": {
@@ -385,6 +394,8 @@ var_dump($response);
   "status": "active",
   "debt": 35000,
   "start": "2017-05-17T19:12:57.185Z",
+  "end": null,
+  "cycle_count": null,
   "current_period_start": "2017-05-17T19:12:57.185Z",
   "current_period_end": "2017-06-17T19:12:57.185Z",
   "customer": {
@@ -499,6 +510,8 @@ var_dump($response);
   "id": "sub_HnKU4UmU5GtymRulcVOEow",
   "status": "active",
   "start": "2017-05-17T19:12:57.185Z",
+  "end": null,
+  "cycle_count": null,
   "current_period_start": "2017-05-17T19:12:57.185Z",
   "current_period_end": "2017-06-17T19:12:57.185Z",
   "cancel_at_period_end": true,
@@ -607,6 +620,8 @@ var_dump($response);
     "id": "sub_HnKU4UmU5GtymRulcVOEow",
     "status": "active",
     "start": "2017-05-17T19:12:57.185Z",
+    "end": null,
+    "cycle_count": null,
     "current_period_start": "2017-05-17T19:12:57.185Z",
     "current_period_end": "2017-06-17T19:12:57.185Z",
     "customer": {

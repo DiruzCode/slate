@@ -16,6 +16,7 @@ Un plan de suscripción contiene la información para el cobro recurrente de un 
   "interval": "month",
   "interval_count": 1,
   "trial_period_days": 0,
+  "default_cycle_count": 12,
   "status": "active",
   "subscriptions": [
     {
@@ -47,6 +48,7 @@ Un plan de suscripción contiene la información para el cobro recurrente de un 
 | interval<p class="attr-desc">string</p> | Intervalo del plan. Puede ser: `day` día, `week` semana, `month` mes o `year` año. |
 | interval_count<p class="attr-desc">integer</p> | Cantidad del intervalo del plan. Por ejemplo, si este valor es `3` e `interval` es igual a `week`, el plan tendrá un periodo de 3 semanas. |
 | trial_period_days<p class="attr-desc">integer</p> | Número de días de prueba otorgados cuando se suscribe un cliente al plan. Es `0` si no tiene un periodo definido. |
+| default_cycle_count<p class="attr-desc">integer</p> | Número de ciclos por defecto de las suscripciones. |
 | status<p class="attr-desc">string</p> | Estado del plan. Puede ser: `active` o `inactive`. |
 | subscriptions<p class="attr-desc">Array<[Subscription](#el-objeto-suscripcion)></p> | Suscripciones activas relacionadas al plan. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto. |
@@ -158,6 +160,7 @@ var_dump($response);
   "interval": "month",
   "interval_count": 1,
   "trial_period_days": 10,
+  "default_cycle_count": 6,
   "status": "active",
   "subscriptions": [],
   "created_at": "2017-05-17T19:12:55.450Z",
@@ -179,6 +182,7 @@ Crea un nuevo objeto plan.
 | interval<p class="attr-desc">string</p> | Intervalo del plan. Puede ser: `day` día, `week` semana, `month` mes o `year` año. Si no se especifica, el valor por defecto es `month`. |
 | interval_count<p class="attr-desc">integer</p> | Cantidad del intervalo del plan. Debe ser un entero positivo mayor o igual a `1`. Por ejemplo, si este valor es `3` e `interval` es igual a `week`, el plan tenrá un periodo de facturación de 3 semanas. El valor por defecto es `1`. |
 | trial_period_days<p class="attr-desc">integer</p> | Especifica el número de días de prueba del plan. Si incluyes un periodo de prueba, al cliente no se le cobrará hasta que termine este periodo. |
+| default_cycle_count<p class="attr-desc">integer</p> | Especifica el número de ciclos por defecto de las suscripciones. Por ejemplo si el intervalo del plan es de 1 mes y el número de ciclos es 6, la suscripciones terminarán por defecto a los 6 meses después de creadas. |
 
 
 ### Respuesta
@@ -259,6 +263,7 @@ var_dump($response);
   "interval": "month",
   "interval_count": 1,
   "trial_period_days": 10,
+  "default_cycle_count": null,
   "status": "active",
   "subscriptions": [],
   "created_at": "2017-05-17T19:12:55.450Z",
@@ -368,6 +373,7 @@ var_dump($response);
   "interval": "month",
   "interval_count": 1,
   "trial_period_days": 10,
+  "default_cycle_count": null,
   "status": "active",
   "subscriptions": [],
   "created_at": "2017-05-17T19:12:55.450Z",
@@ -545,6 +551,7 @@ var_dump($response);
     "interval": "month",
     "interval_count": 1,
     "trial_period_days": 10,
+    "default_cycle_count": null,
     "status": "active",
     "subscriptions": [
       {
