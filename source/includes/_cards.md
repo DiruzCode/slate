@@ -15,6 +15,7 @@ Es posible inscribir múltiples tarjetas para un cliente para luego cobrar.
   "last_4_digits": "4242",
   "card_type": "VISA",
   "payment_type": "CD",
+  "failure_count": 0,
   "created_at": "2017-05-17T19:12:57.108Z"
 }
 ```
@@ -26,6 +27,7 @@ Es posible inscribir múltiples tarjetas para un cliente para luego cobrar.
 | last_4_digits<p class="attr-desc">string</p> | Los últimos 4 dígitos de la tarjeta. |
 | card_type<p class="attr-desc">string</p> | Tipo de tarjeta. Puede ser: `VISA` o `MASTERCARD` |
 | payment_type<p class="attr-desc">string</p> | Tipo de pago de la tarjeta. Puede ser: `CD` (crédito) o `DB` (débito) |
+| failure_count<p class="attr-desc">integer</p> | Contador de número de fallos de la tarjeta. El contador sube cuando existe un cobro fallido con la tarjeta y vuelve a 0 cuando se ejecuta un cobro correctamente. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto. |
 
 
@@ -228,6 +230,7 @@ var_dump($response);
     "last_4_digits": "6623",
     "card_type": "Visa",
     "payment_type": "CD",
+    "failure_count": 0,
     "created_at": "2017-05-19T17:07:01.924Z"
   },
   "created_at": "2017-05-19T17:05:20.820Z",
@@ -329,6 +332,7 @@ var_dump($response);
   "last_4_digits": "0789",
   "card_type": "Visa",
   "payment_type": "CD",
+  "failure_count": 0,
   "created_at": "2017-05-19T01:37:44Z"
 }
 ````
@@ -639,6 +643,7 @@ var_dump($response);
     "last_4_digits": "0789",
     "card_type": "Visa",
     "payment_type": "CD",
+    "failure_count": 0,
     "created_at": "2017-05-19T01:37:44Z"
   }
 ]

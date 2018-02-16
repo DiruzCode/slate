@@ -13,7 +13,8 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
     "id": "woc_m_c3zyh5BEl8EITxvLbMzw",
     "last_4_digits": "4242",
     "card_type": "VISA",
-    "payment_type": "CD"
+    "payment_type": "CD",
+    "failure_count": 0
   },
   "name": "Jon Snow",
   "email": "dabastard@thewatch.org",
@@ -40,7 +41,8 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
       "id": "woc_m_c3zyh5BEl8EITxvLbMzw",
       "last_4_digits": "4242",
       "card_type": "VISA",
-      "payment_type": "CD"
+      "payment_type": "CD",
+      "failure_count": 0
     }
   ],
   "transactions": [
