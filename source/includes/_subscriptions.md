@@ -538,16 +538,17 @@ var_dump($response);
 
 `DELETE /subscriptions/{subscription_id}`
 
-Cancela una suscripción. Por defecto, esta se cancelará (pasará al estado `canceled`) en la fecha especificada por el final del periodo de facturación o `current_period_end`.
+Cancela una suscripción. Por defecto, esta se cancelará (pasará al estado `canceled`) en la fecha especificada por el final del periodo de facturación o `current_period_end`. Si envías el parámetro `cancel_at_period_end` como `false` o la suscripción estaba con estado `inactive`, se cancelará de inmediato.
 
 ### Parámetros
 |||
 |---------: | -----------|
 | subscription_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único de la suscripción. |
+| cancel_at_period_end<p class="attr-desc">boolean</p> | Indicador de cancelación al final del periodo. Si se suministra como `false` se cancelará de inmediato, de otra manera se cancelará por omisión al final del periodo. |
 
 ### Respuesta
 
-Retorna la suscripción si la operación fue exitosa con el parámetro `cancel_at_period_end = true`. Si el identificador de la suscripción no es válido, retornará [un error](#errores).
+Si la operación fue exitosa, retorna la suscripción actualizada. Si el identificador de la suscripción no es válido, retornará [un error](#errores).
 
 
 
