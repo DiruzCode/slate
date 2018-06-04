@@ -443,7 +443,6 @@ var_dump($response);
   "currency": "CLP",
   "description": "For the watch",
   "gateway": "webpay_oneclick",
-  "fee": 372,
   "credits": 0,
   "status": "successful",
   "customer": {
@@ -455,6 +454,7 @@ var_dump($response);
     "amount": 3000,
     "gateway": "webpay_oneclick",
     "payment_type": "credit",
+    "fee": 106,
     "installments": 0,
     "payment_method": {
       "id": "woc_bMz2iAH1mJ8M4cvv0b7IMA",

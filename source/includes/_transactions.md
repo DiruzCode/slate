@@ -12,7 +12,6 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
   "currency": "CLP",
   "description": "For the Watch",
   "gateway": "webpay_oneclick",
-  "fee": 372,
   "credits": 0,
   "status": "successful",
   "customer": {
@@ -24,6 +23,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
     "amount": 3000,
     "gateway": "webpay_oneclick",
     "payment_type": "credit",
+    "fee": 106,
     "installments": 0,
     "payment_method": {
       "id": "woc_m_c3zyh5BEl8EITxvLbMzw",
@@ -63,7 +63,6 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
 | currency<p class="attr-desc">string</p> | Código correspondiente a la moneda. Puede ser: `CLP` o `USD`. |
 | description<p class="attr-desc">string</p> | Corresponde a la descripción de la transacción. Puede ser útil para identificar un producto u orden de compra del comercio. |
 | gateway<p class="attr-desc">string</p> | Corresponde a la vía de pago por la cual se efectuó la transacción. Puede ser: `webpay_plus`, `webpay_oneclick` o `olpays`. |
-| fee<p class="attr-desc">integer</p> | Comisión de la transacción. Corresponde a lo cobrado por QVO. |
 | credits<p class="attr-desc">integer</p> | Créditos utilizados en la transacción. |
 | status<p class="attr-desc">string</p> | Estado de la transacción. Puede ser: `successful`, `rejected`, `unable_to_charge`, `refunded`, `waiting_for_response` o `response_timeout`. Una transacción que está esperando el pago está `waiting_for_response` y pasa a `successful` si el pago es exitoso. Si no es exitoso, puede pasar a `unable_to_charge` si existió un problema con la vía de pago o `rejected` si fue rechazado por la misma. Por último, una transacción está en `refunded` si se ha reembolsado la totalidad del monto. Si el tiempo de espera en el estado `waiting_response` supera los 20 minutos, pasará al estado `response_timeout`. |
 | customer<p class="attr-desc">[Customer](#el-objeto-cliente)</p> | Cliente asociado a la transacción. |
@@ -81,6 +80,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
   "amount": 3000,
   "gateway": "webpay_oneclick",
   "payment_type": "credit",
+  "fee": 106,
   "installments": 0,
   "payment_method": {
     "id": "woc_m_c3zyh5BEl8EITxvLbMzw",
@@ -97,6 +97,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
 | amount<p class="attr-desc">integer</p> | Monto del pago. |
 | gateway<p class="attr-desc">string</p> | Vía de pago. Puede ser: `webpay_plus`, `webpay_oneclick` o `olpays`. |
 | payment_type<p class="attr-desc">string</p> | Tipo de pago. Puede ser: `credit` (crédito) o `debit` (débito) |
+| fee<p class="attr-desc">integer</p> | Comisión del pago. Corresponde a lo descontado por QVO + IVA. |
 | installments<p class="attr-desc">integer</p> | Número de cuotas (sólo aplica a crédito). |
 | payment_method<p class="attr-desc">[Card](#el-objeto-tarjeta)</p> | Medio de pago utilizado. Describe una [tarjeta](#el-objeto-tarjeta). |
 
@@ -186,7 +187,6 @@ var_dump($response);
   "amount": 3000,
   "currency": "CLP",
   "gateway": "webpay_oneclick",
-  "fee": 372,
   "credits": 0,
   "status": "successful",
   "customer": {
@@ -196,6 +196,7 @@ var_dump($response);
   },
   "payment": {
     "amount": 3000,
+    "fee": 106,
     "gateway": "webpay_oneclick",
     "payment_type": "credit",
     "installments": 0,
@@ -329,7 +330,6 @@ var_dump($response);
   "amount": 3000,
   "currency": "CLP",
   "gateway": "webpay_oneclick",
-  "fee": 372,
   "credits": 0,
   "status": "refunded",
   "customer": {
@@ -341,6 +341,7 @@ var_dump($response);
     "amount": 3000,
     "gateway": "webpay_oneclick",
     "payment_type": "credit",
+    "fee": 106,
     "installments": 0,
     "payment_method": {
       "id": "woc_m_c3zyh5BEl8EITxvLbMzw",
@@ -461,7 +462,6 @@ var_dump($response);
     "amount": 3000,
     "currency": "CLP",
     "gateway": "webpay_oneclick",
-    "fee": 372,
     "credits": 0,
     "status": "successful",
     "customer": {
@@ -473,6 +473,7 @@ var_dump($response);
       "amount": 3000,
       "gateway": "webpay_oneclick",
       "payment_type": "credit",
+      "fee": 106,
       "installments": 0,
       "payment_method": {
         "id": "woc_m_c3zyh5BEl8EITxvLbMzw",

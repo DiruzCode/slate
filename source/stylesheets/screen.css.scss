@@ -433,6 +433,23 @@ img.full-width-image {
     margin-top: 0;
   }
 
+
+  .new-feature-badge{
+    position: relative;
+
+    &:after {
+      content: "Nuevo";
+      padding: .2rem .4rem;
+      font-size:  .8rem;
+      border-radius: 4rem;
+      background-color: #ffbb00;
+      position: relative;
+      color: #fff;
+      top: -4px;
+      left: 10px;
+    }
+  }
+
   h2 {
     @extend %header-font;
     font-size: 24px;

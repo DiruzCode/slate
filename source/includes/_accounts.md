@@ -1,8 +1,12 @@
-# Clientes
+# Cuentas
 
-Los objetos de clientes permiten realizar cobros recurrentes y tener un registro de los mútliples cobros que estan asociados a un mismo cliente. El API permite crear, actualizar y eliminar clientes. Se puede obtener un cliente en particular, así como también una lista de clientes.
+<aside class="notice">
+Cuentas forma parte de nuestra solución <strong>Marketplace</strong>. <a href="mailto:soporte@qvo.cl">Comunícate con nosotros</a> para habilitar a tu comercio para utilizar esta característica.
+</aside>
 
-## El objeto cliente
+Un objeto cuenta permite utilizar las capacidades de QVO en nombre de otro comercio. Provee una manera de crear y administrar comercios anidados de manera de que el pago se realize a nombre de este comercio y se le pague directamente, sin necesidad de recaudar.
+
+## El objeto cuenta
 
 > Ejemplo de respuesta
 
