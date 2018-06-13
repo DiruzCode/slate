@@ -34,6 +34,7 @@ QVO usa respuestas HTTP convencionales para indicar el éxito o fracaso de un re
 | **406**<p class="attr-desc">Not Acceptable</p>| Solicistaste un formato que no es json 😣 |
 | **410**<p class="attr-desc">Gone</p> | El recurso solicitado fue removido de nuestros servidores 🏃 |
 | **418** | Soy una tetera 😗☕️ |
+| **422**<p class="attr-desc">Unprocessable Entity</p>| No podemos procesar tu solicitud, revísala. 👀️ |
 | **429**<p class="attr-desc">Too Many Requests</p> | Estas solicitando muchos recursos! Detente! ✋ |
-| **500**<p class="attr-desc">Internal Server Error</p> |Tuvimos un problema con nuestro servidor. 😰 Inténtalo nuevamente mas tarde (estos son raros)
+| **500**<p class="attr-desc">Internal Server Error</p> | Tuvimos un problema con nuestro servidor. 😰 Inténtalo nuevamente mas tarde (estos son raros)
 | **503**<p class="attr-desc">Service Unavailable</p> | Estamos offline por mantenimiento. Inténtalo nuevamente mas tarde ‍👷🛠 |

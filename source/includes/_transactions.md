@@ -66,9 +66,9 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
 | credits<p class="attr-desc">integer</p> | Créditos utilizados en la transacción. |
 | status<p class="attr-desc">string</p> | Estado de la transacción. Puede ser: `successful`, `rejected`, `unable_to_charge`, `refunded`, `waiting_for_response` o `response_timeout`. Una transacción que está esperando el pago está `waiting_for_response` y pasa a `successful` si el pago es exitoso. Si no es exitoso, puede pasar a `unable_to_charge` si existió un problema con la vía de pago o `rejected` si fue rechazado por la misma. Por último, una transacción está en `refunded` si se ha reembolsado la totalidad del monto. Si el tiempo de espera en el estado `waiting_response` supera los 20 minutos, pasará al estado `response_timeout`. |
 | customer<p class="attr-desc">[Customer](#el-objeto-cliente)</p> | Cliente asociado a la transacción. |
-| payment<p class="attr-desc">[Payment](#el-objeto-pago)</p> | Pago asociado a la transacción. Puede ser `null` |
-| refund<p class="attr-desc">[Refund](#el-objeto-reembolso)</p> | Reembolzo asociado a la transacción. Puede ser `null` |
-| transable<p class="attr-desc">hash</p> | Objeto transado en la transacción. Puede ser [Suscripción](#el-objeto-suscripcion). |
+| payment<p class="attr-desc">[Payment](#el-objeto-pago)</p> | Pago asociado a la transacción. Puede ser `null`. |
+| refund<p class="attr-desc">[Refund](#el-objeto-reembolso)</p> | Reembolzo asociado a la transacción. Puede ser `null`. |
+| transable<p class="attr-desc">hash</p> | Objeto transado en la transacción. Puede ser [Suscripción](#el-objeto-suscripcion). Puede ser `null`. |
 | gateway_response<p class="attr-desc">hash</p> | Respuesta obtenida de la vía de la transacción. Contiene `status` y `message`. Es acá donde se expondrán detalles en caso de un error en la transacción. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto. |
 | updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto. |
