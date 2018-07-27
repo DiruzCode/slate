@@ -1,6 +1,6 @@
 # Suscripciones
 
-Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscripcion vincula un cliente con un plan previamente creado.
+Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscripción vincula un cliente con un plan previamente creado.
 
 ## El objeto suscripción
 
@@ -50,7 +50,7 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
 |||
 |---------: | -----------|
 | id<p class="attr-desc">string</p> | Identificador único del objeto |
-| status<p class="attr-desc">string</p> | El estado de la suscripcion. Puede ser: `active`, `canceled`, `trialing`, `retrying`, `inactive` y `unpaid`. Una suscripción que está en periodo de prueba, se encuentra en `trialing` y se mueve a `active` cuando el periodo de prueba termina. Cuando se falla un cobro para renovar la suscripción, pasa al estado `retrying` donde se reintentarán los cobros por un periodo determinado. Una vez que acaban los reintentos pasará al estado `unpaid`. Cuando una suscripción tiene una fecha de inicio en el futuro, esta `inactive` y pasará a `active` o `trialing` cuando llege esa fecha. Cuando una suscripción termina su número de ciclos y llega la fecha de fin descrita en `end`, pasará a `ended`. Cuando se cancela una suscripción, tiene el estado `canceled`. |
+| status<p class="attr-desc">string</p> | El estado de la suscripción. Puede ser: `active`, `canceled`, `trialing`, `retrying`, `inactive` y `unpaid`. Una suscripción que está en periodo de prueba, se encuentra en `trialing` y se mueve a `active` cuando el periodo de prueba termina. Cuando se falla un cobro para renovar la suscripción, pasa al estado `retrying` donde se reintentarán los cobros por un periodo determinado. Una vez que acaban los re-intentos pasará al estado `unpaid`. Cuando una suscripción tiene una fecha de inicio en el futuro, esta `inactive` y pasará a `active` o `trialing` cuando llege esa fecha. Cuando una suscripción termina su número de ciclos y llega la fecha de fin descrita en `end`, pasará a `ended`. Cuando se cancela una suscripción, tiene el estado `canceled`. |
 | debt<p class="attr-desc">integer</p> | Deuda asociada a al suscripción. |
 | start<p class="attr-desc">datetime</p> | Fecha de inicio de la suscripción. |
 | end<p class="attr-desc">datetime</p> | Fecha de fin de la suscripción. Al llegar a esta fecha, la suscripción terminará. |
@@ -192,7 +192,7 @@ Al momento de crear una suscripción, se cobrará automáticamente el costo del 
 | start<p class="attr-desc">datetime</p> | Fecha de inicio de la suscripción. Debe ser una fecha en el futuro. |
 | cycle_count<p class="attr-desc">integer</p> | Número de ciclos de la suscripción. Debe ser un entero positivo. Por ejemplo si la suscripción pertenece a un plan mensual y `cycle_count` es igual a 6, la suscripción durará por 6 meses. Este parámetro sobrescribirá `default_cycle_plan` definido por el [Plan](#el-objeto-plan). |
 | tax_name<p class="attr-desc">string</p> | Nombre del impuesto que se mostrará en el detalle de la transacción. Por ejemplo: IVA. |
-| tax_percent<p class="attr-desc">decimal</p> | Un decimal no negativo entre 0 y 100. Esto rerpesenta el porcentaje de impuesto que se aplicará en el cobro de esta suscripción. Por ejemplo para un plan que cobra $10.000 con un `tax_percent` de 19.0, se cobrará $11.900. |
+| tax_percent<p class="attr-desc">decimal</p> | Un decimal no negativo entre 0 y 100. Esto representa el porcentaje de impuesto que se aplicará en el cobro de esta suscripción. Por ejemplo para un plan que cobra $10.000 con un `tax_percent` de 19.0, se cobrará $11.900. |
 
 
 ### Respuesta
@@ -421,9 +421,9 @@ var_dump($response);
 
 `PUT /subscriptions/{subscription_id}`
 
-Actualiza la suscripción especificada con los parametros provistos. Cualquier parámetro que no se provea quedará inalterado.
+Actualiza la suscripción especificada con los parámetros provistos. Cualquier parámetro que no se provea quedará inalterado.
 
-Cuando se cambia un plan de mayor precio, es necesario cobrar la diferencia del uso del nuevo plan por el periodo restante, el cual va desde fecha de actualización hasta la fecha de término del ciclo de facturación. Esto se almacenará en la suscripcipción como una **deuda** o `debt` y se cobrará al término del ciclo de facturación.
+Cuando se cambia un plan de mayor precio, es necesario cobrar la diferencia del uso del nuevo plan por el periodo restante, el cual va desde fecha de actualización hasta la fecha de término del ciclo de facturación. Esto se almacenará en la suscripción como una **deuda** o `debt` y se cobrará al término del ciclo de facturación.
 
 En el caso contrario, en el que el plan es de menor precio, se le otorgará al cliente **créditos** que serán descontados del próximo cobro.
 
@@ -436,7 +436,7 @@ En el caso contrario, en el que el plan es de menor precio, se le otorgará al c
 
 ### Respuesta
 
-Retorna el objeto de suscripción si la actualización es exitosa. Retorna [un error](#errores) si algun parámetro de actualización es inválido.
+Retorna el objeto de suscripción si la actualización es exitosa. Retorna [un error](#errores) si algún parámetro de actualización es inválido.
 
 
 

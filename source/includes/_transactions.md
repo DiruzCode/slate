@@ -1,6 +1,6 @@
 # Transacciones
 
-Las transacciónes representan movimientos en el sistema en torno a pagos. Estos pueden ser transaccionales o vinculados a un "transable", como una [suscripción](#suscripciones). Estos almacenan información como pagos, reembolsos y comisiones.
+Las transacciones representan movimientos en el sistema en torno a pagos. Estos pueden ser transaccionales o vinculados a un "transable", como una [suscripción](#suscripciones). Estos almacenan información como pagos, reembolsos y comisiones.
 
 ## El objeto transacción
 
@@ -64,7 +64,7 @@ Las transacciónes representan movimientos en el sistema en torno a pagos. Estos
 | description<p class="attr-desc">string</p> | Corresponde a la descripción de la transacción. Puede ser útil para identificar un producto u orden de compra del comercio. |
 | gateway<p class="attr-desc">string</p> | Corresponde a la vía de pago por la cual se efectuó la transacción. Puede ser: `webpay_plus`, `webpay_oneclick` o `olpays`. |
 | credits<p class="attr-desc">integer</p> | Créditos utilizados en la transacción. |
-| status<p class="attr-desc">string</p> | Estado de la transacción. Puede ser: `successful`, `rejected`, `unable_to_charge`, `refunded`, `waiting_for_response` o `response_timeout`. Una transacción que está esperando el pago está `waiting_for_response` y pasa a `successful` si el pago es exitoso. Si no es exitoso, puede pasar a `unable_to_charge` si existió un problema con la vía de pago o `rejected` si fue rechazado por la misma. Por último, una transacción está en `refunded` si se ha reembolsado la totalidad del monto. Si el tiempo de espera en el estado `waiting_response` supera los 20 minutos, pasará al estado `response_timeout`. |
+| status<p class="attr-desc">string</p> | Estado de la transacción. Puede ser: `successful`, `rejected`, `unable_to_charge`, `refunded`, `waiting_response` o `response_timeout`. Una transacción que está esperando el pago está `waiting_response` y pasa a `successful` si el pago es exitoso. Si no es exitoso, puede pasar a `unable_to_charge` si existió un problema con la vía de pago o `rejected` si fue rechazado por la misma. Por último, una transacción está en `refunded` si se ha reembolsado la totalidad del monto. Si el tiempo de espera en el estado `waiting_response` supera los 20 minutos, pasará al estado `response_timeout`. |
 | customer<p class="attr-desc">[Customer](#el-objeto-cliente)</p> | Cliente asociado a la transacción. |
 | payment<p class="attr-desc">[Payment](#el-objeto-pago)</p> | Pago asociado a la transacción. Puede ser `null`. |
 | refund<p class="attr-desc">[Refund](#el-objeto-reembolso)</p> | Reembolzo asociado a la transacción. Puede ser `null`. |
