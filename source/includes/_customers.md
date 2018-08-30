@@ -18,6 +18,8 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
   },
   "name": "Jon Snow",
   "email": "dabastard@thewatch.org",
+  "phone": "+56987654321",
+  "credits": 0,
   "created_at": "2017-05-17T19:12:55.535Z",
   "updated_at": "2017-05-17T19:12:57.123Z",
   "subscriptions": [
@@ -61,15 +63,17 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
 ### Atributos
 |||
 |---------: | -----------|
-| id<p class="attr-desc">string</p> | Identificador único del objeto |
+| id<p class="attr-desc">string</p> | Identificador único del objeto. |
 | default_payment_method<p class="attr-desc">[Card](#el-objeto-tarjeta)</p> | Medio de pago por defecto del cliente. Describe una [tarjeta](#el-objeto-tarjeta). |
-| name<p class="attr-desc">string</p> | Nombre del cliente |
-| email<p class="attr-desc">string</p> | Dirección email del cliente |
+| name<p class="attr-desc">string</p> | Nombre del cliente. |
+| email<p class="attr-desc">string</p> | Dirección email del cliente. |
+| phone<p class="attr-desc">string</p> | Teléfono del cliente. |
+| credits<p class="attr-desc">integer</p> | Créditos en CLP del cliente. |
 | subscriptions<p class="attr-desc">Array<[Subscription](#el-objeto-suscripcion)></p> | Subscripciones activas del cliente. |
 | cards<p class="attr-desc">Array<[Card](#el-objeto-tarjeta)></p> | Tarjetas activas del cliente. |
 | transactions<p class="attr-desc">Array<[Transaction](#el-objeto-transaccion)></p> | Transacciones vinculadas al cliente. |
-| created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto |
-| updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto |
+| created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto. |
+| updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto. |
 
 
 ## Crear un cliente
@@ -80,7 +84,8 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
 curl --request POST "https://api.qvo.cl/customers" \
   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA" \
   -d email="theimp@lannistercorp.gov" \
-  -d name="Tyrion Lannister"
+  -d name="Tyrion Lannister" \
+  -d phone="+56987654321"
 ````
 
 
@@ -94,7 +99,8 @@ fetch('https://api.qvo.cl/customers', {
   },
   body: {
     email: "theimp@lannistercorp.gov",
-    name: "Tyrion Lannister"
+    name: "Tyrion Lannister",
+    phone: "+56987654321"
   }
 }).then(function(response) {
   console.log(response);
@@ -108,7 +114,8 @@ require 'json'
 result =
   RestClient.post 'https://api.qvo.cl/customers', {
     email: "theimp@lannistercorp.gov",
-    name: "Tyrion Lannister"
+    name: "Tyrion Lannister",
+    phone: "+56987654321"
   }, {
     Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
   }
@@ -121,7 +128,8 @@ import requests
 
 r = requests.post('https://api.qvo.cl/customers', params={
   'email': 'theimp@lannistercorp.gov',
-  'name': 'Tyrion Lannister'
+  'name': 'Tyrion Lannister',
+  'name': '+56987654321'
 }, headers={
   'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
 })
@@ -138,7 +146,8 @@ $client = new GuzzleHttp\Client();
 $body = $client->request('POST', 'https://api.qvo.cl/customers', [
   'json' => [
     'email' => 'theimp@lannistercorp.gov',
-    'name' => 'Tyrion Lannister'
+    'name' => 'Tyrion Lannister',
+    'phone' => '+56987654321',
   ],
   'headers' => [
     'Authorization' => 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiVGVzdCBjb21tZXJjZSIsImFwaV90b2tlbiI6dHJ1ZX0.AXt3ep_r23w9rSPTv-AnK42s2m-1O0okMYrYYDlRyXA'
@@ -159,6 +168,8 @@ var_dump($response);
   "default_payment_method": null,
   "name": "Tyrion Lannister",
   "email": "theimp@lannistercorp.gov",
+  "phone": "+56987654321",
+  "credits": 0,
   "created_at": "2017-05-19T02:42:03.563Z",
   "updated_at": "2017-05-19T02:42:03.563Z",
   "subscriptions": [],
@@ -176,6 +187,7 @@ Crea un nuevo objeto cliente
 |---------: | -----------|
 | email<p class="attr-desc danger">Único</p><p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Dirección email del cliente. |
 | name<p class="attr-desc">string</p> | Nombre del cliente. |
+| phone<p class="attr-desc">string</p> | Teléfono del cliente. |
 
 ### Respuesta
 
@@ -251,6 +263,8 @@ var_dump($response);
   "default_payment_method": null,
   "name": "Tyrion Lannister",
   "email": "theimp@lannistercorp.gov",
+  "phone": "+56987654321",
+  "credits": 0,
   "created_at": "2017-05-19T02:42:03.563Z",
   "updated_at": "2017-05-19T02:42:03.563Z",
   "subscriptions": [],
@@ -360,6 +374,8 @@ var_dump($response);
   "default_payment_method": null,
   "name": "Tyrion Lannister",
   "email": "theimp@lannistercorp.gov",
+  "phone": "+56987654321",
+  "credits": 0,
   "created_at": "2017-05-19T02:42:03.563Z",
   "updated_at": "2017-05-19T02:42:03.563Z",
   "subscriptions": [],
@@ -378,6 +394,7 @@ Actualiza el cliente especificado con los parametros provistos. Cualquier parám
 | customer_id<p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Identificador único del cliente. |
 | nombre<p class="attr-desc">string</p> | Nombre. |
 | email<p class="attr-desc">string</p> | Dirección email. |
+| phone<p class="attr-desc">string</p> | Teléfono. |
 | default_payment_method_id<p class="attr-desc">string</p> | Identificador del medio de pago por defecto. Debe ser perteneciente a la lista de tarjetas del cliente. |
 
 ### Respuesta
@@ -541,6 +558,8 @@ var_dump($response);
     },
     "name": "Jon Snow",
     "email": "dabastard@thewatch.org",
+    "phone": "",
+    "credits": 0,
     "created_at": "2017-05-17T19:12:55.535Z",
     "updated_at": "2017-05-17T19:12:57.123Z",
     "subscriptions": [
