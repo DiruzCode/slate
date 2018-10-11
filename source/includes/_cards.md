@@ -448,7 +448,9 @@ var_dump($response);
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
     "name": "Jon Snow",
-    "email": "dabastard@winterfell.com"
+    "email": "dabastard@winterfell.com",
+    "metadata": null,
+    "address": null
   },
   "payment": {
     "amount": 3000,

@@ -17,7 +17,10 @@ Las transacciones representan movimientos en el sistema en torno a pagos. Estos 
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
     "name": "Jon Snow",
-    "email": "lordcommander@thewatch.org"
+    "email": "lordcommander@thewatch.org",
+    "phone": null,
+    "metadata": null,
+    "address": null,
   },
   "payment": {
     "amount": 3000,
@@ -192,7 +195,10 @@ var_dump($response);
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
     "name": "Jon Snow",
-    "email": "dabastard@winterfell.com"
+    "email": "dabastard@winterfell.com",
+    "phone": null,
+    "metadata": null,
+    "address": null
   },
   "payment": {
     "amount": 3000,
@@ -335,7 +341,10 @@ var_dump($response);
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
     "name": "Jon Snow",
-    "email": "lordcommander@thewatch.org"
+    "email": "lordcommander@thewatch.org",
+    "phone": null,
+    "metadata": null,
+    "address": null
   },
   "payment": {
     "amount": 3000,
@@ -467,7 +476,10 @@ var_dump($response);
     "customer": {
       "id": "cus_qos_6r3-4I4zIiou2BVMHg",
       "name": "Jon Snow",
-      "email": "dabastard@winterfell.com"
+      "email": "dabastard@winterfell.com",
+      "phone": null,
+      "metadata": null,
+      "address": null
     },
     "payment": {
       "amount": 3000,

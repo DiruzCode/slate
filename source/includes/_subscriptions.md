@@ -20,7 +20,9 @@ Las suscripciones permiten cobrar a un cliente de manera recurrente. Una suscrip
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
     "name": "Jon Snow",
-    "email": "dabastad@thewatch.org"
+    "email": "dabastad@thewatch.org",
+    "metadata": null,
+    "address": null
   },
   "plan": {
     "id": "oro",
@@ -163,7 +165,9 @@ var_dump($response);
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
     "name": "Jon Snow",
-    "email": "dabastad@thewatch.org"
+    "email": "dabastad@thewatch.org",
+    "metadata": null,
+    "address": null
   },
   "plan": {
     "id": "oro",
@@ -281,7 +285,9 @@ var_dump($response);
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
     "name": "Jon Snow",
-    "email": "dabastad@thewatch.org"
+    "email": "dabastad@thewatch.org",
+    "metadata": null,
+    "address": null
   },
   "plan": {
     "id": "oro",
@@ -406,7 +412,9 @@ var_dump($response);
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
     "name": "Jon Snow",
-    "email": "dabastad@thewatch.org"
+    "email": "dabastad@thewatch.org",
+    "metadata": null,
+    "address": null
   },
   "plan": {
     "id": "platino",
@@ -528,7 +536,9 @@ var_dump($response);
   "customer": {
     "id": "cus_qos_6r3-4I4zIiou2BVMHg",
     "name": "Jon Snow",
-    "email": "dabastad@thewatch.org"
+    "email": "dabastad@thewatch.org",
+    "metadata": null,
+    "address": null
   },
   "plan": {
     "id": "oro",
@@ -639,7 +649,9 @@ var_dump($response);
     "customer": {
       "id": "cus_qos_6r3-4I4zIiou2BVMHg",
       "name": "Jon Snow",
-      "email": "dabastad@thewatch.org"
+      "email": "dabastad@thewatch.org",
+      "metadata": null,
+      "address": null
     },
     "plan": {
       "id": "oro",
