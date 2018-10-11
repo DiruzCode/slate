@@ -19,6 +19,17 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
   "name": "Jon Snow",
   "email": "dabastard@thewatch.org",
   "phone": "+56987654321",
+  "metadata": {
+    "role": "Lord Commander"
+  },
+  "address": {
+    "line1": "The Wall",
+    "line2": "Castle Black",
+    "city": "Queenscrown",
+    "country": "Westeros",
+    "region_or_state": "The Gift",
+    "postal_code": "4607"
+  },
   "credits": 0,
   "created_at": "2017-05-17T19:12:55.535Z",
   "updated_at": "2017-05-17T19:12:57.123Z",
@@ -68,12 +79,39 @@ Los objetos de clientes permiten realizar cobros recurrentes y tener un registro
 | name<p class="attr-desc">string</p> | Nombre del cliente. |
 | email<p class="attr-desc">string</p> | Dirección email del cliente. |
 | phone<p class="attr-desc">string</p> | Teléfono del cliente. |
+| metadata<p class="attr-desc">hash</p> | Conjunto de pares clave-valor que puedes adjuntar a este objeto. Esto puede ser útil para almacenar información adicional acerca del cliente en un formato estructurado. |
+| address<p class="attr-desc">[Address](#el-objeto-direcci-n)</p> | Dirección del cliente. Útil para envíos y facturación. Describe una [dirección](#el-objeto-direcci-n). |
 | credits<p class="attr-desc">integer</p> | Créditos en CLP del cliente. |
 | subscriptions<p class="attr-desc">Array<[Subscription](#el-objeto-suscripcion)></p> | Subscripciones activas del cliente. |
 | cards<p class="attr-desc">Array<[Card](#el-objeto-tarjeta)></p> | Tarjetas activas del cliente. |
 | transactions<p class="attr-desc">Array<[Transaction](#el-objeto-transaccion)></p> | Transacciones vinculadas al cliente. |
 | created_at<p class="attr-desc">datetime</p> | Fecha de creación del objeto. |
 | updated_at<p class="attr-desc">datetime</p> | Fecha de la última actualización del objeto. |
+
+
+## El objeto dirección
+
+```json
+{
+  "line1": "3828 Piermont Dr",
+  "line2": "",
+  "city": "Albuquerque",
+  "country": "US",
+  "region_or_state": "New Mexico",
+  "postal_code": "87112"
+}
+```
+
+### Atributos
+|||
+|---------: | -----------|
+| line1<p class="attr-desc">string</p> | Línea de dirección 1 (Calle/Nombre de empresa). |
+| line2<p class="attr-desc">string</p> | Línea de dirección 2 (Departamento/Unidad/Edificio/Block/Piso). |
+| city<p class="attr-desc">string</p> | Ciudad/Pueblo/Villa. |
+| country<p class="attr-desc">string</p> | País. |
+| region_or_state<p class="attr-desc">string</p> | Región/Estado/Provincia. |
+| postal_code<p class="attr-desc">string</p> | Código postal o ZIP. |
+
 
 
 ## Crear un cliente
@@ -169,6 +207,8 @@ var_dump($response);
   "name": "Tyrion Lannister",
   "email": "theimp@lannistercorp.gov",
   "phone": "+56987654321",
+  "metadata": null,
+  "address": null,
   "credits": 0,
   "created_at": "2017-05-19T02:42:03.563Z",
   "updated_at": "2017-05-19T02:42:03.563Z",
@@ -188,6 +228,8 @@ Crea un nuevo objeto cliente
 | email<p class="attr-desc danger">Único</p><p class="attr-desc warning">Requerido</p><p class="attr-desc">string</p> | Dirección email del cliente. |
 | name<p class="attr-desc">string</p> | Nombre del cliente. |
 | phone<p class="attr-desc">string</p> | Teléfono del cliente. |
+| metadata<p class="attr-desc">hash</p> | Conjunto de pares clave-valor que puedes adjuntar a este objeto. Esto puede ser útil para almacenar información adicional acerca del cliente en un formato estructurado. |
+| address<p class="attr-desc">[Address](#el-objeto-direcci-n)</p> | Dirección del cliente. |
 
 ### Respuesta
 
@@ -264,6 +306,8 @@ var_dump($response);
   "name": "Tyrion Lannister",
   "email": "theimp@lannistercorp.gov",
   "phone": "+56987654321",
+  "metadata": null,
+  "address": null,
   "credits": 0,
   "created_at": "2017-05-19T02:42:03.563Z",
   "updated_at": "2017-05-19T02:42:03.563Z",
@@ -375,6 +419,8 @@ var_dump($response);
   "name": "Tyrion Lannister",
   "email": "theimp@lannistercorp.gov",
   "phone": "+56987654321",
+  "metadata": null,
+  "address": null,
   "credits": 0,
   "created_at": "2017-05-19T02:42:03.563Z",
   "updated_at": "2017-05-19T02:42:03.563Z",
@@ -559,6 +605,8 @@ var_dump($response);
     "name": "Jon Snow",
     "email": "dabastard@thewatch.org",
     "phone": "",
+    "metadata": null,
+    "address": null,
     "credits": 0,
     "created_at": "2017-05-17T19:12:55.535Z",
     "updated_at": "2017-05-17T19:12:57.123Z",
